@@ -237,7 +237,7 @@ Utilizando estas definiciones , agregaremos las siguientes reglas:
 \end_layout
 
 \begin_layout Itemize
-\begin_inset Formula $S^{-}\,\wedge\,\neg lectura\, completa\,\implies\, x(GPCP\,\wedge\,\neg S^{-})$
+\begin_inset Formula $S^{-}\,\wedge\,\neg lectura\, completa\,\implies\, x(GPC\,\wedge\,\neg S^{-})$
 \end_inset
 
 
@@ -258,7 +258,7 @@ Utilizando estas definiciones , agregaremos las siguientes reglas:
 \end_layout
 
 \begin_layout Itemize
-\begin_inset Formula $S^{-}\,\wedge\,\neg T\,\implies\, x(GPCP\,\wedge\,\neg S^{-})$
+\begin_inset Formula $S^{-}\,\wedge\,\neg T\,\implies\, x(GPC\,\wedge\,\neg S^{-})$
 \end_inset
 
 
