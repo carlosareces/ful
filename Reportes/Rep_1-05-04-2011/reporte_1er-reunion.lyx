@@ -59,7 +59,7 @@ Notas de la Tesis
 \end_layout
 
 \begin_layout Chapter*
-Introduccion
+Introducción
 \end_layout
 
 \begin_layout Standard
@@ -397,7 +397,7 @@ Carlos si te acordas por que fue que abandonamos lo de Lógicas temporales
 \begin_inset Newline newline
 \end_inset
 
-Entre cada transicion el sistema de planning puede consultar a la base de
+Entre cada transición el sistema de planning puede consultar a la base de
  conocimiento para buscar otras 
 \emph on
 interpretaciones equivalentes
@@ -405,7 +405,7 @@ interpretaciones equivalentes
 status collapsed
 
 \begin_layout Plain Layout
-Me refiero a que en la base de conocimiento podriamos re interpretar 
+Me refiero a que en la base de conocimiento podríamos re interpretar 
 \begin_inset Formula $loop\_chico$
 \end_inset
 
@@ -422,8 +422,8 @@ Me refiero a que en la base de conocimiento podriamos re interpretar
  
 \emph default
 con las cuales arribar a nuevas conclusiones.
- Una conclusion final seria la que se obtiene al no poder avanzar mas en
- una rama del arbol de planeamiento ni siquiera recurriendo a nueva interpretaci
+ Una conclusión final seria la que se obtiene al no poder avanzar mas en
+ una rama del árbol de planeamiento ni siquiera recurriendo a nueva interpretaci
 ones de dicho estado.
 \end_layout
 
@@ -448,9 +448,9 @@ Al menos para mi :$.
 
 \end_inset
 
- en que lenguaje se implementaria lo relacionado con DL , pero se decidio
- que se podria buscar alguna base de conocimiento que se adaptara a esto
- o sino un sistema generico que ademas nos proveyera con un lenguaje para
+ en que lenguaje se implementaría lo relacionado con DL , pero se decidió
+ que se podría buscar alguna base de conocimiento que se adaptara a esto
+ o sino un sistema genérico que además nos proveyera con un lenguaje para
  agregar las reglas , conceptos y operadores para manipularlo.
  
 \end_layout
@@ -461,7 +461,7 @@ Debemos recordar que al ser un Planning Goalless no perdemos la propiedad
 \emph on
 seudo-polinomial
 \emph default
- que tienen los sistemas de planning , asi que la eficiencia no seria algo
+ que tienen los sistemas de planning , así que la eficiencia no seria algo
  tener en cuenta a la hora de implementarlo.
 \end_layout
 

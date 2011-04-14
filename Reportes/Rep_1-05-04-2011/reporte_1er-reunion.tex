@@ -21,7 +21,7 @@ Notas de la Tesis\\
 
 \maketitle
 
-\chapter*{Introduccion}
+\chapter*{Introducción}
 
 En esta reunión nos dedicamos a explorar distintas técnicas y herramientas
 con las que modelar el problema de los efectos de la variación de
@@ -65,10 +65,10 @@ Utilizando estas definiciones , agregaremos las siguientes reglas:
 \item $S^{+}\,\wedge\, lectura\, completa\,\implies\, x(S^{-}\,\wedge\,\neg S^{+})$
 \item $S^{+}\,\wedge\,\neg lectura\, completa\,\implies\, x(NP\,\wedge\,\neg S^{+})$
 \item $S^{-}\,\wedge\, lectura\, completa\,\implies\, x(S^{+}\,\wedge\,\neg S^{-})$
-\item $S^{-}\,\wedge\,\neg lectura\, completa\,\implies\, x(GPCP\,\wedge\,\neg S^{-})$
+\item $S^{-}\,\wedge\,\neg lectura\, completa\,\implies\, x(GPC\,\wedge\,\neg S^{-})$
 \item $T\,\implies\, x(T)$
 \item $S^{+}\,\wedge\,\neg T\,\implies\, x(NP\,\wedge\,\neg S^{+})$
-\item $S^{-}\,\wedge\,\neg T\,\implies\, x(GPCP\,\wedge\,\neg S^{-})$%
+\item $S^{-}\,\wedge\,\neg T\,\implies\, x(GPC\,\wedge\,\neg S^{-})$%
 \footnote{Este lo agregue yo, no estoy seguro si estaría bien.%
 }
 \end{itemize}
@@ -102,14 +102,14 @@ A estas 2 propuestas se las fusiono de la siguiente manera :\\
 
 
 \includegraphics[clip,width=0.8\textwidth,height=0.8\textheight,keepaspectratio]{ejemplo_planning}\\
-Entre cada transicion el sistema de planning puede consultar a
+Entre cada transición el sistema de planning puede consultar a
 la base de conocimiento para buscar otras \emph{interpretaciones equivalentes}%
-\footnote{Me refiero a que en la base de conocimiento podriamos re interpretar
+\footnote{Me refiero a que en la base de conocimiento podríamos re interpretar
 $loop\_chico$ como $lectura\_completa$ gracias a las reglas que
 la base provee y lo mismo seria para el uso de definiciones y conceptos.%
-}\emph{ }con las cuales arribar a nuevas conclusiones. Una conclusion
+}\emph{ }con las cuales arribar a nuevas conclusiones. Una conclusión
 final seria la que se obtiene al no poder avanzar mas en una rama
-del arbol de planeamiento ni siquiera recurriendo a nueva interpretaciones
+del árbol de planeamiento ni siquiera recurriendo a nueva interpretaciones
 de dicho estado.
 
 
@@ -120,13 +120,13 @@ alguna alternativa en Software Libre con prestaciones similares.
 
 No quedo muy en claro%
 \footnote{Al menos para mi :\$.%
-} en que lenguaje se implementaria lo relacionado con DL , pero se
-decidio que se podria buscar alguna base de conocimiento que se adaptara
-a esto o sino un sistema generico que ademas nos proveyera con un
+} en que lenguaje se implementaría lo relacionado con DL , pero se
+decidió que se podría buscar alguna base de conocimiento que se adaptara
+a esto o sino un sistema genérico que además nos proveyera con un
 lenguaje para agregar las reglas , conceptos y operadores para manipularlo. 
 
 Debemos recordar que al ser un Planning Goalless no perdemos la propiedad
 favorable de \emph{seudo-polinomial} que tienen los sistemas de planning
-, asi que la eficiencia no seria algo tener en cuenta a la hora de
+, así que la eficiencia no seria algo tener en cuenta a la hora de
 implementarlo.
 \end{document}
