@@ -1,21 +1,29 @@
-#LyX 1.6.5 created this file. For more info see http://www.lyx.org/
-\lyxformat 345
+#LyX 2.0 created this file. For more info see http://www.lyx.org/
+\lyxformat 413
 \begin_document
 \begin_header
 \textclass scrreprt
 \use_default_options true
+\maintain_unincluded_children false
 \language spanish
+\language_package default
 \inputencoding auto
+\fontencoding global
 \font_roman default
 \font_sans default
 \font_typewriter default
 \font_default_family default
+\use_non_tex_fonts false
 \font_sc false
 \font_osf false
 \font_sf_scale 100
 \font_tt_scale 100
 
 \graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
 \paperfontsize default
 \spacing single
 \use_hyperref false
@@ -23,21 +31,31 @@
 \use_geometry false
 \use_amsmath 1
 \use_esint 1
+\use_mhchem 1
+\use_mathdots 1
 \cite_engine basic
 \use_bibtopic false
+\use_indices false
 \paperorientation portrait
+\suppress_date false
+\use_refstyle 0
+\index Índice
+\shortcut idx
+\color #008000
+\end_index
 \secnumdepth 3
 \tocdepth 3
 \paragraph_separation indent
-\defskip medskip
+\paragraph_indentation default
 \quotes_language english
 \papercolumns 1
 \papersides 1
 \paperpagestyle default
 \tracking_changes false
 \output_changes false
-\author "" 
-\author "" 
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
 \end_header
 
 \begin_body
@@ -164,42 +182,42 @@ Las definiciones que contendría la base para el proceso deductivo serian
 Utilizando estas definiciones , agregaremos las siguientes reglas:
 \end_layout
 
-\begin_layout Itemize
+\begin_layout Enumerate
 \begin_inset Formula $S^{+}\,\wedge\, T\,\implies\, x(S^{+}\,\wedge\, loop\_chico)$
 \end_inset
 
 
 \end_layout
 
-\begin_layout Itemize
+\begin_layout Enumerate
 \begin_inset Formula $S^{-}\,\wedge\, T\,\implies\, x(S^{-}\,\wedge\,\neg loop\_chico)$
 \end_inset
 
 
 \end_layout
 
-\begin_layout Itemize
+\begin_layout Enumerate
 \begin_inset Formula $S^{+}\,\wedge\, loop\_chico\,\implies\, x(S^{+}\,\wedge\, lectura\, completa)$
 \end_inset
 
 
 \end_layout
 
-\begin_layout Itemize
+\begin_layout Enumerate
 \begin_inset Formula $S^{+}\,\wedge\,\neg loop\_chico\,\implies\, x(S^{+}\,\wedge\,\neg lectura\, completa)$
 \end_inset
 
 
 \end_layout
 
-\begin_layout Itemize
+\begin_layout Enumerate
 \begin_inset Formula $S^{-}\,\wedge\, loop\_chico\,\implies\, x(S^{-}\,\wedge\, lectura\, completa)$
 \end_inset
 
 
 \end_layout
 
-\begin_layout Itemize
+\begin_layout Enumerate
 
 \family roman
 \series medium
@@ -215,49 +233,49 @@ Utilizando estas definiciones , agregaremos las siguientes reglas:
 
 \end_layout
 
-\begin_layout Itemize
+\begin_layout Enumerate
 \begin_inset Formula $S^{+}\,\wedge\, lectura\, completa\,\implies\, x(S^{-}\,\wedge\,\neg S^{+})$
 \end_inset
 
 
 \end_layout
 
-\begin_layout Itemize
+\begin_layout Enumerate
 \begin_inset Formula $S^{+}\,\wedge\,\neg lectura\, completa\,\implies\, x(NP\,\wedge\,\neg S^{+})$
 \end_inset
 
 
 \end_layout
 
-\begin_layout Itemize
+\begin_layout Enumerate
 \begin_inset Formula $S^{-}\,\wedge\, lectura\, completa\,\implies\, x(S^{+}\,\wedge\,\neg S^{-})$
 \end_inset
 
 
 \end_layout
 
-\begin_layout Itemize
+\begin_layout Enumerate
 \begin_inset Formula $S^{-}\,\wedge\,\neg lectura\, completa\,\implies\, x(GPC\,\wedge\,\neg S^{-})$
 \end_inset
 
 
 \end_layout
 
-\begin_layout Itemize
+\begin_layout Enumerate
 \begin_inset Formula $T\,\implies\, x(T)$
 \end_inset
 
 
 \end_layout
 
-\begin_layout Itemize
+\begin_layout Enumerate
 \begin_inset Formula $S^{+}\,\wedge\,\neg T\,\implies\, x(NP\,\wedge\,\neg S^{+})$
 \end_inset
 
 
 \end_layout
 
-\begin_layout Itemize
+\begin_layout Enumerate
 \begin_inset Formula $S^{-}\,\wedge\,\neg T\,\implies\, x(GPC\,\wedge\,\neg S^{-})$
 \end_inset
 
@@ -281,7 +299,7 @@ El operador
 
  es utilizado como supresor
 \begin_inset Foot
-status open
+status collapsed
 
 \begin_layout Plain Layout
 Si mal no recuerdo solo valía para los RNA y para el Loop pero no para 
@@ -375,7 +393,17 @@ Carlos si te acordas por que fue que abandonamos lo de Lógicas temporales
 
 \end_inset
 
- A estas 2 propuestas se las fusiono de la siguiente manera :
+ A estas 2 propuestas se las fusiono de la siguiente manera
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+La numeración de las flechas representa cual es la regla aplicada.
+\end_layout
+
+\end_inset
+
+ :
 \begin_inset Newline newline
 \end_inset
 
@@ -387,7 +415,6 @@ Carlos si te acordas por que fue que abandonamos lo de Lógicas temporales
 	filename ejemplo_planning.png
 	width 80text%
 	height 80theight%
-	keepAspectRatio
 	clip
 	rotateOrigin center
 
