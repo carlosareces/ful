@@ -1,0 +1,412 @@
+#LyX 2.0 created this file. For more info see http://www.lyx.org/
+\lyxformat 413
+\begin_document
+\begin_header
+\textclass article
+\begin_preamble
+
+\usepackage[toc, page, header]{appendix}\renewcommand{\appendixtocname}{Apendices}
+\renewcommand{\appendixpagename}{Apendices}
+\usepackage{amsfonts}
+\end_preamble
+\use_default_options false
+\maintain_unincluded_children false
+\language spanish
+\language_package auto
+\inputencoding auto
+\fontencoding global
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command makeindex
+\paperfontsize 10
+\spacing single
+\use_hyperref false
+\papersize a4paper
+\use_geometry false
+\use_amsmath 2
+\use_esint 1
+\use_mhchem 1
+\use_mathdots 1
+\cite_engine basic
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\use_refstyle 0
+\index Índice
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language french
+\papercolumns 1
+\papersides 1
+\paperpagestyle headings
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+FuL
+\begin_inset Newline newline
+\end_inset
+
+Especificación de Requerimientos de Software
+\end_layout
+
+\begin_layout Author
+Alejandro Kondrasky
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset toc
+LatexCommand tableofcontents
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Introducción
+\end_layout
+
+\begin_layout Subsection
+Propósito
+\end_layout
+
+\begin_layout Paragraph
+
+\end_layout
+
+\begin_layout Standard
+El propósito de este documento es la especificación de requerimientos de
+ software en el marco de la tesis de grado de la carrera Lic.
+ en Cs.
+ de la Computación de FaMAF - UNC denominada 
+\series bold
+\emph on
+Procesador Lógico para diseño de experimentos de Virología
+\series default
+\emph default
+.
+ 
+\end_layout
+
+\begin_layout Standard
+Los requerimientos son provistos por integrantes de FuDePAN en su carácter
+ de autores intelectuales de la solución a implementar y colaboradores de
+ dicha tesis.
+\end_layout
+
+\begin_layout Subsection
+Convenciones del Documento
+\end_layout
+
+\begin_layout Standard
+Las palabras clave 
+\emph on
+DEBE
+\emph default
+, 
+\emph on
+NO DEBE
+\emph default
+, REQUERIDO, DEBERÁ, NO DEBERÁ, DEBERÍA, NO DEBERÍA, RECOMENDADO, PUEDE
+ Y OPCIONAL en este documento son interpretadas como esta descripto en el
+ documento 
+\emph on
+RFC 2119
+\emph default
+.
+\end_layout
+
+\begin_layout Subsection
+Audiencia Esperada
+\end_layout
+
+\begin_layout Standard
+A continuación se enumeran las personas involucradas en el desarrollo de
+ la tesis, los cuales representan la principal audiencia de este documento
+ :
+\end_layout
+
+\begin_layout Itemize
+Dr.
+ Carlos Areces: Director de tesis, FaMAF 
+\end_layout
+
+\begin_layout Itemize
+Daniel Gutson: Colaborador de tesis, FuDePAN 
+\end_layout
+
+\begin_layout Itemize
+Alejandro Kondrasky: Tesista, FaMAF 
+\end_layout
+
+\begin_layout Subsection
+Alcance del Producto
+\end_layout
+
+\begin_layout Standard
+El producto especificado en este documento se denomina 
+\emph on
+Ful
+\series bold
+\emph default
+
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+prefix "FuL"
+symbol "$FuL$"
+description "FuDePAN Logic Processor"
+
+\end_inset
+
+ 
+\series default
+y su principal objetivo es, dada una 
+\emph on
+KB
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+prefix "KB"
+symbol "$KB$"
+description "Knowledge Base (Base de Conocimiento)"
+
+\end_inset
+
+
+\emph default
+ determinada, organizar, analizar, chequear incongruencias en ella y ser
+ capas de con este planificar 
+\emph on
+experimentos
+\emph default
+ 
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+prefix "Experimento"
+symbol "$Experimento$"
+description "Pregunta (Mejorar luego)"
+
+\end_inset
+
+.
+ A la vez que introducimos nuevos conocimientos a la KB, este deberá pasar
+ por los procesos previamente nombrados .
+ 
+\end_layout
+
+\begin_layout Standard
+El producto final debe proveer al usuario la capacidad de agregar extensiones
+ capaces de interpretar el conocimiento en la KB de maneras apropiadas y
+ de introducir nuevo conocimiento mediante un lenguaje formal definido para
+ ello.
+ 
+\end_layout
+
+\begin_layout Standard
+La principal responsabilidad de FuL es procesar el conocimiento presente
+ en la KB, utilizando las extensiones para interpretarlo, para así obtener
+ una planificación del experimento solicitado.
+ Por otro lado, las extensiones son responsables de interpretar ciertos
+ tipos de conocimiento en la KB y decidir si estos son consistentes o no.
+\end_layout
+
+\begin_layout Standard
+En su versión inicial, FuL incluye una extensión de 
+\emph on
+planning
+\emph default
+
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+prefix "planning"
+symbol "$planning$"
+description "COMPLETAR"
+
+\end_inset
+
+ y otra de 
+\emph on
+DL
+\emph default
+
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+prefix "DL"
+symbol "$DL$"
+description "Description Logics ( Logicas Descriptivas)"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsection
+Estructura del Documento
+\end_layout
+
+\begin_layout Standard
+La estructura de este documento sigue las recomendaciones de 
+\emph on
+Guía para la especificación de requerimientos de la IEEE (IEEE Std 830-1998).
+ 
+\emph default
+Contiene las siguientes secciones :
+\end_layout
+
+\begin_layout Itemize
+
+\emph on
+Sección 2: 
+\emph default
+Provee una descripción general de los aspectos generales del producto, como
+ la perspectiva de este, características principales.
+\end_layout
+
+\begin_layout Itemize
+
+\emph on
+Sección 3: 
+\emph default
+Describe las interfases del producto, tanto las del usuario como interfases
+ de software.
+ 
+\end_layout
+
+\begin_layout Itemize
+
+\emph on
+Sección 4:
+\emph default
+ Organiza y describe los requerimientos funcionales del producto.
+\end_layout
+
+\begin_layout Itemize
+
+\emph on
+Sección 5: 
+\emph default
+Organiza y describe los requerimientos no funcionales.
+\end_layout
+
+\begin_layout Section
+Descripción General
+\end_layout
+
+\begin_layout Subsection
+Perspectiva del Producto
+\end_layout
+
+\begin_layout Standard
+Este producto trata de proveer a la comunidad científica una herramienta
+ para organización, interpretación, verificación y exploración del conocimiento
+ del área de virología que se le otorga , para así poder encontrar incongruencia
+s, conjuntos mínimos que representen el mismo conocimiento y conclusiones
+ derivadas automáticamente de dicho conocimiento.
+\end_layout
+
+\begin_layout Standard
+Otra de sus funciones principales es el planificar experimentos equivalentes
+ a preguntas del tipo 
+\begin_inset Formula $A\Longrightarrow B$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsection
+Características del Producto
+\end_layout
+
+\begin_layout Subsubsection
+Procesamiento continuo de la KB
+\end_layout
+
+\begin_layout Standard
+Provee la capacidad de continuar procesando la información presente en la
+ KB para así obtener nuevas conclusiones del conocimiento disponible en
+ ella.
+ Este proceso puede ser detenido y guardado para continuarlo posteriormente.
+\end_layout
+
+\begin_layout Subsubsection
+Minimización y optimización de la KB
+\end_layout
+
+\begin_layout Standard
+Permite reducir el conocimiento repetido y reinterpretar este de manera
+ tal de lograr obtener una nueva KB equivalente minimal.
+\end_layout
+
+\begin_layout Subsubsection
+Introducir nuevo conocimiento a la KB
+\end_layout
+
+\begin_layout Standard
+Permite, mediante un lenguaje formal, introducir conocimiento a la KB el
+ cual sera chequeado para encontrar incongruencias con esta para luego ser
+ aceptado o mostrar la incongruencia encontrada.
+\end_layout
+
+\begin_layout Subsubsection
+Planificar experimentos
+\end_layout
+
+\begin_layout Standard
+Provee la capacidad de planificar un experimento, encontrar las conclusiones
+ a los experimentos intermedios y proponer los experimentos intermedios
+ que se deben realizar para obtener una conclusión para el que fue consultado
+ inicialmente.
+\end_layout
+
+\begin_layout Subsubsection
+API para la creación de Plugins
+\end_layout
+
+\begin_layout Standard
+Provee una API para la creación de plugins, los cuales serán utilizados
+ para interpretar el conocimiento que le es otorgado a dicha base de datos.
+ Esta API permite construir tanto el plugin que interpretara el conocimiento
+ como expandir el lenguaje formal para así poder representar nuevo tipo
+ de conocimiento.
+\end_layout
+
+\end_body
+\end_document

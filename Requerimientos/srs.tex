@@ -1,0 +1,179 @@
+%% LyX 2.0.0rc3 created this file.  For more info, see http://www.lyx.org/.
+%% Do not edit unless you really know what you are doing.
+\documentclass[10pt,a4paper,spanish]{article}
+\usepackage[T1]{fontenc}
+\usepackage[latin9]{inputenc}
+\pagestyle{headings}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{nomencl}
+% the following is useful when we have the old nomencl.sty package
+\providecommand{\printnomenclature}{\printglossary}
+\providecommand{\makenomenclature}{\makeglossary}
+\makenomenclature
+
+\makeatletter
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% LyX specific LaTeX commands.
+\pdfpageheight\paperheight
+\pdfpagewidth\paperwidth
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% User specified LaTeX commands.
+
+\usepackage[toc, page, header]{appendix}\renewcommand{\appendixtocname}{Apendices}
+\renewcommand{\appendixpagename}{Apendices}
+\usepackage{amsfonts}
+
+\makeatother
+
+\usepackage{babel}
+\addto\shorthandsspanish{\spanishdeactivate{~<>}}
+
+\begin{document}
+
+\title{FuL\\
+Especificación de Requerimientos de Software}
+
+
+\author{Alejandro Kondrasky}
+
+\maketitle
+\pagebreak{}
+
+\tableofcontents{}
+
+\pagebreak{}
+
+
+\section{Introducción}
+
+
+\subsection{Propósito}
+
+
+\paragraph{}
+
+El propósito de este documento es la especificación de requerimientos
+de software en el marco de la tesis de grado de la carrera Lic. en
+Cs. de la Computación de FaMAF - UNC denominada \textbf{\emph{Procesador
+Lógico para diseño de experimentos de Virología}}. 
+
+Los requerimientos son provistos por integrantes de FuDePAN en su
+carácter de autores intelectuales de la solución a implementar y colaboradores
+de dicha tesis.
+
+
+\subsection{Convenciones del Documento}
+
+Las palabras clave \emph{DEBE}, \emph{NO DEBE}, REQUERIDO, DEBERÁ,
+NO DEBERÁ, DEBERÍA, NO DEBERÍA, RECOMENDADO, PUEDE Y OPCIONAL en este
+documento son interpretadas como esta descripto en el documento \emph{RFC
+2119}.
+
+
+\subsection{Audiencia Esperada}
+
+A continuación se enumeran las personas involucradas en el desarrollo
+de la tesis, los cuales representan la principal audiencia de este
+documento :
+\begin{itemize}
+\item Dr. Carlos Areces: Director de tesis, FaMAF 
+\item Daniel Gutson: Colaborador de tesis, FuDePAN 
+\item Alejandro Kondrasky: Tesista, FaMAF 
+\end{itemize}
+
+\subsection{Alcance del Producto}
+
+El producto especificado en este documento se denomina \emph{Ful}\textbf{\nomenclature[FuL]{$FuL$}{FuDePAN Logic Processor}
+}y su principal objetivo es, dada una \emph{KB\nomenclature[KB]{$KB$}{Knowledge Base (Base de Conocimiento)}}
+determinada, organizar, analizar, chequear incongruencias en ella
+y ser capas de con este planificar \emph{experimentos} \nomenclature[Experimento]{$Experimento$}{Pregunta (Mejorar luego)}.
+A la vez que introducimos nuevos conocimientos a la KB, este deberá
+pasar por los procesos previamente nombrados . 
+
+El producto final debe proveer al usuario la capacidad de agregar
+extensiones capaces de interpretar el conocimiento en la KB de maneras
+apropiadas y de introducir nuevo conocimiento mediante un lenguaje
+formal definido para ello. 
+
+La principal responsabilidad de FuL es procesar el conocimiento presente
+en la KB, utilizando las extensiones para interpretarlo, para así
+obtener una planificación del experimento solicitado. Por otro lado,
+las extensiones son responsables de interpretar ciertos tipos de conocimiento
+en la KB y decidir si estos son consistentes o no.
+
+En su versión inicial, FuL incluye una extensión de \emph{planning}\nomenclature[planning]{$planning$}{COMPLETAR}
+y otra de \emph{DL}\nomenclature[DL]{$DL$}{Description Logics ( Logicas Descriptivas)}.
+
+
+\subsection{Estructura del Documento}
+
+La estructura de este documento sigue las recomendaciones de \emph{Guía
+para la especificación de requerimientos de la IEEE (IEEE Std 830-1998).
+}Contiene las siguientes secciones :
+\begin{itemize}
+\item \emph{Sección 2: }Provee una descripción general de los aspectos generales
+del producto, como la perspectiva de este, características principales.
+\item \emph{Sección 3: }Describe las interfases del producto, tanto las
+del usuario como interfases de software. 
+\item \emph{Sección 4:} Organiza y describe los requerimientos funcionales
+del producto.
+\item \emph{Sección 5: }Organiza y describe los requerimientos no funcionales.
+\end{itemize}
+
+\section{Descripción General}
+
+
+\subsection{Perspectiva del Producto}
+
+Este producto trata de proveer a la comunidad científica una herramienta
+para organización, interpretación, verificación y exploración del
+conocimiento del área de virología que se le otorga , para así poder
+encontrar incongruencias, conjuntos mínimos que representen el mismo
+conocimiento y conclusiones derivadas automáticamente de dicho conocimiento.
+
+Otra de sus funciones principales es el planificar experimentos equivalentes
+a preguntas del tipo $A\Longrightarrow B$.
+
+
+\subsection{Características del Producto}
+
+
+\subsubsection{Procesamiento continuo de la KB}
+
+Provee la capacidad de continuar procesando la información presente
+en la KB para así obtener nuevas conclusiones del conocimiento disponible
+en ella. Este proceso puede ser detenido y guardado para continuarlo
+posteriormente.
+
+
+\subsubsection{Minimización y optimización de la KB}
+
+Permite reducir el conocimiento repetido y reinterpretar este de manera
+tal de lograr obtener una nueva KB equivalente minimal.
+
+
+\subsubsection{Introducir nuevo conocimiento a la KB}
+
+Permite, mediante un lenguaje formal, introducir conocimiento a la
+KB el cual sera chequeado para encontrar incongruencias con esta para
+luego ser aceptado o mostrar la incongruencia encontrada.
+
+
+\subsubsection{Planificar experimentos}
+
+Provee la capacidad de planificar un experimento, encontrar las conclusiones
+a los experimentos intermedios y proponer los experimentos intermedios
+que se deben realizar para obtener una conclusión para el que fue
+consultado inicialmente.
+
+
+\subsubsection{API para la creación de Plugins}
+
+Provee una API para la creación de plugins, los cuales serán utilizados
+para interpretar el conocimiento que le es otorgado a dicha base de
+datos. Esta API permite construir tanto el plugin que interpretara
+el conocimiento como expandir el lenguaje formal para así poder representar
+nuevo tipo de conocimiento.
+\end{document}

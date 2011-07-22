@@ -62,42 +62,33 @@
 
 \begin_layout Title
 PROCESADOR LÓGICO PARA DISEÑO DE EXPERIMENTOS DE VIROLOGÍA
-\begin_inset Note Note
-status collapsed
-
-\begin_layout Plain Layout
-Nombre medio fulero....
- opiniones?
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Section*
-Introducción 
+Introducción
 \end_layout
 
 \begin_layout Standard
 En esta área se requiere conocer y analizar el continuo flujo de conocimiento
- que se encuentra a nuestro alcance para tomar mejores decisiones a la hora
- de plantear que experimentos debemos realizar para responder las preguntas
- que se nos plantean.
- 
+ que se encuentra disponible para tomar mejores decisiones a la hora de
+ diseñar qué experimentos deben realizarse para responder las preguntas
+ que se plantean y a la vez generar nuevas preguntas.
 \end_layout
 
 \begin_layout Standard
 A causa de su volumen y complejidad se desearía tener una base de conocimiento
- de dicha área capas de organizarlos, analizarlos, chequear incongruencias
- al agregar nuevos descubiertos/resultados a esta e inferir de ellos todos
- los resultados posibles.
+ informática de dicha área capaz de organizarlos, analizarlos, chequear
+ incongruencias al agregar nuevos resultados a ésta e inferir de ellos todos
+ las conclusiones posibles.
 \end_layout
 
 \begin_layout Standard
-Para esto nos concentraremos primero en el estudio de los arenavirus y retroviru
-s, en especial del virus Junin y el HIV.
- 
+En este trabajo se desarrolla una base de conocimiento informática conteniendo
+ específicamente información biológica de arenavirus y se aplica a un caso
+ del virus Junin.
+ Dicha base combinada con simuladores lógicos que procesen su contenido
+ nos permitirá validar los resultados de experimentos previamente realizados
+ por la fundación y explorar posibles implicaciones no consideradas de estos.
 \end_layout
 
 \begin_layout Section*
@@ -105,15 +96,28 @@ Objetivos
 \end_layout
 
 \begin_layout Standard
-Se desea aplicar técnicas de modelado y manipulación de conocimiento obtener
- respuestas a preguntas relacionadas con los virus Junin y HIV utilizando
- una base de conocimiento previamente establecida.
+Se desea aplicar técnicas de modelado y manipulación de conocimiento para
+ validar y explorar resultados de experimentos sobre arenavirus, siendo
+ necesario crear una base de conocimientos para ello.
 \end_layout
 
 \begin_layout Standard
-Como prueba inicial se desea reproducir los resultados obtenidos en el estudio
- de la predicción de los efectos del estado febril sobre la estructura secundari
-a del RNA del virus Junin , 
+Para poder crear dicha base necesitamos desarrollar un lenguaje formal de
+ representación de conocimiento biológico restringido inicialmente al área
+ de Virología-Arenavirus.
+ Con este se modela el conocimiento obtenido de la bibliografía calificada
+ para dicho menester, el cual sera introducido a la base.
+\end_layout
+
+\begin_layout Standard
+En este trabajo incluimos un caso de estudio surgido de un trabajo anterior
+ de este equipo de investigación.
+ Este caso de estudio se trata de corroborar la línea de razonamiento que
+ incluye la predicción de los efectos del estado febril sobre la estructura
+ secundaria del RNA del virus Junin, línea de razonamiento en la cual se
+ hipotetiza que al aumentar la temperatura se produce una reducción en la
+ producción de núcleoproteínas a causa de que el loop presente tanto en
+ el RNA genómico como antigenómico es afectado por el aumento de la temperatura.
 \end_layout
 
 \begin_layout Section*
@@ -121,15 +125,42 @@ Metodología
 \end_layout
 
 \begin_layout Standard
-asdasd
-\end_layout
-
-\begin_layout Section*
-Resultados
+Se necesita que el lenguaje diseñado sea traducible a lenguajes de representació
+n de datos, los cuales pueden tratarse como bases de conocimiento o introducirse
+ en bases de datos relaciones.
 \end_layout
 
 \begin_layout Standard
-asdasd
+Para validar los resultados y explorar las implicaciones se utilizaran técnicas
+ de inferencia sobre conocimiento tales como Description Logic y Planing,
+ mas otras herramientas como Calculus y Spacial Logic.
+ 
+\end_layout
+
+\begin_layout Section*
+Resultados y Trabajos Futuros 
+\end_layout
+
+\begin_layout Standard
+Se concluye que es posible modelar el conocimiento mediante una serie de
+ definiciones y utilizar una serie de reglas con las arribar nuevas conclusiones
+ utilizando Description Logics y Planning.
+ Se utilizara Goalless Planning ya que de una implicación A => B es mas
+ fácil decidir cual sera el A que el B.
+\end_layout
+
+\begin_layout Standard
+En cuanto al caso de estudio se logro corroborar la linea de razonamiento
+ propuesta con los métodos anteriormente mencionados.
+ 
+\end_layout
+
+\begin_layout Standard
+El estado actual del proyecto es de un esquema prototipo del cual se han
+ modelado las reglas y definiciones para el caso presentado.
+ Los próximo pasos sera llevar dicho esquema a prototipo funcional que contenga
+ el lenguaje apropiado para introducir dichas reglas y definiciones a la
+ base de conocimiento para
 \end_layout
 
 \end_body

@@ -1,0 +1,382 @@
+%% LyX 2.0.0rc3 created this file.  For more info, see http://www.lyx.org/.
+%% Do not edit unless you really know what you are doing.
+\documentclass[a4paper,twocolumn,english,spanish]{paper}
+\usepackage[T1]{fontenc}
+\usepackage[latin9]{inputenc}
+\setcounter{secnumdepth}{4}
+\setcounter{tocdepth}{4}
+\usepackage{amsthm}
+\usepackage{amsmath}
+
+\makeatletter
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% LyX specific LaTeX commands.
+\pdfpageheight\paperheight
+\pdfpagewidth\paperwidth
+
+%% Special footnote code from the package 'stblftnt.sty'
+%% Author: Robin Fairbairns -- Last revised Dec 13 1996
+\let\SF@@footnote\footnote
+\def\footnote{\ifx\protect\@typeset@protect
+    \expandafter\SF@@footnote
+  \else
+    \expandafter\SF@gobble@opt
+  \fi
+}
+\expandafter\def\csname SF@gobble@opt \endcsname{\@ifnextchar[%]
+  \SF@gobble@twobracket
+  \@gobble
+}
+\edef\SF@gobble@opt{\noexpand\protect
+  \expandafter\noexpand\csname SF@gobble@opt \endcsname}
+\def\SF@gobble@twobracket[#1]#2{}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Textclass specific LaTeX commands.
+\numberwithin{equation}{section}
+\numberwithin{figure}{section}
+
+\makeatother
+
+\usepackage{babel}
+\addto\shorthandsspanish{\spanishdeactivate{~<>}}
+
+\begin{document}
+
+\title{IEEE Recomendaciones para un SRS\\
+Sintesis para la Tesis}
+
+
+\author{Alejandro Kondrasky}
+
+\maketitle
+\tableofcontents{}
+
+
+\section{Definiciones}
+\begin{enumerate}
+\item \textbf{\emph{Contrato:}} Un documento legal acordado tanto por el
+consumidor como por el proveedor. Este incluye requerimientos tanto
+técnicos como organizacionales , costo, y la planificación del producto.
+Este también podrá contener datos informales pero útiles como las
+expectativas y compromisos por parte de ambos. 
+\item \textbf{\emph{Consumidor:}} La entidad que paga por el producto y
+usualmente decide los requerimientos del mismo. Para este caso el
+consumidor sera el mismo que el proveedor. 
+\item \textbf{\emph{Proveedor:}} La entidad que proveerá el producto al
+consumidor. Para este caso el consumidor sera el mismo que el proveedor. 
+\item \textbf{\emph{Usuario:}} La entidad que interactuara con el producto.
+No tiene por que ser ninguna de las entidades anteriores.
+\end{enumerate}
+
+\section{Consideraciones para un buen SRS}
+
+
+\subsection{Naturaleza del SRS}
+
+El SRS es la especificación para un software particular que realiza
+una serie de funciones en un entorno especifico. Este debería ser
+escrito tanto por representantes del proveedor como del consumidor. 
+
+A continuación detallaremos las siguientes características en un SRS: 
+\begin{enumerate}
+\item \textbf{\emph{Funcionalidad:}} Que es lo que debería hacer?
+\item \textbf{\emph{Interfases externas:}} Como interactúa con el usuario,
+hardware y otros software?
+\item \textbf{\emph{Performance:}} Cual es la velocidad, accesibilidad,
+tiempos de respuesta y de recuperación, etc; para las funciones que
+dicho software realiza ?
+\item \textbf{\emph{Atributos:}} Que consideraciones debemos tomar en cuanto
+a portabilidad, correctitud, mantenibilidad, seguridad, etc ? 
+\item \textbf{\emph{Restricciones de diseño e implementación:}} Cuales son
+los estándares , lenguajes, políticas, recursos máximos, entornos
+operativos, etc? 
+\end{enumerate}
+
+\subsection{Entorno del SRS}
+
+El software podrá ser auto contenido o parte de un sistema mayor.
+En el segundo caso deberemos tener en cuenta cuales van a ser las
+interfaces requeridas, performance externa y requerimientos funcionales
+para con dicho software. 
+
+Como el SRS tiene un rol específico en el proceso de desarrollo del
+software, debe cuidarse de no ir mas allá de los limites de dicho
+rol. 
+
+Esto significa que el SRS :
+\begin{itemize}
+\item Definir correctamente todos los requerimientos de software. Estos
+existirán por la naturaleza de la tarea a resolver o por características
+especiales del proyecto.
+\item No debería describir ningún detalle de diseño u implementación.
+\item No debería agregar restricciones adicionales al software. 
+\end{itemize}
+Entonces un SRS bien escrito solo limita el rango de diseños validos,
+pero no especifica ningún en particular.
+
+
+\subsection{Características de un buen SRS}
+
+
+\subsubsection{Correctitud}
+
+Es correcto sii cada requerimiento declarado debería ser satisfecho
+por el software.
+
+No existen herramientas para asegurarlo. EL SRS debería ser comparado
+con cualquier especificación aplicable como otros SRS otros estándares
+aplicables. 
+
+
+\subsubsection{Exactitud}
+
+Sera exacto sii cada requerimiento estipulado tiene una sola interpretación.
+Como mínimo, requiere que cada característica del producto sea descripta
+con un solo termino. En el caso de que un termino pueda tener múltiples
+significados en un contexto especifico, este deberá tener un glosario
+donde se especifica mas detalladamente su significado. 
+
+
+\subsubsection{Completitud}
+
+Es completo sii incluye los siguientes elementos :
+\begin{enumerate}
+\item Todo requerimiento significante como funcionalidad, atributos, performance,
+restricciones de diseño y interfases externas.
+\item Definición de la respuesta del software a todas las clases de entradas
+realizables en todas las situaciones posibles, tanto para entradas
+validas como invalidas%
+\footnote{Especialmente las Invalidas!!!%
+}.
+\item Etiquetas y referencias de todas las figuras, tablas y diagramas en
+el SRS y definición de todos los términos y unidades de medida. 
+\end{enumerate}
+
+\paragraph{Uso de TBD%
+\footnote{\selectlanguage{english}%
+To be Determinated.\selectlanguage{spanish}
+%
+}}
+
+Cualquier SRS que contenga TBDs no esta terminado. Pueden ser necesarios
+pero deben estar siempre acompañados por :
+\begin{enumerate}
+\item Una descripción de la causa del mismo%
+\footnote{{}``Por que no se sabe la respuesta''.%
+} para así saber como resolverla.
+\item Una descripción de lo que se debe hacer para eliminarlo, quien deberá
+hacerlo y cuando. 
+\end{enumerate}
+
+\subsubsection{Consistencia}
+
+
+\paragraph{Consistencia Interna}
+
+Es consistente internamente sii ningún subconjunto de requerimientos
+individuales entran en conflicto.
+
+Existen 3 tipos de situaciones por las que pueden haber conflictos:
+\begin{enumerate}
+\item Características especificadas de un objeto del mundo real podrían
+conflictuar, como por ejemplo la forma de presentar un resultado u
+otros similares.
+\item Conflictos de tipo lógico o temporal entre 2 acciones especificas. 
+\item Dos o mas requisitos describen a un mismo objeto de diferente forma.
+El uso de terminología estándar y definiciones promueve la consistencia. 
+\end{enumerate}
+
+\paragraph{Ordenarlos por importancia }
+
+Se esta ordenado por importancia si cada requerimiento tiene un identificador
+que indica la importancia del mismo. Existen los siguientes grados
+de importancia:
+\begin{enumerate}
+\item \emph{Esencial: }El software no sera aceptado si no cumple con dicho
+requerimiento de la manera acordada. 
+\item \emph{Condicional: }Son requerimientos que mejorarían al software
+pero no se requieren para que este sea aceptado.
+\item \emph{Opcionales: }Cosas extra que solo hacedlas si te sobra tiempo.
+\end{enumerate}
+
+\subsubsection{Verificabilidad}
+
+Es verificable sii cada requerimiento lo es, los cuales lo son sii
+existe un proceso finito que lo chequee. Generalmente los ambiguos
+no son verificables. Requerimientos descriptos con adjetivos subjetivos
+son no verificables, tampoco los que requieran de plazos de tiempo
+o recursos excesivos para el desarrollo de dicho software.
+
+En caso de no poder ser verificable , debería ser removido o redefinido
+para que lo sea.
+
+
+\subsubsection{Modificabilidad}
+
+Es modificable sii su estructura y estilo son tales que es fácil realizar
+cualquier cambio en los requerimientos en forma completa y consistente,
+manteniendo la estructura y estilo. Esta requiere de :
+\begin{enumerate}
+\item Tener una organización coherente y fácil de usar con tablas de contenido,
+índices y explicitas referencias cruzadas.
+\item No haya redundancias (no repetición de requerimientos).
+\item Expresar cada requerimiento por separado antes de mezclarlos con otros%
+\footnote{Usar referencias cruzadas para esto... Podrías armarte un grafo (
+que debería ser un arbol!) muestre como se entrecruzan los requerimientos.%
+}.
+\end{enumerate}
+
+\subsubsection{Rastreabilidad }
+
+Es rastreable si el origen de cada requerimiento es claro y facilita
+el referenciamiento de cada requerimiento en el futuro desarrollo
+del documento. Dos tipos de rastreamiento son recomendados:
+\selectlanguage{english}%
+\begin{enumerate}
+\item \emph{Backwards}\foreignlanguage{spanish}{\emph{: }Depende de que
+cada requerimiento se refiera explícitamente a su fuente en los documentos
+iniciales.\emph{ }}
+\item \emph{Forward}\foreignlanguage{spanish}{\emph{: }Esto depende de que
+cada requerimiento tenga un nombre o nro único.}
+\end{enumerate}
+\selectlanguage{spanish}%
+
+\subsection{Evolución del SRS}
+
+Estos documentos evolucionan a medida de que se desarrolla el producto,
+por lo que suele ser imposible planificar ciertos detalles al inicio
+del proyecto. Por esta razón se deben tener las siguientes consideraciones:
+\begin{enumerate}
+\item Cada requerimiento debe ser especificado completamente tal como son
+conocidos en dicho momento, aun que se sabe inevitable la necesidad
+de una revisión. El hecho de que están incompletos debería ser recalcado
+\item Un proceso formal debería iniciarse para identificar, controlar, rastrear
+y reportar los cambios del proyecto. Aprobados dichos cambios deberían
+ser incorporados en el SRS de manera tal que :
+
+\begin{enumerate}
+\item Provea una exacta y completa reseña de los cambios.
+\item Permita revisar la actual y nueva versión del SRS.
+\end{enumerate}
+\end{enumerate}
+
+\section{Partes de un SRS}
+
+
+\subsection{Introducción }
+
+Esta debería proveer un resumen del SRS entero. Debería contener las
+siguientes secciones: 
+
+
+\subsubsection{Propósito}
+
+Debe:
+\begin{enumerate}
+\item Delineamientos de su propósito.
+\item Audiencia a la que va dirigido.
+\end{enumerate}
+
+\subsubsection{Alcance}
+
+Debe:
+\begin{enumerate}
+\item Identificar el nombre del tipo de producto.
+\item Explicar a grandes rasgos que hará y, si es necesario, que no.
+\item Describir las aplicaciones de dicho software, incluyendo beneficios
+relevantes, objetivos y metas.
+\end{enumerate}
+
+\subsubsection{Definiciones, anacronismos y abreviaturas}
+
+Esta sección debe proveer las definiciones de todos los términos,
+anacronismos y abreviaturas requeridas para interpretar correctamente
+el SRS. Esta información puede ser proveída mediante varios apéndices
+o haciendo referencia a otros documentos.
+
+
+\subsubsection{Referencias}
+
+Debe:
+\begin{enumerate}
+\item Proveer una lista completa de todos los documentos referidos en el
+SRS.
+\item Identificarlos con titulo, nro de reporte%
+\footnote{Si se aplica%
+}, fecha y organización que lo publico.
+\item Especificar las fuentes de donde fueron obtenidas las referencias.
+\end{enumerate}
+Esta información puede ser proveída mediante un apéndice o haciendo
+referencia a otro documento.
+
+
+\subsubsection{Resumen}
+
+Debe:
+\begin{enumerate}
+\item Describir que es lo que contiene el resto del SRS.
+\item Explicar como este esta organizado.
+\end{enumerate}
+
+\subsection{Descripción General}
+
+Esta sección debe describir los factores generales que afectan el
+producto y sus requerimientos. Esta sección no contiene requerimientos
+específicos, sino que provee un pantallazo general de dichos requerimientos
+y facilita su entendimiento. 
+
+
+\subsubsection{Perspectiva del Producto}
+
+Esta sección se encarga de comparar el producto con otros similares.
+Aclare si este es independiente y auto contenido%
+\footnote{En caso de no serlo lea el IEEE en ingles :P%
+}. Tiene las siguientes secciones :
+
+
+\paragraph{Interfaces de Usuario}
+
+Debe especificar lo siguiente:
+\begin{enumerate}
+\item \emph{Las características lógicas de cada interfase entre el usuario
+y el producto}. Esta incluye la configuraciones necesarias para cumplir
+con los requerimientos de software. 
+\item \emph{Todos los aspectos de optimización de la interfase}. Esta puede
+ser simplemente una lista de como y como no el sistema aparecerá ante
+el usuario%
+\footnote{Por ejemplo \foreignlanguage{english}{verbose} o \foreignlanguage{english}{quiet}%
+}. Como otros, estos requerimientos deberán ser verificables. 
+\end{enumerate}
+
+\paragraph{Interfaces de Software}
+
+Debe especificar que otro software(e.g., bases de datos, sistemas
+operativos, etc)e interfases con otras aplicaciones. Para cada uno
+de estos se debe proveer: 
+\begin{itemize}
+\item Nombre.
+\item Descripción.
+\item Nro de especificación.
+\item Nro de versión.
+\item Fuente.
+\end{itemize}
+Para las interfases se debe proveer: 
+\begin{itemize}
+\item Discutir el propósito de interconectar el producto con dicho software. 
+\item Definir la interfase en términos del contenido de los mensajes y formato.
+En los casos en que esta este bien documentada, con una referencia
+a la documentación alcanza. 
+\end{itemize}
+
+\paragraph{Restricciones de Memoria}
+
+Especificar cualquier restricción o característica a tener en cuenta
+tanto para memorias primarias como secundarias.
+
+
+\paragraph{Funciones del producto}
+
+Esta debe proveer un sumario de las funciones principales del producto.
+
+
+\end{document}
