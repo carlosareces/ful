@@ -1,9 +1,12 @@
-%% LyX 2.0.0rc3 created this file.  For more info, see http://www.lyx.org/.
+%% LyX 2.0.0 created this file.  For more info, see http://www.lyx.org/.
 %% Do not edit unless you really know what you are doing.
 \documentclass[10pt,a4paper,spanish]{article}
 \usepackage[T1]{fontenc}
 \usepackage[latin9]{inputenc}
 \pagestyle{headings}
+\usepackage{babel}
+\addto\shorthandsspanish{\spanishdeactivate{~<>}}
+
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{nomencl}
@@ -11,6 +14,8 @@
 \providecommand{\printnomenclature}{\printglossary}
 \providecommand{\makenomenclature}{\makeglossary}
 \makenomenclature
+\usepackage[unicode=true]
+ {hyperref}
 
 \makeatletter
 
@@ -26,9 +31,6 @@
 \usepackage{amsfonts}
 
 \makeatother
-
-\usepackage{babel}
-\addto\shorthandsspanish{\spanishdeactivate{~<>}}
 
 \begin{document}
 
@@ -68,8 +70,8 @@ de dicha tesis.
 
 Las palabras clave \emph{DEBE}, \emph{NO DEBE}, REQUERIDO, DEBERÁ,
 NO DEBERÁ, DEBERÍA, NO DEBERÍA, RECOMENDADO, PUEDE Y OPCIONAL en este
-documento son interpretadas como esta descripto en el documento \emph{RFC
-2119}.
+documento son interpretadas como esta descripto en el documento\emph{
+\href{http://www.ietf.org/rfc/rfc2119.txt}{RFC 2119}}.
 
 
 \subsection{Audiencia Esperada}
@@ -85,12 +87,13 @@ documento :
 
 \subsection{Alcance del Producto}
 
-El producto especificado en este documento se denomina \emph{Ful}\textbf{\nomenclature[FuL]{$FuL$}{FuDePAN Logic Processor}
-}y su principal objetivo es, dada una \emph{KB\nomenclature[KB]{$KB$}{Knowledge Base (Base de Conocimiento)}}
-determinada, organizar, analizar, chequear incongruencias en ella
-y ser capas de con este planificar \emph{experimentos} \nomenclature[Experimento]{$Experimento$}{Pregunta (Mejorar luego)}.
-A la vez que introducimos nuevos conocimientos a la KB, este deberá
-pasar por los procesos previamente nombrados . 
+El producto especificado en este documento se denomina \emph{FuDePAN
+Logic Processor (Ful)}\textbf{\nomenclature[FuL]{$FuL$}{FuDePAN Logic Processor}
+}y su principal objetivo es, dada una \emph{Base de Conocimiento (KB)\nomenclature[KB]{$KB$}{Knowledge Base (Base de Conocimiento)}}
+del área de virología, organizar, analizar, chequear incongruencias
+en ella y poder utilizarla para planificar \emph{experimentos} \nomenclature[Experimento]{$Experimento$}{Pregunta (Mejorar luego)}.
+A la vez que introducimos nuevos conocimientos a la KB, ésta deberá
+pasar por los procesos previamente nombrados. 
 
 El producto final debe proveer al usuario la capacidad de agregar
 extensiones capaces de interpretar el conocimiento en la KB de maneras
@@ -99,18 +102,18 @@ formal definido para ello.
 
 La principal responsabilidad de FuL es procesar el conocimiento presente
 en la KB, utilizando las extensiones para interpretarlo, para así
-obtener una planificación del experimento solicitado. Por otro lado,
-las extensiones son responsables de interpretar ciertos tipos de conocimiento
-en la KB y decidir si estos son consistentes o no.
+obtener una planificación del experimento solicitado. Las extensiones
+son utilizadas para interpretar ciertos tipos de conocimiento, procesarlo
+utilizando sus KB internas y devolver nuevo conocimiento a FuL.
 
 En su versión inicial, FuL incluye una extensión de \emph{planning}\nomenclature[planning]{$planning$}{COMPLETAR}
-y otra de \emph{DL}\nomenclature[DL]{$DL$}{Description Logics ( Logicas Descriptivas)}.
+y otra de \emph{Logicas Descriptivas (DL)}\nomenclature[DL]{$DL$}{Description Logics ( Logicas Descriptivas)}.
 
 
 \subsection{Estructura del Documento}
 
 La estructura de este documento sigue las recomendaciones de \emph{Guía
-para la especificación de requerimientos de la IEEE (IEEE Std 830-1998).
+para la especificación de requerimientos de la IEEE (\href{http://www.ctr.unican.es/asignaturas/is1/IEEE830_esp.pdf}{IEEE Std 830-1998 }).
 }Contiene las siguientes secciones :
 \begin{itemize}
 \item \emph{Sección 2: }Provee una descripción general de los aspectos generales
@@ -121,6 +124,8 @@ del usuario como interfases de software.
 del producto.
 \item \emph{Sección 5: }Organiza y describe los requerimientos no funcionales.
 \end{itemize}
+\pagebreak{}
+
 
 \section{Descripción General}
 
@@ -130,35 +135,32 @@ del producto.
 Este producto trata de proveer a la comunidad científica una herramienta
 para organización, interpretación, verificación y exploración del
 conocimiento del área de virología que se le otorga , para así poder
-encontrar incongruencias, conjuntos mínimos que representen el mismo
-conocimiento y conclusiones derivadas automáticamente de dicho conocimiento.
+encontrar incongruencias y conclusiones derivadas automáticamente
+de dicho conocimiento.
 
-Otra de sus funciones principales es el planificar experimentos equivalentes
-a preguntas del tipo $A\Longrightarrow B$.
+Otra de sus funciones principales es la asistencia informática para
+planificar experimentos equivalentes a preguntas del tipo $A\Longrightarrow B$.
 
 
 \subsection{Características del Producto}
 
 
-\subsubsection{Procesamiento continuo de la KB}
-
-Provee la capacidad de continuar procesando la información presente
-en la KB para así obtener nuevas conclusiones del conocimiento disponible
-en ella. Este proceso puede ser detenido y guardado para continuarlo
-posteriormente.
+\paragraph*{Las secciones marcadas con {*} son opcionales o serán incluidas en
+trabajos futuros.}
 
 
-\subsubsection{Minimización y optimización de la KB}
+\subsubsection{Procesamiento de la KB }
 
-Permite reducir el conocimiento repetido y reinterpretar este de manera
-tal de lograr obtener una nueva KB equivalente minimal.
+Provee la capacidad de procesar la información presente en la KB para
+así obtener nuevas conclusiones del conocimiento disponible en ella.
+Este proceso puede ser detenido y guardado para continuarlo posteriormente.
 
 
 \subsubsection{Introducir nuevo conocimiento a la KB}
 
-Permite, mediante un lenguaje formal, introducir conocimiento a la
-KB el cual sera chequeado para encontrar incongruencias con esta para
-luego ser aceptado o mostrar la incongruencia encontrada.
+Permite, mediante los lenguajes formales otorgados por las extensiones,
+introducir conocimiento a la KB el cual sera chequeado para encontrar
+incongruencias con esta, para luego ser aceptado o mostrar las encontradas.
 
 
 \subsubsection{Planificar experimentos}
@@ -168,12 +170,38 @@ a los experimentos intermedios y proponer los experimentos intermedios
 que se deben realizar para obtener una conclusión para el que fue
 consultado inicialmente.
 
+Dichos experimentos son equivalentes a preguntas del tipo $A\Longrightarrow B$,
+siendo $A$ el punto de partida y $B$ la meta a alcanzar por dicho
+experimento.
 
-\subsubsection{API para la creación de Plugins}
 
-Provee una API para la creación de plugins, los cuales serán utilizados
-para interpretar el conocimiento que le es otorgado a dicha base de
-datos. Esta API permite construir tanto el plugin que interpretara
-el conocimiento como expandir el lenguaje formal para así poder representar
-nuevo tipo de conocimiento.
+\subsubsection{API y SDK para Extensiones}
+
+Provee una API y un SDK para la creación de extensiones, los cuales
+serán utilizados para interpretar el conocimiento que le es otorgado
+a dicha base de datos. 
+
+El API define la forma en la que se intercambiara el conocimiento
+entre la extensión y FuL. El SDK otorga las librerías necesarias tanto
+para la construcción de la extensión en si, como también la definición
+de su lenguaje formal de representación de conocimiento correspondiente.
+
+
+\subsubsection{Optimización de la KB{*}}
+
+Tendrá la capacidad de optimizar la KB. Esta proveerá la eliminación
+de redundancias y devolverá una versión minimál de la KB original,
+de la cual se puede deducir todo el conocimiento presente en la original.
+
+
+\subsubsection{KB inicial con conocimientos de virología{*}}
+
+Proveer una KB inicial, la cual contenga conocimientos básicos de
+virología tales como lo que se encuentran el libros de estudio de
+nivel básico a intermedio.
+
+\pagebreak{}
+
+\settowidth{\nomlabelwidth}{$Experimento$}
+\printnomenclature{}
 \end{document}

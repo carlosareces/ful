@@ -148,9 +148,17 @@ NO DEBE
 \emph default
 , REQUERIDO, DEBERÁ, NO DEBERÁ, DEBERÍA, NO DEBERÍA, RECOMENDADO, PUEDE
  Y OPCIONAL en este documento son interpretadas como esta descripto en el
- documento 
+ documento
 \emph on
-RFC 2119
+ 
+\begin_inset CommandInset href
+LatexCommand href
+name "RFC 2119"
+target "http://www.ietf.org/rfc/rfc2119.txt"
+
+\end_inset
+
+
 \emph default
 .
 \end_layout
@@ -185,7 +193,7 @@ Alcance del Producto
 \begin_layout Standard
 El producto especificado en este documento se denomina 
 \emph on
-Ful
+FuDePAN Logic Processor (Ful)
 \series bold
 \emph default
 
@@ -201,7 +209,7 @@ description "FuDePAN Logic Processor"
 \series default
 y su principal objetivo es, dada una 
 \emph on
-KB
+Base de Conocimiento (KB)
 \begin_inset CommandInset nomenclature
 LatexCommand nomenclature
 prefix "KB"
@@ -212,8 +220,8 @@ description "Knowledge Base (Base de Conocimiento)"
 
 
 \emph default
- determinada, organizar, analizar, chequear incongruencias en ella y ser
- capas de con este planificar 
+ del área de virología, organizar, analizar, chequear incongruencias en
+ ella y poder utilizarla para planificar 
 \emph on
 experimentos
 \emph default
@@ -227,8 +235,8 @@ description "Pregunta (Mejorar luego)"
 \end_inset
 
 .
- A la vez que introducimos nuevos conocimientos a la KB, este deberá pasar
- por los procesos previamente nombrados .
+ A la vez que introducimos nuevos conocimientos a la KB, ésta deberá pasar
+ por los procesos previamente nombrados.
  
 \end_layout
 
@@ -244,8 +252,8 @@ El producto final debe proveer al usuario la capacidad de agregar extensiones
 La principal responsabilidad de FuL es procesar el conocimiento presente
  en la KB, utilizando las extensiones para interpretarlo, para así obtener
  una planificación del experimento solicitado.
- Por otro lado, las extensiones son responsables de interpretar ciertos
- tipos de conocimiento en la KB y decidir si estos son consistentes o no.
+ Las extensiones son utilizadas para interpretar ciertos tipos de conocimiento,
+ procesarlo utilizando sus KB internas y devolver nuevo conocimiento a FuL.
 \end_layout
 
 \begin_layout Standard
@@ -264,7 +272,7 @@ description "COMPLETAR"
 
  y otra de 
 \emph on
-DL
+Logicas Descriptivas (DL)
 \emph default
 
 \begin_inset CommandInset nomenclature
@@ -285,7 +293,15 @@ Estructura del Documento
 \begin_layout Standard
 La estructura de este documento sigue las recomendaciones de 
 \emph on
-Guía para la especificación de requerimientos de la IEEE (IEEE Std 830-1998).
+Guía para la especificación de requerimientos de la IEEE (
+\begin_inset CommandInset href
+LatexCommand href
+name "IEEE Std 830-1998 "
+target "www.ctr.unican.es/asignaturas/is1/IEEE830_esp.pdf"
+
+\end_inset
+
+).
  
 \emph default
 Contiene las siguientes secciones :
@@ -326,6 +342,13 @@ Sección 5:
 Organiza y describe los requerimientos no funcionales.
 \end_layout
 
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
 \begin_layout Section
 Descripción General
 \end_layout
@@ -338,13 +361,12 @@ Perspectiva del Producto
 Este producto trata de proveer a la comunidad científica una herramienta
  para organización, interpretación, verificación y exploración del conocimiento
  del área de virología que se le otorga , para así poder encontrar incongruencia
-s, conjuntos mínimos que representen el mismo conocimiento y conclusiones
- derivadas automáticamente de dicho conocimiento.
+s y conclusiones derivadas automáticamente de dicho conocimiento.
 \end_layout
 
 \begin_layout Standard
-Otra de sus funciones principales es el planificar experimentos equivalentes
- a preguntas del tipo 
+Otra de sus funciones principales es la asistencia informática para planificar
+ experimentos equivalentes a preguntas del tipo 
 \begin_inset Formula $A\Longrightarrow B$
 \end_inset
 
@@ -355,24 +377,19 @@ Otra de sus funciones principales es el planificar experimentos equivalentes
 Características del Producto
 \end_layout
 
+\begin_layout Paragraph*
+Las secciones marcadas con * son opcionales o serán incluidas en trabajos
+ futuros.
+\end_layout
+
 \begin_layout Subsubsection
-Procesamiento continuo de la KB
+Procesamiento de la KB 
 \end_layout
 
 \begin_layout Standard
-Provee la capacidad de continuar procesando la información presente en la
- KB para así obtener nuevas conclusiones del conocimiento disponible en
- ella.
+Provee la capacidad de procesar la información presente en la KB para así
+ obtener nuevas conclusiones del conocimiento disponible en ella.
  Este proceso puede ser detenido y guardado para continuarlo posteriormente.
-\end_layout
-
-\begin_layout Subsubsection
-Minimización y optimización de la KB
-\end_layout
-
-\begin_layout Standard
-Permite reducir el conocimiento repetido y reinterpretar este de manera
- tal de lograr obtener una nueva KB equivalente minimal.
 \end_layout
 
 \begin_layout Subsubsection
@@ -380,9 +397,20 @@ Introducir nuevo conocimiento a la KB
 \end_layout
 
 \begin_layout Standard
-Permite, mediante un lenguaje formal, introducir conocimiento a la KB el
- cual sera chequeado para encontrar incongruencias con esta para luego ser
- aceptado o mostrar la incongruencia encontrada.
+Permite, mediante los lenguajes formales otorgados por las extensiones,
+ introducir conocimiento a la KB el cual sera chequeado para encontrar incongrue
+ncias
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+Preguntar al Carlos: Incongruencias o Contradicciones ? Cual es la diff
+ ?
+\end_layout
+
+\end_inset
+
+ con esta, para luego ser aceptado o mostrar las encontradas.
 \end_layout
 
 \begin_layout Subsubsection
@@ -396,16 +424,77 @@ Provee la capacidad de planificar un experimento, encontrar las conclusiones
  inicialmente.
 \end_layout
 
+\begin_layout Standard
+Dichos experimentos son equivalentes a preguntas del tipo 
+\begin_inset Formula $A\Longrightarrow B$
+\end_inset
+
+, siendo 
+\begin_inset Formula $A$
+\end_inset
+
+ el punto de partida y 
+\begin_inset Formula $B$
+\end_inset
+
+ la meta a alcanzar por dicho experimento.
+\end_layout
+
 \begin_layout Subsubsection
-API para la creación de Plugins
+API y SDK para Extensiones
 \end_layout
 
 \begin_layout Standard
-Provee una API para la creación de plugins, los cuales serán utilizados
- para interpretar el conocimiento que le es otorgado a dicha base de datos.
- Esta API permite construir tanto el plugin que interpretara el conocimiento
- como expandir el lenguaje formal para así poder representar nuevo tipo
- de conocimiento.
+Provee una API y un SDK para la creación de extensiones, los cuales serán
+ utilizados para interpretar el conocimiento que le es otorgado a dicha
+ base de datos.
+ 
+\end_layout
+
+\begin_layout Standard
+El API define la forma en la que se intercambiara el conocimiento entre
+ la extensión y FuL.
+ El SDK otorga las librerías necesarias tanto para la construcción de la
+ extensión en si, como también la definición de su lenguaje formal de representa
+ción de conocimiento correspondiente.
+\end_layout
+
+\begin_layout Subsubsection
+Optimización de la KB*
+\end_layout
+
+\begin_layout Standard
+Tendrá la capacidad de optimizar la KB.
+ Esta proveerá la eliminación de redundancias y devolverá una versión minimál
+ de la KB original, de la cual se puede deducir todo el conocimiento presente
+ en la original.
+\end_layout
+
+\begin_layout Subsubsection
+KB inicial con conocimientos de virología*
+\end_layout
+
+\begin_layout Standard
+Proveer una KB inicial, la cual contenga conocimientos básicos de virología
+ tales como lo que se encuentran el libros de estudio de nivel básico a
+ intermedio.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset nomencl_print
+LatexCommand printnomenclature
+set_width "auto"
+
+\end_inset
+
+
 \end_layout
 
 \end_body
