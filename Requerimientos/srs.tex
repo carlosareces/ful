@@ -1,6 +1,6 @@
 %% LyX 2.0.0 created this file.  For more info, see http://www.lyx.org/.
 %% Do not edit unless you really know what you are doing.
-\documentclass[10pt,a4paper,spanish]{article}
+\documentclass[10pt,a4paper,english,spanish]{article}
 \usepackage[T1]{fontenc}
 \usepackage[latin9]{inputenc}
 \pagestyle{headings}
@@ -88,7 +88,7 @@ documento :
 \subsection{Alcance del Producto}
 
 El producto especificado en este documento se denomina \emph{FuDePAN
-Logic Processor (Ful)}\textbf{\nomenclature[FuL]{$FuL$}{FuDePAN Logic Processor}
+Logic Processor (FuL)}\textbf{\nomenclature[FuL]{$FuL$}{FuDePAN Logic Processor}
 }y su principal objetivo es, dada una \emph{Base de Conocimiento (KB)\nomenclature[KB]{$KB$}{Knowledge Base (Base de Conocimiento)}}
 del área de virología, organizar, analizar, chequear incongruencias
 en ella y poder utilizarla para planificar \emph{experimentos} \nomenclature[Experimento]{$Experimento$}{Pregunta (Mejorar luego)}.
@@ -106,14 +106,14 @@ obtener una planificación del experimento solicitado. Las extensiones
 son utilizadas para interpretar ciertos tipos de conocimiento, procesarlo
 utilizando sus KB internas y devolver nuevo conocimiento a FuL.
 
-En su versión inicial, FuL incluye una extensión de \emph{planning}\nomenclature[planning]{$planning$}{COMPLETAR}
-y otra de \emph{Logicas Descriptivas (DL)}\nomenclature[DL]{$DL$}{Description Logics ( Logicas Descriptivas)}.
+En su versión inicial, FuL incluye un \emph{planner}\nomenclature[planner]{$planner$}{COMPLETAR}
+y una extensión de \emph{Lógicas Descriptivas (DL)}\nomenclature[DL]{$DL$}{Description Logics ( Lógicas Descriptivas)}.
 
 
 \subsection{Estructura del Documento}
 
 La estructura de este documento sigue las recomendaciones de \emph{Guía
-para la especificación de requerimientos de la IEEE (\href{http://www.ctr.unican.es/asignaturas/is1/IEEE830_esp.pdf}{IEEE Std 830-1998 }).
+para la especificación de requerimientos de la IEEE (\href{http://standards.ieee.org/findstds/standard/830-1998.html}{IEEE Std 830-1998 }).
 }Contiene las siguientes secciones :
 \begin{itemize}
 \item \emph{Sección 2: }Provee una descripción general de los aspectos generales
@@ -158,8 +158,9 @@ Este proceso puede ser detenido y guardado para continuarlo posteriormente.
 
 \subsubsection{Introducir nuevo conocimiento a la KB}
 
-Permite, mediante los lenguajes formales otorgados por las extensiones,
-introducir conocimiento a la KB el cual sera chequeado para encontrar
+Permite, mediante el lenguaje formal otorgado por FuL%
+\footnote{Dicho lenguaje será traducible a lenguajes de representación de datos.%
+}, introducir conocimiento a la KB el cual sera chequeado para encontrar
 incongruencias con esta, para luego ser aceptado o mostrar las encontradas.
 
 
@@ -170,7 +171,7 @@ a los experimentos intermedios y proponer los experimentos intermedios
 que se deben realizar para obtener una conclusión para el que fue
 consultado inicialmente.
 
-Dichos experimentos son equivalentes a preguntas del tipo $A\Longrightarrow B$,
+Dichos experimentos deben ser equivalentes a preguntas del tipo $A\Longrightarrow B$,
 siendo $A$ el punto de partida y $B$ la meta a alcanzar por dicho
 experimento.
 
@@ -198,10 +199,128 @@ de la cual se puede deducir todo el conocimiento presente en la original.
 
 Proveer una KB inicial, la cual contenga conocimientos básicos de
 virología tales como lo que se encuentran el libros de estudio de
-nivel básico a intermedio.
+nivel básico a intermedio. Restricciones al \foreignlanguage{english}{\emph{scope\nomenclature[scope]{scope}{Alcance de cierto objeto}}}
+de dicha KB están \emph{por ser determinadas (TBD)\nomenclature[TBD]{TBD}{To Be Determinated ( Por ser Determinado)}}%
+\footnote{Se propuso restringirlo a los arenavirus y los retrovirus. Se decidirá
+acorde con las necesidades del cliente y los tiempos disponibles.%
+}. 
+
+
 
 \pagebreak{}
 
-\settowidth{\nomlabelwidth}{$Experimento$}
-\printnomenclature{}
+
+\section{Interfases}
+
+
+\subsection{Interfaces de Sistema}
+
+Sera capas de correr al menos en sistemas GNU/Linux, así que por este
+hecho solo se utilizaran librerías compatibles con sistemas GNU/Linux.
+
+
+\subsection{Interfaces de Usuario}
+
+La interfase consiste en una \emph{CLI (}\foreignlanguage{english}{\emph{Command
+Line Interface}}\emph{)\nomenclature[CLI]{CLI}{Command Line Interface}
+}y un lenguaje formal,\emph{ }detallados a continuación.
+
+
+\subsubsection{CLI}
+
+Este sera tratable como un comando de terminal, al cual se le podrán
+pasar al menos parámetros para realizar las siguientes operaciones%
+\footnote{Las operaciones marcadas con \emph{(V) }tendrán la opción ser puestas
+en modo verboso, lo que hará que muestren por pantalla mayor información
+relacionada con su procesamiento.\emph{ }%
+}:
+\begin{enumerate}
+\item \emph{Procesar el conocimiento en la KB (V): }Sera la opción por defecto
+en la cual solo procesara el conocimiento existente en la KB para
+obtener nuevas conclusiones a los posibles experimentos. \\
+Dicho proceso podrá ser detenido por el usuario mediante una combinación
+de teclas preestablecidas por FuL. En cuyo caso guardara el estado
+actual del procesamiento para ser continuado posteriormente.
+\item \emph{Introducir un archivo con conocimiento en la KB (V):} Parsea
+y chequea consistencia de dicho conocimiento para luego chequear incongruencias
+de este con la KB. En caso de éxito se agregara a la KB, caso contrario
+sera rechazado en su totalidad.
+\item \emph{Realizar un consulta de un experimento de tipo }$A\Longrightarrow B$
+\emph{(V): }Chequea la valides de dicha consulta. En caso de ser valida
+FuL responderá con un valor booleano o con una lista de experimentos
+de tipo $A\Longrightarrow B$ para los cuales no tiene respuesta.
+En caso de ser invalida mostrara el mensaje de error correspondiente.
+\item \emph{Agregar una nueva extensión a FuL (V): }El usuario introducirá
+el nombre de archivo de la extensión que desea agregar. En caso de
+que dicho archivo no sea valido o surja algún error sera informado
+del mismo.
+\item \emph{Configurar parámetros relacionados con FuL, su KB y extensiones
+: }TBD\emph{}%
+\footnote{Dependerá de factores relacionados con el diseño e implementación
+de la KB, extensiones y otros aspectos relacionados con FuL tales
+su instalación,etc. Deberá ser resuelto en las etapas anteriormente
+mencionadas.%
+}
+\end{enumerate}
+
+\subsubsection{Lenguaje formal}
+
+Es el lenguaje a través del cual el usuario deberá utilizar para introducir
+conocimiento y realizar consultas a FuL. También es con el cual se
+presentaran los resultados de las operaciones solicitadas. Dicho lenguaje
+sera capas de representar conocimiento relacionado con el área de
+Virología%
+\footnote{Pero no exclusivamente.%
+} , el cual tendrá la propiedad de ser almacenable en una KB y ser
+interpretado por una extensión DL.
+
+
+\subsection{Interfaces de Hardware}
+
+No hay requerimientos especificados.
+
+
+\subsection{Interfaces de Software}
+
+El producto tendrá los siguientes módulos :
+\begin{enumerate}
+\item \emph{fulmop : }Este es producto principal, el cual se encarga de
+interactuar con la KB, ful\foreignlanguage{english}{planner} y las
+extensiones para realizar las operaciones pedidas por el usuario.
+Para este propósito fulmop realiza intercambios de mensajes, escritos
+en el lenguaje formal provisto por el producto, para así obtener nuevas
+respuestas y continuar el ciclo hasta finalizar la operación solicitada
+satisfactoriamente%
+\footnote{Ver la definición de cada operación en requerimientos funcionales
+para interpretar que significa ser finalizada satisfactoriamente en
+cada caso.%
+}.
+\item \emph{fulplanner : }Es el encargado de organizar el proceso de razonamiento,
+preguntando a fulmop que consecuencias se puede derivar de un determinado
+conocimiento. Las respuestas recibidas son agregadas a la planificación
+del experimento. No es capas de interpretar conocimiento alguno, solo
+interrelacionarlo en base a las respuestas recibidas de fulmop. Este
+ultimo sera el encargado de pedirle a fulplanner los experimentos
+para los cuales requiere respuesta y pedirle el estado actual del
+grafo de planificación. El lenguaje utilizado por fulplanner es el
+mismo que utiliza fulmop para representar conocimiento.
+\item \emph{fulapi : }Es la API definida para interactuar con las extensiones
+creadas por terceros. Principalmente permitirá a fulmop realizar preguntas
+a las extensiones acerca de un determinado conocimiento y que estas
+le devuelvan una respuesta de la misma forma.
+\item \emph{fuldl :} Extensión que permite interpretar conocimiento entendible
+por lenguajes DL. Actúa de la misma manera que cualquier otra extensión,
+recibiendo conocimiento a ser interpretado y devolviendo nuevo conocimiento
+respecto de este.
+\end{enumerate}
+
+\subsection{Interfaces de Comunicación}
+
+No hay requerimientos especificados.
+
+\pagebreak{}
+
+\printnomenclature[5cm]{}
+
+
 \end{document}
