@@ -1,12 +1,14 @@
-%% LyX 2.0.0 created this file.  For more info, see http://www.lyx.org/.
+%% LyX 1.6.5 created this file.  For more info, see http://www.lyx.org/.
 %% Do not edit unless you really know what you are doing.
 \documentclass[10pt,a4paper,english,spanish]{article}
 \usepackage[T1]{fontenc}
 \usepackage[latin9]{inputenc}
+\usepackage{listings}
 \pagestyle{headings}
 \usepackage{babel}
 \addto\shorthandsspanish{\spanishdeactivate{~<>}}
 
+\usepackage{verbatim}
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{nomencl}
@@ -14,17 +16,15 @@
 \providecommand{\printnomenclature}{\printglossary}
 \providecommand{\makenomenclature}{\makeglossary}
 \makenomenclature
-\usepackage[unicode=true]
+\usepackage[unicode=true, pdfusetitle,
+ bookmarks=true,bookmarksnumbered=false,bookmarksopen=false,
+ breaklinks=false,pdfborder={0 0 1},backref=false,colorlinks=false]
  {hyperref}
 
 \makeatletter
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% LyX specific LaTeX commands.
-\pdfpageheight\paperheight
-\pdfpagewidth\paperwidth
-
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% User specified LaTeX commands.
+% Added by lyx2lyx
+\setlength{\nomlabelwidth}{5cm}
 
 \usepackage[toc, page, header]{appendix}\renewcommand{\appendixtocname}{Apendices}
 \renewcommand{\appendixpagename}{Apendices}
@@ -91,8 +91,8 @@ El producto especificado en este documento se denomina \emph{FuDePAN
 Logic Processor (FuL)}\textbf{\nomenclature[FuL]{$FuL$}{FuDePAN Logic Processor}
 }y su principal objetivo es, dada una \emph{Base de Conocimiento (KB)\nomenclature[KB]{$KB$}{Knowledge Base (Base de Conocimiento)}}
 del área de virología, organizar, analizar, chequear incongruencias
-en ella y poder utilizarla para planificar \emph{experimentos} \nomenclature[Experimento]{$Experimento$}{Pregunta (Mejorar luego)}.
-A la vez que introducimos nuevos conocimientos a la KB, ésta deberá
+en ella y poder utilizarla para asistir en la planificación de experimentos
+. A la vez que introducimos nuevos conocimientos a la KB, ésta deberá
 pasar por los procesos previamente nombrados. 
 
 El producto final debe proveer al usuario la capacidad de agregar
@@ -133,10 +133,9 @@ del producto.
 \subsection{Perspectiva del Producto}
 
 Este producto trata de proveer a la comunidad científica una herramienta
-para organización, interpretación, verificación y exploración del
-conocimiento del área de virología que se le otorga , para así poder
-encontrar incongruencias y conclusiones derivadas automáticamente
-de dicho conocimiento.
+para la organización, interpretación, verificación y exploración del
+conocimiento en el área de virología, para así poder encontrar incongruencias
+y conclusiones derivadas automáticamente de dicho conocimiento.
 
 Otra de sus funciones principales es la asistencia informática para
 planificar experimentos equivalentes a preguntas del tipo $A\Longrightarrow B$.
@@ -149,31 +148,49 @@ planificar experimentos equivalentes a preguntas del tipo $A\Longrightarrow B$.
 trabajos futuros.}
 
 
-\subsubsection{Procesamiento de la KB }
-
-Provee la capacidad de procesar la información presente en la KB para
-así obtener nuevas conclusiones del conocimiento disponible en ella.
-Este proceso puede ser detenido y guardado para continuarlo posteriormente.
-
-
 \subsubsection{Introducir nuevo conocimiento a la KB}
 
 Permite, mediante el lenguaje formal otorgado por FuL%
 \footnote{Dicho lenguaje será traducible a lenguajes de representación de datos.%
 }, introducir conocimiento a la KB el cual sera chequeado para encontrar
-incongruencias con esta, para luego ser aceptado o mostrar las encontradas.
+contradicciones con esta, para luego ser aceptado o mostrar las encontradas.
 
 
-\subsubsection{Planificar experimentos}
+\subsubsection{Procesamiento de la KB }
 
-Provee la capacidad de planificar un experimento, encontrar las conclusiones
-a los experimentos intermedios y proponer los experimentos intermedios
-que se deben realizar para obtener una conclusión para el que fue
-consultado inicialmente.
+Provee la capacidad de procesar la información presente en la KB para
+así obtener nuevas conclusiones del conocimiento disponible en ella
+%
+\begin{comment}
+Idea a Futuro!:Este proceso debería poderse detener y guardarlo para
+continuarlo posteriormente. Me gustaría que dicho proceso se pudiera
+continuar con una KB distinta, para así poder convertir este sistema
+en un servicio online dinámico. Esto requiere que se chequeen inconsistencias
+en las aseveraciones realizadas. Otra opción es que se tenga una KB
+frontend para consultas y una backend para que se introduzca y procese
+nuevo conocimiento. Para este ultimo caso se deberá definir la forma
+de actualización de la KB frontend con la backend.
+\end{comment}
+{}.
 
-Dichos experimentos deben ser equivalentes a preguntas del tipo $A\Longrightarrow B$,
-siendo $A$ el punto de partida y $B$ la meta a alcanzar por dicho
-experimento.
+
+\subsubsection{Asistir en la planificación de experimentos}
+
+Provee la capacidad de responder preguntas objetivo y, en caso de
+no ser capaz de responder dicha pregunta, devolver preguntas relevantes
+para la que fue introducida. Se dice que son relevantes ya que deben
+ser contestadas para poder llegar a una respuesta para la pregunta
+objetivo. Dichas preguntas objetivo serán metas lógicas del tipo $A\Longrightarrow B$%
+\begin{comment}
+Debería hablar de estas como metas lógicas o seguirles llamando preguntas
+objetivo. Pregunto esto por que en los requerimientos funcionales
+habíamos convenido de que las denominaríamos como metas lógicas.
+\end{comment}
+{}.
+
+Estas preguntas devueltas son útiles para el usuario en el desarrollo
+de sus experimentos, ya que sirven para la confección de arboles de
+hipótesis y planeamiento de escenarios. 
 
 
 \subsubsection{API y SDK para Extensiones}
@@ -202,28 +219,39 @@ virología tales como lo que se encuentran el libros de estudio de
 nivel básico a intermedio. Restricciones al \foreignlanguage{english}{\emph{scope\nomenclature[scope]{scope}{Alcance de cierto objeto}}}
 de dicha KB están \emph{por ser determinadas (TBD)\nomenclature[TBD]{TBD}{To Be Determinated ( Por ser Determinado)}}%
 \footnote{Se propuso restringirlo a los arenavirus y los retrovirus. Se decidirá
-acorde con las necesidades del cliente y los tiempos disponibles.%
-}. 
-
-
+acorde con las necesidades de FuDePAN y los tiempos disponibles.%
+}%
+\begin{comment}
+Pregunta : Deberíamos agregar la posibilidad de imprimir/obtener el
+conocimiento existente en la KB en algún formato ? Esta operación
+no tendría relación con la consulta de experimentos.\\
+Respuesta de Daniel : Por ahora no nos interesa, cuando tengamos
+la necesidad veremos de agregarlo. La interfaz es a tracción preguntas/metas.
+\end{comment}
+{}. 
 
 \pagebreak{}
 
 
-\section{Interfases}
+\section{Interfaces}
 
 
 \subsection{Interfaces de Sistema}
 
-Sera capas de correr al menos en sistemas GNU/Linux, así que por este
-hecho solo se utilizaran librerías compatibles con sistemas GNU/Linux.
+Será capaz de correr al menos en sistemas GNU/Linux, así que por este
+hecho sólo se utilizaran librerías compatibles con sistemas GNU/Linux.%
+\begin{comment}
+Revisar si aquí debo agregar que debería usar ciertas librerías estándar
+de la fundación a la hora de trabajar en C++ o Python.
+\end{comment}
+{}
 
 
 \subsection{Interfaces de Usuario}
 
 La interfase consiste en una \emph{CLI (}\foreignlanguage{english}{\emph{Command
 Line Interface}}\emph{)\nomenclature[CLI]{CLI}{Command Line Interface}
-}y un lenguaje formal,\emph{ }detallados a continuación.
+}y un lenguaje formal,\emph{ }descriptos a continuación.
 
 
 \subsubsection{CLI}
@@ -231,25 +259,29 @@ Line Interface}}\emph{)\nomenclature[CLI]{CLI}{Command Line Interface}
 Este sera tratable como un comando de terminal, al cual se le podrán
 pasar al menos parámetros para realizar las siguientes operaciones%
 \footnote{Las operaciones marcadas con \emph{(V) }tendrán la opción ser puestas
-en modo verboso, lo que hará que muestren por pantalla mayor información
-relacionada con su procesamiento.\emph{ }%
+en modo verborrágico, lo que hará que muestren por pantalla mayor
+información relacionada con su procesamiento.\emph{ }%
 }:
 \begin{enumerate}
-\item \emph{Procesar el conocimiento en la KB (V): }Sera la opción por defecto
-en la cual solo procesara el conocimiento existente en la KB para
-obtener nuevas conclusiones a los posibles experimentos. \\
-Dicho proceso podrá ser detenido por el usuario mediante una combinación
-de teclas preestablecidas por FuL. En cuyo caso guardara el estado
-actual del procesamiento para ser continuado posteriormente.
 \item \emph{Introducir un archivo con conocimiento en la KB (V):} Parsea
-y chequea consistencia de dicho conocimiento para luego chequear incongruencias
+y chequea consistencia de dicho conocimiento para luego chequear contradicciones
 de este con la KB. En caso de éxito se agregara a la KB, caso contrario
 sera rechazado en su totalidad.
-\item \emph{Realizar un consulta de un experimento de tipo }$A\Longrightarrow B$
+\item \emph{Procesar el conocimiento en la KB (V): }Será la opción por defecto
+en la cual solo procesará el conocimiento existente en la KB para
+obtener nuevas conclusiones a los posibles experimentos. 
+\item \emph{Realizar un consulta de una meta lógica de tipo }$A\Longrightarrow B$
 \emph{(V): }Chequea la valides de dicha consulta. En caso de ser valida
-FuL responderá con un valor booleano o con una lista de experimentos
-de tipo $A\Longrightarrow B$ para los cuales no tiene respuesta.
-En caso de ser invalida mostrara el mensaje de error correspondiente.
+FuL responderá con un valor booleano o con una lista de metas lógicas
+de tipo $A\Longrightarrow B$ para los cuales no tiene respuesta%
+\begin{comment}
+Preguntar a Carlos : Debería recibir mas información que un booleano
+en caso de tener respuesta ? Quizás mostrar toda la linea de pensamiento
+utilizada para responder a dicho experimento. Respuesta de Carlos:
+Si, viene muy bien ( ver charla en gmail ). Hay herramientas muy útiles
+para esto que podemos aprovechar.
+\end{comment}
+{}. En caso de ser invalida mostrara el mensaje de error correspondiente.
 \item \emph{Agregar una nueva extensión a FuL (V): }El usuario introducirá
 el nombre de archivo de la extensión que desea agregar. En caso de
 que dicho archivo no sea valido o surja algún error sera informado
@@ -263,16 +295,22 @@ mencionadas.%
 }
 \end{enumerate}
 
-\subsubsection{Lenguaje formal}
+\subsubsection{Lenguaje Formal}
 
 Es el lenguaje a través del cual el usuario deberá utilizar para introducir
 conocimiento y realizar consultas a FuL. También es con el cual se
 presentaran los resultados de las operaciones solicitadas. Dicho lenguaje
-sera capas de representar conocimiento relacionado con el área de
+sera capaz de representar conocimiento relacionado con el área de
 Virología%
 \footnote{Pero no exclusivamente.%
 } , el cual tendrá la propiedad de ser almacenable en una KB y ser
-interpretado por una extensión DL.
+interpretado por una extensión.%
+\begin{comment}
+No debería poner acá el lenguaje que usara FuL para representar el
+conocimiento? Si, pero solo a grandes rasgos como es y que conocimiento
+va a representar.
+\end{comment}
+{}
 
 
 \subsection{Interfaces de Hardware}
@@ -285,33 +323,21 @@ No hay requerimientos especificados.
 El producto tendrá los siguientes módulos :
 \begin{enumerate}
 \item \emph{fulmop : }Este es producto principal, el cual se encarga de
-interactuar con la KB, ful\foreignlanguage{english}{planner} y las
-extensiones para realizar las operaciones pedidas por el usuario.
-Para este propósito fulmop realiza intercambios de mensajes, escritos
-en el lenguaje formal provisto por el producto, para así obtener nuevas
-respuestas y continuar el ciclo hasta finalizar la operación solicitada
-satisfactoriamente%
-\footnote{Ver la definición de cada operación en requerimientos funcionales
-para interpretar que significa ser finalizada satisfactoriamente en
-cada caso.%
-}.
-\item \emph{fulplanner : }Es el encargado de organizar el proceso de razonamiento,
-preguntando a fulmop que consecuencias se puede derivar de un determinado
-conocimiento. Las respuestas recibidas son agregadas a la planificación
-del experimento. No es capas de interpretar conocimiento alguno, solo
-interrelacionarlo en base a las respuestas recibidas de fulmop. Este
-ultimo sera el encargado de pedirle a fulplanner los experimentos
-para los cuales requiere respuesta y pedirle el estado actual del
-grafo de planificación. El lenguaje utilizado por fulplanner es el
-mismo que utiliza fulmop para representar conocimiento.
+articular los otros componentes, tales como la KB, ful\foreignlanguage{english}{planner}
+y las extensiones para realizar las operaciones pedidas por el usuario.
+\item \emph{ful}\foreignlanguage{english}{\emph{planner}}\emph{ : }Es el
+encargado de organizar el proceso de razonamiento.
 \item \emph{fulapi : }Es la API definida para interactuar con las extensiones
-creadas por terceros. Principalmente permitirá a fulmop realizar preguntas
-a las extensiones acerca de un determinado conocimiento y que estas
-le devuelvan una respuesta de la misma forma.
+creadas por terceros. 
 \item \emph{fuldl :} Extensión que permite interpretar conocimiento entendible
 por lenguajes DL. Actúa de la misma manera que cualquier otra extensión,
 recibiendo conocimiento a ser interpretado y devolviendo nuevo conocimiento
-respecto de este.
+respecto de este.%
+\begin{comment}
+Creo que es un poco pobre y debería extenderme mas en este punto.
+No se si aquí o en requerimientos funcionales.
+\end{comment}
+{}
 \end{enumerate}
 
 \subsection{Interfaces de Comunicación}
@@ -320,7 +346,332 @@ No hay requerimientos especificados.
 
 \pagebreak{}
 
-\printnomenclature[5cm]{}
+
+\section{Requerimientos Funcionales }
 
 
+\paragraph{Nomenclatura}
+\begin{itemize}
+\item ERROR\_EXIT\emph{ :} La CLI deberá informar al usuario de los errores
+ocurridos y se finalizara dicha operación. 
+\end{itemize}
+
+\subsection{REQ Introducir Conocimiento en la KB}
+\begin{itemize}
+\item \textbf{\emph{Objetivo :}} El objetivo de este requerimiento es permitirle
+al usuario introducir conocimiento en la KB.
+\item \textbf{\emph{Prioridad :}} Alta
+\item \textbf{\emph{Descripción :}}\emph{ }%
+\begin{comment}
+Preguntar a Daniel : Acaso no debería mostrar ahora cual es el nuevo
+conocimiento que se desprende del que se agrego actualmente ?
+\end{comment}
+{}
+
+\begin{enumerate}
+\item \emph{Apertura : }La CLI deberá proveer una opción para introducirle
+como parámetro el nombre del archivo a ser abierto. En caso de no
+poder ser abierto, ERROR\_EXIT.
+\item \emph{Lectura, validación sintáctica y gramatical :} Se leerá el contenido
+del archivo. En caso de que su contenido no corresponda con el lenguaje
+formal especificado por FuL, ERROR\_EXIT. 
+\item \emph{Validación de la semántica interna del archivo :} Se deberá
+validar que cada una de las afirmaciones en el archivo no se contradicen
+entre si. En caso de encontrarse alguna contradicción, ERROR\_EXIT.
+\item \emph{Validación de la semántica del archivo respecto de la KB de
+FuL : }Se deberá validar las afirmaciones en el archivo con las existentes
+en la KB de FuL. En caso de encontrarse contradicciones entre dichos
+conjuntos, ERROR\_EXIT.
+\item \emph{Registrado de las afirmaciones : }Se deberá registrar las afirmaciones
+presentes en el archivo en la KB. Finalizado el registrado se deberá
+mostrar al usuario, mediante la CLI, un aviso del registrado exitoso
+de las afirmaciones contenidas en el archivo.\emph{ }
+\end{enumerate}
+\end{itemize}
+
+\subsection{REQ Procesar el Conocimiento en la KB}
+\begin{itemize}
+\item \textbf{\emph{Objetivo :}} El objetivo de este requerimiento es permitirle
+al usuario procesar el conocimiento existente en la KB de FuL para
+obtener nuevo conocimiento, el cual sera agregado a esta.
+\item \textbf{\emph{Prioridad : }}Alta
+\item \textbf{\emph{Descripción : }}%
+\begin{comment}
+Preguntar a Daniel : Debería existir algún parámetro de entrada aparte
+de verbosidad o cosa similar ?
+\end{comment}
+{} %
+\begin{comment}
+Preguntar a Daniel: En este caso no debe existir hipótesis alguna,
+donde especifico esto ?
+\end{comment}
+{}
+
+\begin{enumerate}
+\item \emph{Obtención del conjunto de inicio : }fulmop deberá obtener el
+conjunto de estados iniciales, utilizando el conocimiento existente
+en la KB y las extensiones. 
+\item \emph{Creación de las lineas de pensamiento : }Utilizando dicho conjunto,
+fulplanner deberá crear las lineas de pensamiento correspondientes
+a cada uno.
+\item \emph{Expansión de las lineas de pensamiento : }fulmop, utilizando
+su KB y las extensiones, deberá expandir los estados de cada una de
+las lineas de pensamiento creadas por fulplanner. Se deberá eliminar
+todo ciclo  presente en las lineas de pensamiento. Cada ciclo deberá
+eliminarse evitando eliminar otras lineas de pensamiento presentes
+en este que no sean cíclicas. Las lineas de pensamiento deberán ser
+extendidas hasta el punto de que no sea posible extenderlas mas.\emph{}%
+\begin{comment}
+Este paso estaba dividido en 3 pasos, pero como había un ciclo entre
+ellos decidí fusionarlos todos en uno solo para evitar introducir
+diseño/implementación.
+\end{comment}
+{}
+\item \emph{Registrado del nuevo conocimiento en la KB : }fulmop deberá
+registrar en la KB el nuevo conocimiento derivable de las lineas de
+pensamiento obtenidas.
+\item \emph{Mostrar el nuevo conocimiento obtenido : }El nuevo conocimiento
+registrado en la KB deberá ser devuelto al usuario mediante la CLI,
+ya sea devolviendo las lineas de pensamiento obtenidas y/o una explicación
+del significado de las mismas.
+\end{enumerate}
+\end{itemize}
+
+\subsection{REQ Consultar Metas Lógicas de Tipo \emph{$A\Longrightarrow B$ }}
+\begin{itemize}
+\item \textbf{\emph{Objetivo :}} El objetivo de este requerimiento es permitirle
+al usuario consultar las conclusiones a las que FuL puede llegar para
+una meta lógica de tipo \emph{$A\Longrightarrow B$}.
+\item \textbf{\emph{Prioridad : }}Alta
+\item \textbf{\emph{Descripción :}}\emph{ }%
+\begin{comment}
+Preguntar a Daniel y Carlos : Se desea poder decir cual es el limite
+máximo de hipótesis por linea de pensamiento, para evitar así un excesivo
+uso de suposiciones ? También deberían considerarse otras formas de
+limitar las hipótesis aparte de la cardinalidad ?
+\end{comment}
+{}\emph{}%
+\begin{comment}
+Pregunta para Daniel : Desde el paso 4 hasta el paso 9 se encuentra
+presente un ciclo y esto me resulta demasiado algorítmico. Debería
+eliminarlo por ser parte de diseño/implementación ?
+\end{comment}
+{}
+
+\begin{enumerate}
+\item \emph{Ingreso del Experimento : }La CLI deberá proveer una opción
+para introducir la meta lógica de tipo \emph{$A\Longrightarrow B$
+}a ser consultado. 
+\item \emph{Lectura, validación sintáctica y gramatical : }Una vez introducida
+la meta lógica se validara que su sintaxis corresponda con la del
+lenguaje formal definido en FuL. En caso contrario, ERROR\_EXIT.
+\item \emph{Validación de definiciones : }Si la meta lógica esta bien definida
+respecto del lenguaje formal entonces validaremos las definiciones
+$A$ y $B$, utilizando la KB y las extensiones. En caso de no sean
+validas, ERROR\_EXIT.
+\item \emph{Iniciado de fulplanner : }Si $A$ y $B$ son definiciones validas,
+entonces se procederá a iniciar fulplanner con la definición $A$
+como su estado inicial.
+\item \emph{Expansión a nuevos estados :}%
+\begin{comment}
+Discutir con Daniel y Carlos : Las propiedades presentes en cada estado
+deberían poder representarse como verdaderas, falsas o desconocidas.
+Podría definirse que las propiedades no presentes en el estado se
+consideran desconocidas.\\
+ La necesidad de representar dichos estados proviene de que los
+requerimos para poder demostrar, en un experimento o validación de
+nuevo conocimiento, cuales son las lineas de pensamiento que dieron
+un resultado positivo u negativo y cual fue el conjunto de hipótesis
+utilizadas para llegar a dicha conclusión en cada linea. \\
+El problema con esta forma de presentarlo es que habría tantos
+desconocidos como definiciones en la KB de fulmop y de las extensiones
+( debería tener en cuentas las extensiones también para esto ??!?!
+)
+\end{comment}
+{}%
+\begin{comment}
+\emph{(Versión demasiado rebuscada) Obtención del conjunto de conceptos
+derivables de $X$ (INT\_ERROR): }Iniciado fulplanner, se le enviara
+a fulmop el conjunto $X$ para que obtenga\begin{multline*}
+Y=\{C\rightarrow D\,:\, D\in def(KB)\wedge\\
+C=\min\{C\subseteq X:C\underset{KB}{\overset{1}{\vDash}}D\}\,\wedge\\
+\nexists E\subseteq X:E\underset{KB}{\overset{1}{\vDash}}\neg D\}\end{multline*}
+
+\end{comment}
+{}\emph{ }Luego fulmop deberá tomar los estados que no han sido expandidos
+y, mediante KB y las extensiones, obtener los nuevos estados a los
+que estos pueden ser expandidos.
+\item \emph{Agregación de los nuevos estados : }fulplanner conectara a los
+estados a expandir los nuevos estados obtenidos para estos. Si se
+obtuvieron nuevos estados para alguno de los estados a expandir entonces
+se procederá al paso siguiente. En caso contrario se procederá al
+paso final.
+\item \emph{Eliminación de ciclos : }fulplanner deberá eliminar todo ciclo%
+\footnote{Léase como la presencia de $A\rightarrow A$ en alguna parte de la
+planificación.%
+} presente en la planificación. Cada ciclo deberá eliminarse evitando
+eliminar otras lineas de pensamiento presentes en este que no sean
+cíclicas.%
+\begin{comment}
+Esta ultima linea no esta clara ni tampoco se si es necesaria.
+\end{comment}
+{}
+\item \emph{Validación de la presencia de $B$ en la planificación : }Si
+existe en la planificación el estado $B$ tal que es alcanzado desde
+el estado raíz $A$ por una linea de pensamiento afirmativa%
+\footnote{No contiene falsedades ni hipótesis en ella.%
+} entonces se procederá con el paso final. En caso contrario se procederá
+al siguiente.
+\item \emph{Verificación de presencia de estados a expandir : }Si existen
+en la planificación estados a expandir entonces se deberá realizar
+el paso 5.
+\item \emph{Retorno de la planificación obtenida :} Se retorna mediante
+la CLI la planificación obtenida, una explicación del significado
+de la misma y/o el resultado de la operación realizada.%
+\begin{comment}
+Cuales de las 3 deberían estar como retorno ? Debería ser solo un
+output o debería presentarse en algún formato mas manejable y quizás
+también seria deseable poder reintroducir la planificación obtenida
+para luego de ingresar nuevo conocimiento a la KB reprocesar dicha
+planificación.
+\end{comment}
+{}
+\end{enumerate}
+\end{itemize}
+
+\subsection{REQ Prueba: Experimento Junin}
+\begin{itemize}
+\item \textbf{\emph{Objetivo :}} El objetivo de este requerimiento es demostrar
+que FuL es capaz de validar las conclusiones obtenidas en el experimento
+Junin realizado por la fundación FuDePAN. 
+\item \textbf{\emph{Prioridad : }}Alta
+\item \textbf{\emph{Descripción :}}\emph{ }FuL deberá ser capaz de validar
+las conclusiones obtenidas en el experimento. Para esto se deberá
+proveer a FuL de una KB que represente el conocimiento utilizado para
+llegar a dichas conclusiones. Deberá llevar acabo esta prueba mediante
+una consulta de meta lógica.%
+\begin{comment}
+Preguntar a Daniel : Debería poner un link a los documentos relacionados
+con dicho experimento ?
+\end{comment}
+{}
+\end{itemize}
+
+\subsection{REQ Agregar una Nueva Extensión}
+\begin{itemize}
+\item \textbf{\emph{Objetivo :}} El objetivo de este requerimiento es permitirle
+al usuario agregar una nueva extensión a FuL, la cual podrá ser usada
+por fulmop en las otras operaciones representadas en los requerimientos
+previos.
+\item \textbf{\emph{Prioridad : }}Baja
+\item \textbf{\emph{Descripción :}}\emph{ }
+
+\begin{enumerate}
+\item Ingreso : La CLI deberá proveer una opción para introducir el nombre
+del archivo que contiene la extensión a ser agregada, formato del
+archivo TBD%
+\footnote{Esto deberá ser definido en el paso de diseño.%
+}.
+\item Validación : FuL deberá validar que la extensión introducida cumple
+con las interfases definidas en su API y que sus dependencias han
+sido satisfechas.
+\item Instalación : Una vez validada, FuL instalara dicha extensión en el
+entorno de trabajo de FuL. Por ultimo avisara al usuario, mediante
+la CLI, que la instalación se a realizado exitosamente.
+\end{enumerate}
+\end{itemize}
+
+\subsection{REQ Configurar FuL}
+\begin{itemize}
+\item \textbf{\emph{Objetivo :}} El objetivo de este requerimiento es proveer
+al usuario operaciones para configurar los distintos parámetros relacionados
+con el funcionamiento de FuL. 
+\item \textbf{\emph{Prioridad : }}Baja
+\item \textbf{\emph{Descripción :}}\emph{ }Deberá ser capaz de proveer operaciones
+para configurar los distintos aspectos de FuL, tales como parámetros
+relacionados con la KB, extensiones, fulplanner y fulmop. Estos aspectos
+son y el grado de configurabilidad de cada uno sera TBD%
+\footnote{Ya que dependerá del diseño e implementación de los elementos anteriormente
+mencionados.%
+}.
+\end{itemize}
+\pagebreak{}
+
+
+\section{Requerimientos No Funcionales}
+
+
+\subsection{Requerimientos de Diseño}
+
+Deben cumplirse los siguientes requerimientos de diseño :
+\begin{itemize}
+\item En caso de utilizar C++ en su implementación, deberá cumplir los estándares
+ANSI C++, conforme con el \foreignlanguage{english}{coding-guideline}
+definido por FuDePAN. 
+\item Deberá ser capaz de construirse utilizando herramientas GNU. 
+\item El código deberá ser compilado sin advertencias, o las que sean permitidas
+deberán ser documentadas. 
+\end{itemize}
+
+\subsection{Atributos del Software}
+
+El producto debera tener los siguientes atributos :
+\begin{itemize}
+\item Deberá ser testeado el 85\% del código fuente presente en este producto. 
+\item Deberá definirse un lenguaje formal para la representación del conocimiento
+del área de Virología, el cual deberá ser de fácil interpretación
+y utilización tanto por personas calificadas de dicha área como por
+FuL. Su semántica deberá ser capaz de representar el conocimiento
+relacionado con el área de Virología.
+\end{itemize}
+
+\subsection{Restricciones de Memoria}
+
+Deben cumplirse las siguientes restricciones de memoria :
+\begin{itemize}
+\item No deberá haber problemas de memorial o \foreignlanguage{english}{leaks},
+que estén directamente relacionados con el proyecto. 
+\item En caso de que exista código C/C++ en el producto, se deberá utilizar
+el comando \lstinline[language=bash]!valgrind --leak-check=full!
+para corroborar la existencia de \foreignlanguage{english}{leaks}. 
+\item Las dependencias externas que puedan llegar a ser usadas en producto
+no deberán ser tenidas en cuenta a la hora de chequear problemas de
+memoria o \foreignlanguage{english}{leaks}.
+\end{itemize}
+Es importante hacer notar que se requerirá capacidad de almacenamiento%
+\footnote{Tanto solida como volátil.%
+} para el registro del conocimiento y la manipulación del mismo. Por
+lo tanto el desempeño de FuL estará directamente relacionado con la
+maquina en la que se corra.
+
+
+\subsection{Entorno de Funcionamiento}
+
+FuL esta pensado para ser utilizado como una herramienta de consulta
+de conocimiento del área de Virología y para la planificación de experimentos
+relacionados con esta.
+
+Las plataformas en las que deberá correr sera en las basadas en GNU/Linux.
+
+
+\subsection{Licencias}
+
+El código fuente de FuL estará licenciado como GPLv3. Toda la documentación
+generada para el desarrollo de FuL sera licenciada bajo Creative Commons
+para proteger tanto el texto como las ideas presentes en este documento%
+\footnote{Este ultimo punto podría modificarse a futuro para utilizar licencias
+mas seguras para la protección de ideas.%
+}. 
+
+\pagebreak{}
+
+\printnomenclature{}
+
+%
+\begin{comment}
+Preguntar a Daniel : Sigo sin entender por que no hay un requerimiento
+que sirva para buscar conocimiento en la KB sobre una entidad-definición
+determinada.
+\end{comment}
+{}
 \end{document}

@@ -498,6 +498,13 @@ an los requerimientos.
 
 \begin_layout Subsubsection
 Rastreabilidad 
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Rastreabilidad"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -720,7 +727,11 @@ En caso de no serlo lea el IEEE en ingles :P
  Tiene las siguientes secciones :
 \end_layout
 
-\begin_layout Paragraph
+\begin_layout Subsection
+Interfaces
+\end_layout
+
+\begin_layout Subsubsection
 Interfaces de Usuario
 \end_layout
 
@@ -767,7 +778,7 @@ quiet
  
 \end_layout
 
-\begin_layout Paragraph
+\begin_layout Subsubsection
 Interfaces de Software
 \end_layout
 
@@ -788,7 +799,7 @@ Descripción.
 \begin_layout Itemize
 Nro de especificación
 \begin_inset Note Note
-status collapsed
+status open
 
 \begin_layout Plain Layout
 Que va aca ?
@@ -823,26 +834,124 @@ Definir la interfase en términos del contenido de los mensajes y formato.
  
 \end_layout
 
-\begin_layout Paragraph
-Restricciones de Memoria
+\begin_layout Subsection
+Requerimientos funcionales
 \end_layout
 
 \begin_layout Standard
-Especificar cualquier restricción o característica a tener en cuenta tanto
- para memorias primarias como secundarias.
-\end_layout
-
-\begin_layout Paragraph
-Funciones del producto
-\end_layout
-
-\begin_layout Standard
-Esta debe proveer un sumario de las funciones principales del producto.
+Esta sección debe contener todos los requerimientos de software en un nivel
+ de detalle suficiente como para permitirle diseñar un sistema que satisfaga
+ dichos requerimientos y los test que sirvan para corroborar que el sistema
+ los satisface.
 \end_layout
 
 \begin_layout Standard
+Cada uno de estos requerimientos deberá ser perceptible por el usuario,
+ operadores, u otros sistemas externos.
+ Estos deberán proveer un mínimo de las descripciones de cada entrada
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+Algo representativo de casos validos e inválidos, tanto como la mayor cantidad
+ de casos especiales posibles.
+\end_layout
+
+\end_inset
+
+, salida y todas las funciones realizadas por el sistema en respuesta a
+ una entrada o en soporte a una salida.
+ Se aplican los siguientes principios: 
+\end_layout
+
+\begin_layout Enumerate
+Los requerimientos específicos deberán ser especificado conforme con las
+ características descriptas en 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:Rastreabilidad"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Los requerimientos especificados deberán tener referencias cruzadas a los
+ documentos previos que tengan relación con este.
+ 
+\end_layout
+
+\begin_layout Enumerate
+Todos deberán ser identificables unívocamente.
+ 
+\end_layout
+
+\begin_layout Enumerate
+Atender cuidadosamente al organizado de los requerimientos para maximizar
+ legibilidad.
+\end_layout
+
+\begin_layout Standard
+Los requerimientos funcionales deben definir las acciones fundamentales
+ que deben suceder en el producto en el aceptado y procesado de entradas
+ así como también en la generación de salidas.
+ Estos son listados como 
+\emph on
+Deberas.
+\end_layout
+
+\begin_layout Standard
+Estos incluyen:
+\end_layout
+
+\begin_layout Enumerate
+Chequeo de valides de las entradas.
+\end_layout
+
+\begin_layout Enumerate
+Secuencia exacta de las operaciones.
+\end_layout
+
+\begin_layout Enumerate
+Respuestas de a situaciones anormales.
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Overflow.
+\end_layout
+
+\begin_layout Enumerate
+Facilidad de comunicación.
+\end_layout
+
+\begin_layout Enumerate
+Manejo de errores y recuperación.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Efectos de los parámetros.
+\end_layout
+
+\begin_layout Enumerate
+Relación entre las salidas y las entradas.
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Secuencias Entrada/Salida.
+\end_layout
+
+\begin_layout Enumerate
+Formulas para convertir entradas en salidas.
+\end_layout
+
+\begin_layout Enumerate
 
 \end_layout
 
+\end_deeper
 \end_body
 \end_document

@@ -1,35 +1,29 @@
-#LyX 2.0 created this file. For more info see http://www.lyx.org/
-\lyxformat 413
+#LyX 1.6.5 created this file. For more info see http://www.lyx.org/
+\lyxformat 345
 \begin_document
 \begin_header
 \textclass article
 \begin_preamble
+% Added by lyx2lyx
+\setlength{\nomlabelwidth}{5cm}
 
 \usepackage[toc, page, header]{appendix}\renewcommand{\appendixtocname}{Apendices}
 \renewcommand{\appendixpagename}{Apendices}
 \usepackage{amsfonts}
 \end_preamble
 \use_default_options false
-\maintain_unincluded_children false
 \language spanish
-\language_package auto
 \inputencoding auto
-\fontencoding global
 \font_roman default
 \font_sans default
 \font_typewriter default
 \font_default_family default
-\use_non_tex_fonts false
 \font_sc false
 \font_osf false
 \font_sf_scale 100
 \font_tt_scale 100
 
 \graphics default
-\default_output_format default
-\output_sync 0
-\bibtex_command default
-\index_command makeindex
 \paperfontsize 10
 \spacing single
 \use_hyperref false
@@ -37,31 +31,21 @@
 \use_geometry false
 \use_amsmath 2
 \use_esint 1
-\use_mhchem 1
-\use_mathdots 1
 \cite_engine basic
 \use_bibtopic false
-\use_indices false
 \paperorientation portrait
-\suppress_date false
-\use_refstyle 0
-\index Índice
-\shortcut idx
-\color #008000
-\end_index
 \secnumdepth 3
 \tocdepth 3
 \paragraph_separation indent
-\paragraph_indentation default
+\defskip medskip
 \quotes_language french
 \papercolumns 1
 \papersides 1
 \paperpagestyle headings
 \tracking_changes false
 \output_changes false
-\html_math_output 0
-\html_css_as_file 0
-\html_be_strict false
+\author "" 
+\author "" 
 \end_header
 
 \begin_body
@@ -221,20 +205,8 @@ description "Knowledge Base (Base de Conocimiento)"
 
 \emph default
  del área de virología, organizar, analizar, chequear incongruencias en
- ella y poder utilizarla para planificar 
-\emph on
-experimentos
-\emph default
- 
-\begin_inset CommandInset nomenclature
-LatexCommand nomenclature
-prefix "Experimento"
-symbol "$Experimento$"
-description "Pregunta (Mejorar luego)"
-
-\end_inset
-
-.
+ ella y poder utilizarla para asistir en la planificación de experimentos
+ .
  A la vez que introducimos nuevos conocimientos a la KB, ésta deberá pasar
  por los procesos previamente nombrados.
  
@@ -359,9 +331,9 @@ Perspectiva del Producto
 
 \begin_layout Standard
 Este producto trata de proveer a la comunidad científica una herramienta
- para organización, interpretación, verificación y exploración del conocimiento
- del área de virología que se le otorga , para así poder encontrar incongruencia
-s y conclusiones derivadas automáticamente de dicho conocimiento.
+ para la organización, interpretación, verificación y exploración del conocimien
+to en el área de virología, para así poder encontrar incongruencias y conclusion
+es derivadas automáticamente de dicho conocimiento.
 \end_layout
 
 \begin_layout Standard
@@ -383,33 +355,6 @@ Las secciones marcadas con * son opcionales o serán incluidas en trabajos
 \end_layout
 
 \begin_layout Subsubsection
-Procesamiento de la KB 
-\end_layout
-
-\begin_layout Standard
-Provee la capacidad de procesar la información presente en la KB para así
- obtener nuevas conclusiones del conocimiento disponible en ella.
- Este proceso puede ser detenido y guardado para continuarlo posteriormente
-\begin_inset Note Note
-status collapsed
-
-\begin_layout Plain Layout
-Idea a Futuro!: Me gustaría que dicho proceso se pudiera continuar con una
- KB distinta, para así poder convertir este sistema en un servicio online
- dinámico.
- Esto requiere que se chequeen inconsistencias en las aseveraciones realizadas.
- Otra opción es que se tenga una KB frontend para consultas y una backend
- para que se introduzca y procese nuevo conocimiento.
- Para este ultimo caso se deberá definir la forma de actualización de la
- KB frontend con la backend.
-\end_layout
-
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Subsubsection
 Introducir nuevo conocimiento a la KB
 \end_layout
 
@@ -425,45 +370,71 @@ Dicho lenguaje será traducible a lenguajes de representación de datos.
 \end_inset
 
 , introducir conocimiento a la KB el cual sera chequeado para encontrar
- incongruencias
-\begin_inset Note Note
-status collapsed
-
-\begin_layout Plain Layout
-Preguntar al Carlos: Incongruencias o Contradicciones ? Cual es la diff
- ?
-\end_layout
-
-\end_inset
-
- con esta, para luego ser aceptado o mostrar las encontradas.
+ contradicciones con esta, para luego ser aceptado o mostrar las encontradas.
 \end_layout
 
 \begin_layout Subsubsection
-Planificar experimentos
+Procesamiento de la KB 
 \end_layout
 
 \begin_layout Standard
-Provee la capacidad de planificar un experimento, encontrar las conclusiones
- a los experimentos intermedios y proponer los experimentos intermedios
- que se deben realizar para obtener una conclusión para el que fue consultado
- inicialmente.
+Provee la capacidad de procesar la información presente en la KB para así
+ obtener nuevas conclusiones del conocimiento disponible en ella 
+\begin_inset Note Comment
+status collapsed
+
+\begin_layout Plain Layout
+Idea a Futuro!:Este proceso debería poderse detener y guardarlo para continuarlo
+ posteriormente.
+ Me gustaría que dicho proceso se pudiera continuar con una KB distinta,
+ para así poder convertir este sistema en un servicio online dinámico.
+ Esto requiere que se chequeen inconsistencias en las aseveraciones realizadas.
+ Otra opción es que se tenga una KB frontend para consultas y una backend
+ para que se introduzca y procese nuevo conocimiento.
+ Para este ultimo caso se deberá definir la forma de actualización de la
+ KB frontend con la backend.
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsubsection
+Asistir en la planificación de experimentos
 \end_layout
 
 \begin_layout Standard
-Dichos experimentos deben ser equivalentes a preguntas del tipo 
+Provee la capacidad de responder preguntas objetivo y, en caso de no ser
+ capaz de responder dicha pregunta, devolver preguntas relevantes para la
+ que fue introducida.
+ Se dice que son relevantes ya que deben ser contestadas para poder llegar
+ a una respuesta para la pregunta objetivo.
+ Dichas preguntas objetivo serán metas lógicas del tipo 
 \begin_inset Formula $A\Longrightarrow B$
 \end_inset
 
-, siendo 
-\begin_inset Formula $A$
+
+\begin_inset Note Comment
+status collapsed
+
+\begin_layout Plain Layout
+Debería hablar de estas como metas lógicas o seguirles llamando preguntas
+ objetivo.
+ Pregunto esto por que en los requerimientos funcionales habíamos convenido
+ de que las denominaríamos como metas lógicas.
+\end_layout
+
 \end_inset
 
- el punto de partida y 
-\begin_inset Formula $B$
-\end_inset
+.
+\end_layout
 
- la meta a alcanzar por dicho experimento.
+\begin_layout Standard
+Estas preguntas devueltas son útiles para el usuario en el desarrollo de
+ sus experimentos, ya que sirven para la confección de arboles de hipótesis
+ y planeamiento de escenarios.
+ 
 \end_layout
 
 \begin_layout Subsubsection
@@ -538,17 +509,13 @@ status collapsed
 
 \begin_layout Plain Layout
 Se propuso restringirlo a los arenavirus y los retrovirus.
- Se decidirá acorde con las necesidades del cliente y los tiempos disponibles.
+ Se decidirá acorde con las necesidades de FuDePAN y los tiempos disponibles.
 \end_layout
 
 \end_inset
 
-.
- 
-\end_layout
 
-\begin_layout Standard
-\begin_inset Note Note
+\begin_inset Note Comment
 status collapsed
 
 \begin_layout Plain Layout
@@ -565,7 +532,8 @@ Respuesta de Daniel : Por ahora no nos interesa, cuando tengamos la necesidad
 
 \end_inset
 
-
+.
+ 
 \end_layout
 
 \begin_layout Standard
@@ -576,7 +544,7 @@ Respuesta de Daniel : Por ahora no nos interesa, cuando tengamos la necesidad
 \end_layout
 
 \begin_layout Section
-Interfases
+Interfaces
 \end_layout
 
 \begin_layout Subsection
@@ -584,9 +552,9 @@ Interfaces de Sistema
 \end_layout
 
 \begin_layout Standard
-Sera capas de correr al menos en sistemas GNU/Linux, así que por este hecho
- solo se utilizaran librerías compatibles con sistemas GNU/Linux.
-\begin_inset Note Note
+Será capaz de correr al menos en sistemas GNU/Linux, así que por este hecho
+ sólo se utilizaran librerías compatibles con sistemas GNU/Linux.
+\begin_inset Note Comment
 status collapsed
 
 \begin_layout Plain Layout
@@ -625,7 +593,7 @@ y un lenguaje formal,
 \emph on
  
 \emph default
-detallados a continuación.
+descriptos a continuación.
 \end_layout
 
 \begin_layout Subsubsection
@@ -643,7 +611,7 @@ Las operaciones marcadas con
 \emph on
 (V) 
 \emph default
-tendrán la opción ser puestas en modo verboso, lo que hará que muestren
+tendrán la opción ser puestas en modo verborrágico, lo que hará que muestren
  por pantalla mayor información relacionada con su procesamiento.
 
 \emph on
@@ -658,27 +626,10 @@ tendrán la opción ser puestas en modo verboso, lo que hará que muestren
 \begin_layout Enumerate
 
 \emph on
-Procesar el conocimiento en la KB (V): 
-\emph default
-Sera la opción por defecto en la cual solo procesara el conocimiento existente
- en la KB para obtener nuevas conclusiones a los posibles experimentos.
- 
-\begin_inset Newline newline
-\end_inset
-
-Dicho proceso podrá ser detenido por el usuario mediante una combinación
- de teclas preestablecidas por FuL.
- En cuyo caso guardara el estado actual del procesamiento para ser continuado
- posteriormente.
-\end_layout
-
-\begin_layout Enumerate
-
-\emph on
 Introducir un archivo con conocimiento en la KB (V):
 \emph default
  Parsea y chequea consistencia de dicho conocimiento para luego chequear
- incongruencias de este con la KB.
+ contradicciones de este con la KB.
  En caso de éxito se agregara a la KB, caso contrario sera rechazado en
  su totalidad.
 \end_layout
@@ -686,7 +637,17 @@ Introducir un archivo con conocimiento en la KB (V):
 \begin_layout Enumerate
 
 \emph on
-Realizar un consulta de un experimento de tipo 
+Procesar el conocimiento en la KB (V): 
+\emph default
+Será la opción por defecto en la cual solo procesará el conocimiento existente
+ en la KB para obtener nuevas conclusiones a los posibles experimentos.
+ 
+\end_layout
+
+\begin_layout Enumerate
+
+\emph on
+Realizar un consulta de una meta lógica de tipo 
 \emph default
 
 \begin_inset Formula $A\Longrightarrow B$
@@ -698,18 +659,20 @@ Realizar un consulta de un experimento de tipo
 \emph default
 Chequea la valides de dicha consulta.
  En caso de ser valida FuL responderá con un valor booleano o con una lista
- de experimentos de tipo 
+ de metas lógicas de tipo 
 \begin_inset Formula $A\Longrightarrow B$
 \end_inset
 
  para los cuales no tiene respuesta
-\begin_inset Note Note
+\begin_inset Note Comment
 status collapsed
 
 \begin_layout Plain Layout
 Preguntar a Carlos : Debería recibir mas información que un booleano en
  caso de tener respuesta ? Quizás mostrar toda la linea de pensamiento utilizada
  para responder a dicho experimento.
+ Respuesta de Carlos: Si, viene muy bien ( ver charla en gmail ).
+ Hay herramientas muy útiles para esto que podemos aprovechar.
 \end_layout
 
 \end_inset
@@ -751,18 +714,7 @@ Dependerá de factores relacionados con el diseño e implementación de la
 \end_layout
 
 \begin_layout Subsubsection
-Lenguaje formal
-\begin_inset Note Note
-status collapsed
-
-\begin_layout Plain Layout
-No debería poner acá el lenguaje que usara FuL para representar el conocimiento?
- Si, pero solo a grandes rasgos como es y que conocimiento va a representar.
-\end_layout
-
-\end_inset
-
-
+Lenguaje Formal
 \end_layout
 
 \begin_layout Standard
@@ -770,7 +722,7 @@ Es el lenguaje a través del cual el usuario deberá utilizar para introducir
  conocimiento y realizar consultas a FuL.
  También es con el cual se presentaran los resultados de las operaciones
  solicitadas.
- Dicho lenguaje sera capas de representar conocimiento relacionado con el
+ Dicho lenguaje sera capaz de representar conocimiento relacionado con el
  área de Virología
 \begin_inset Foot
 status collapsed
@@ -782,7 +734,18 @@ Pero no exclusivamente.
 \end_inset
 
  , el cual tendrá la propiedad de ser almacenable en una KB y ser interpretado
- por una extensión DL.
+ por una extensión.
+\begin_inset Note Comment
+status collapsed
+
+\begin_layout Plain Layout
+No debería poner acá el lenguaje que usara FuL para representar el conocimiento?
+ Si, pero solo a grandes rasgos como es y que conocimiento va a representar.
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsection
@@ -806,43 +769,24 @@ El producto tendrá los siguientes módulos :
 \emph on
 fulmop : 
 \emph default
-Este es producto principal, el cual se encarga de interactuar con la KB,
- ful
+Este es producto principal, el cual se encarga de articular los otros componente
+s, tales como la KB, ful
 \lang english
 planner
 \lang spanish
  y las extensiones para realizar las operaciones pedidas por el usuario.
- Para este propósito fulmop realiza intercambios de mensajes, escritos en
- el lenguaje formal provisto por el producto, para así obtener nuevas respuestas
- y continuar el ciclo hasta finalizar la operación solicitada satisfactoriamente
-\begin_inset Foot
-status collapsed
-
-\begin_layout Plain Layout
-Ver la definición de cada operación en requerimientos funcionales para interpret
-ar que significa ser finalizada satisfactoriamente en cada caso.
-\end_layout
-
-\end_inset
-
-.
 \end_layout
 
 \begin_layout Enumerate
 
 \emph on
-fulplanner : 
+ful
+\lang english
+planner
+\lang spanish
+ : 
 \emph default
-Es el encargado de organizar el proceso de razonamiento, preguntando a fulmop
- que consecuencias se puede derivar de un determinado conocimiento.
- Las respuestas recibidas son agregadas a la planificación del experimento.
- No es capas de interpretar conocimiento alguno, solo interrelacionarlo
- en base a las respuestas recibidas de fulmop.
- Este ultimo sera el encargado de pedirle a fulplanner los experimentos
- para los cuales requiere respuesta y pedirle el estado actual del grafo
- de planificación.
- El lenguaje utilizado por fulplanner es el mismo que utiliza fulmop para
- representar conocimiento.
+Es el encargado de organizar el proceso de razonamiento.
 \end_layout
 
 \begin_layout Enumerate
@@ -851,9 +795,7 @@ Es el encargado de organizar el proceso de razonamiento, preguntando a fulmop
 fulapi : 
 \emph default
 Es la API definida para interactuar con las extensiones creadas por terceros.
- Principalmente permitirá a fulmop realizar preguntas a las extensiones
- acerca de un determinado conocimiento y que estas le devuelvan una respuesta
- de la misma forma.
+ 
 \end_layout
 
 \begin_layout Enumerate
@@ -865,7 +807,7 @@ fuldl :
  DL.
  Actúa de la misma manera que cualquier otra extensión, recibiendo conocimiento
  a ser interpretado y devolviendo nuevo conocimiento respecto de este.
-\begin_inset Note Note
+\begin_inset Note Comment
 status collapsed
 
 \begin_layout Plain Layout
@@ -893,11 +835,918 @@ No hay requerimientos especificados.
 
 \end_layout
 
+\begin_layout Section
+Requerimientos Funcionales 
+\end_layout
+
+\begin_layout Paragraph
+Nomenclatura
+\end_layout
+
+\begin_layout Itemize
+ERROR_EXIT
+\emph on
+ :
+\emph default
+ La CLI deberá informar al usuario de los errores ocurridos y se finalizara
+ dicha operación.
+ 
+\end_layout
+
+\begin_layout Subsection
+REQ Introducir Conocimiento en la KB
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\emph on
+Objetivo :
+\series default
+\emph default
+ El objetivo de este requerimiento es permitirle al usuario introducir conocimie
+nto en la KB.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\emph on
+Prioridad :
+\series default
+\emph default
+ Alta
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\emph on
+Descripción :
+\series default
+ 
+\emph default
+
+\begin_inset Note Comment
+status collapsed
+
+\begin_layout Plain Layout
+Preguntar a Daniel : Acaso no debería mostrar ahora cual es el nuevo conocimient
+o que se desprende del que se agrego actualmente ?
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+
+\emph on
+Apertura : 
+\emph default
+La CLI deberá proveer una opción para introducirle como parámetro el nombre
+ del archivo a ser abierto.
+ En caso de no poder ser abierto, ERROR_EXIT.
+\end_layout
+
+\begin_layout Enumerate
+
+\emph on
+Lectura, validación sintáctica y gramatical :
+\emph default
+ Se leerá el contenido del archivo.
+ En caso de que su contenido no corresponda con el lenguaje formal especificado
+ por FuL, ERROR_EXIT.
+ 
+\end_layout
+
+\begin_layout Enumerate
+
+\emph on
+Validación de la semántica interna del archivo :
+\emph default
+ Se deberá validar que cada una de las afirmaciones en el archivo no se
+ contradicen entre si.
+ En caso de encontrarse alguna contradicción, ERROR_EXIT.
+\end_layout
+
+\begin_layout Enumerate
+
+\emph on
+Validación de la semántica del archivo respecto de la KB de FuL : 
+\emph default
+Se deberá validar las afirmaciones en el archivo con las existentes en la
+ KB de FuL.
+ En caso de encontrarse contradicciones entre dichos conjuntos, ERROR_EXIT.
+\end_layout
+
+\begin_layout Enumerate
+
+\emph on
+Registrado de las afirmaciones : 
+\emph default
+Se deberá registrar las afirmaciones presentes en el archivo en la KB.
+ Finalizado el registrado se deberá mostrar al usuario, mediante la CLI,
+ un aviso del registrado exitoso de las afirmaciones contenidas en el archivo.
+
+\emph on
+ 
+\end_layout
+
+\end_deeper
+\begin_layout Subsection
+REQ Procesar el Conocimiento en la KB
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\emph on
+Objetivo :
+\series default
+\emph default
+ El objetivo de este requerimiento es permitirle al usuario procesar el
+ conocimiento existente en la KB de FuL para obtener nuevo conocimiento,
+ el cual sera agregado a esta.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\emph on
+Prioridad : 
+\series default
+\emph default
+Alta
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\emph on
+Descripción : 
+\series default
+\emph default
+
+\begin_inset Note Comment
+status collapsed
+
+\begin_layout Plain Layout
+Preguntar a Daniel : Debería existir algún parámetro de entrada aparte de
+ verbosidad o cosa similar ?
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Note Comment
+status collapsed
+
+\begin_layout Plain Layout
+Preguntar a Daniel: En este caso no debe existir hipótesis alguna, donde
+ especifico esto ?
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+
+\emph on
+Obtención del conjunto de inicio : 
+\emph default
+fulmop deberá obtener el conjunto de estados iniciales, utilizando el conocimien
+to existente en la KB y las extensiones.
+ 
+\end_layout
+
+\begin_layout Enumerate
+
+\emph on
+Creación de las lineas de pensamiento : 
+\emph default
+Utilizando dicho conjunto, fulplanner deberá crear las lineas de pensamiento
+ correspondientes a cada uno.
+\end_layout
+
+\begin_layout Enumerate
+
+\emph on
+Expansión de las lineas de pensamiento : 
+\emph default
+fulmop, utilizando su KB y las extensiones, deberá expandir los estados
+ de cada una de las lineas de pensamiento creadas por fulplanner.
+ Se deberá eliminar todo ciclo  presente en las lineas de pensamiento.
+ Cada ciclo deberá eliminarse evitando eliminar otras lineas de pensamiento
+ presentes en este que no sean cíclicas.
+ Las lineas de pensamiento deberán ser extendidas hasta el punto de que
+ no sea posible extenderlas mas.
+\emph on
+
+\begin_inset Note Comment
+status collapsed
+
+\begin_layout Plain Layout
+Este paso estaba dividido en 3 pasos, pero como había un ciclo entre ellos
+ decidí fusionarlos todos en uno solo para evitar introducir diseño/implementaci
+ón.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+
+\emph on
+Registrado del nuevo conocimiento en la KB : 
+\emph default
+fulmop deberá registrar en la KB el nuevo conocimiento derivable de las
+ lineas de pensamiento obtenidas.
+\end_layout
+
+\begin_layout Enumerate
+
+\emph on
+Mostrar el nuevo conocimiento obtenido : 
+\emph default
+El nuevo conocimiento registrado en la KB deberá ser devuelto al usuario
+ mediante la CLI, ya sea devolviendo las lineas de pensamiento obtenidas
+ y/o una explicación del significado de las mismas.
+\end_layout
+
+\end_deeper
+\begin_layout Subsection
+REQ Consultar Metas Lógicas de Tipo 
+\emph on
+
+\begin_inset Formula $A\Longrightarrow B$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\emph on
+Objetivo :
+\series default
+\emph default
+ El objetivo de este requerimiento es permitirle al usuario consultar las
+ conclusiones a las que FuL puede llegar para una meta lógica de tipo 
+\emph on
+
+\begin_inset Formula $A\Longrightarrow B$
+\end_inset
+
+
+\emph default
+.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\emph on
+Prioridad : 
+\series default
+\emph default
+Alta
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\emph on
+Descripción :
+\series default
+ 
+\begin_inset Note Comment
+status collapsed
+
+\begin_layout Plain Layout
+Preguntar a Daniel y Carlos : Se desea poder decir cual es el limite máximo
+ de hipótesis por linea de pensamiento, para evitar así un excesivo uso
+ de suposiciones ? También deberían considerarse otras formas de limitar
+ las hipótesis aparte de la cardinalidad ?
+\end_layout
+
+\end_inset
+
+
+\begin_inset Note Comment
+status collapsed
+
+\begin_layout Plain Layout
+Pregunta para Daniel : Desde el paso 4 hasta el paso 9 se encuentra presente
+ un ciclo y esto me resulta demasiado algorítmico.
+ Debería eliminarlo por ser parte de diseño/implementación ?
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+
+\emph on
+Ingreso del Experimento : 
+\emph default
+La CLI deberá proveer una opción para introducir la meta lógica de tipo
+ 
+\emph on
+
+\begin_inset Formula $A\Longrightarrow B$
+\end_inset
+
+ 
+\emph default
+a ser consultado.
+ 
+\end_layout
+
+\begin_layout Enumerate
+
+\emph on
+Lectura, validación sintáctica y gramatical : 
+\emph default
+Una vez introducida la meta lógica se validara que su sintaxis corresponda
+ con la del lenguaje formal definido en FuL.
+ En caso contrario, ERROR_EXIT.
+\end_layout
+
+\begin_layout Enumerate
+
+\emph on
+Validación de definiciones : 
+\emph default
+Si la meta lógica esta bien definida respecto del lenguaje formal entonces
+ validaremos las definiciones 
+\begin_inset Formula $A$
+\end_inset
+
+ y 
+\begin_inset Formula $B$
+\end_inset
+
+, utilizando la KB y las extensiones.
+ En caso de no sean validas, ERROR_EXIT.
+\end_layout
+
+\begin_layout Enumerate
+
+\emph on
+Iniciado de fulplanner : 
+\emph default
+Si 
+\begin_inset Formula $A$
+\end_inset
+
+ y 
+\begin_inset Formula $B$
+\end_inset
+
+ son definiciones validas, entonces se procederá a iniciar fulplanner con
+ la definición 
+\begin_inset Formula $A$
+\end_inset
+
+ como su estado inicial.
+\end_layout
+
+\begin_layout Enumerate
+
+\emph on
+Expansión a nuevos estados :
+\emph default
+
+\begin_inset Note Comment
+status collapsed
+
+\begin_layout Plain Layout
+Discutir con Daniel y Carlos : Las propiedades presentes en cada estado
+ deberían poder representarse como verdaderas, falsas o desconocidas.
+ Podría definirse que las propiedades no presentes en el estado se consideran
+ desconocidas.
+\begin_inset Newline newline
+\end_inset
+
+ La necesidad de representar dichos estados proviene de que los requerimos
+ para poder demostrar, en un experimento o validación de nuevo conocimiento,
+ cuales son las lineas de pensamiento que dieron un resultado positivo u
+ negativo y cual fue el conjunto de hipótesis utilizadas para llegar a dicha
+ conclusión en cada linea.
+ 
+\begin_inset Newline newline
+\end_inset
+
+El problema con esta forma de presentarlo es que habría tantos desconocidos
+ como definiciones en la KB de fulmop y de las extensiones ( debería tener
+ en cuentas las extensiones también para esto ??!?! )
+\end_layout
+
+\end_inset
+
+
+\begin_inset Note Comment
+status collapsed
+
+\begin_layout Plain Layout
+
+\emph on
+(Versión demasiado rebuscada) Obtención del conjunto de conceptos derivables
+ de 
+\begin_inset Formula $X$
+\end_inset
+
+ (INT_ERROR): 
+\emph default
+Iniciado fulplanner, se le enviara a fulmop el conjunto 
+\begin_inset Formula $X$
+\end_inset
+
+ para que obtenga
+\begin_inset Formula \begin{multline*}
+Y=\{C\rightarrow D\,:\, D\in def(KB)\wedge\\
+C=\min\{C\subseteq X:C\underset{KB}{\overset{1}{\vDash}}D\}\,\wedge\\
+\nexists E\subseteq X:E\underset{KB}{\overset{1}{\vDash}}\neg D\}\end{multline*}
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\emph on
+ 
+\emph default
+Luego fulmop deberá tomar los estados que no han sido expandidos y, mediante
+ KB y las extensiones, obtener los nuevos estados a los que estos pueden
+ ser expandidos.
+\end_layout
+
+\begin_layout Enumerate
+
+\emph on
+Agregación de los nuevos estados : 
+\emph default
+fulplanner conectara a los estados a expandir los nuevos estados obtenidos
+ para estos.
+ Si se obtuvieron nuevos estados para alguno de los estados a expandir entonces
+ se procederá al paso siguiente.
+ En caso contrario se procederá al paso final.
+\end_layout
+
+\begin_layout Enumerate
+
+\emph on
+Eliminación de ciclos : 
+\emph default
+fulplanner deberá eliminar todo ciclo
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+Léase como la presencia de 
+\begin_inset Formula $A\rightarrow A$
+\end_inset
+
+ en alguna parte de la planificación.
+\end_layout
+
+\end_inset
+
+ presente en la planificación.
+ Cada ciclo deberá eliminarse evitando eliminar otras lineas de pensamiento
+ presentes en este que no sean cíclicas.
+\begin_inset Note Comment
+status collapsed
+
+\begin_layout Plain Layout
+Esta ultima linea no esta clara ni tampoco se si es necesaria.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+
+\emph on
+Validación de la presencia de 
+\begin_inset Formula $B$
+\end_inset
+
+ en la planificación : 
+\emph default
+Si existe en la planificación el estado 
+\begin_inset Formula $B$
+\end_inset
+
+ tal que es alcanzado desde el estado raíz 
+\begin_inset Formula $A$
+\end_inset
+
+ por una linea de pensamiento afirmativa
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+No contiene falsedades ni hipótesis en ella.
+\end_layout
+
+\end_inset
+
+ entonces se procederá con el paso final.
+ En caso contrario se procederá al siguiente.
+\end_layout
+
+\begin_layout Enumerate
+
+\emph on
+Verificación de presencia de estados a expandir : 
+\emph default
+Si existen en la planificación estados a expandir entonces se deberá realizar
+ el paso 5.
+\end_layout
+
+\begin_layout Enumerate
+
+\emph on
+Retorno de la planificación obtenida :
+\emph default
+ Se retorna mediante la CLI la planificación obtenida, una explicación del
+ significado de la misma y/o el resultado de la operación realizada.
+\begin_inset Note Comment
+status collapsed
+
+\begin_layout Plain Layout
+Cuales de las 3 deberían estar como retorno ? Debería ser solo un output
+ o debería presentarse en algún formato mas manejable y quizás también seria
+ deseable poder reintroducir la planificación obtenida para luego de ingresar
+ nuevo conocimiento a la KB reprocesar dicha planificación.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Subsection
+REQ Prueba: Experimento Junin
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\emph on
+Objetivo :
+\series default
+\emph default
+ El objetivo de este requerimiento es demostrar que FuL es capaz de validar
+ las conclusiones obtenidas en el experimento Junin realizado por la fundación
+ FuDePAN.
+ 
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\emph on
+Prioridad : 
+\series default
+\emph default
+Alta
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\emph on
+Descripción :
+\series default
+ 
+\emph default
+FuL deberá ser capaz de validar las conclusiones obtenidas en el experimento.
+ Para esto se deberá proveer a FuL de una KB que represente el conocimiento
+ utilizado para llegar a dichas conclusiones.
+ Deberá llevar acabo esta prueba mediante una consulta de meta lógica.
+\begin_inset Note Comment
+status collapsed
+
+\begin_layout Plain Layout
+Preguntar a Daniel : Debería poner un link a los documentos relacionados
+ con dicho experimento ?
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+REQ Agregar una Nueva Extensión
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\emph on
+Objetivo :
+\series default
+\emph default
+ El objetivo de este requerimiento es permitirle al usuario agregar una
+ nueva extensión a FuL, la cual podrá ser usada por fulmop en las otras
+ operaciones representadas en los requerimientos previos.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\emph on
+Prioridad : 
+\series default
+\emph default
+Baja
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\emph on
+Descripción :
+\series default
+ 
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Ingreso : La CLI deberá proveer una opción para introducir el nombre del
+ archivo que contiene la extensión a ser agregada, formato del archivo TBD
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+Esto deberá ser definido en el paso de diseño.
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Validación : FuL deberá validar que la extensión introducida cumple con
+ las interfases definidas en su API y que sus dependencias han sido satisfechas.
+\end_layout
+
+\begin_layout Enumerate
+Instalación : Una vez validada, FuL instalara dicha extensión en el entorno
+ de trabajo de FuL.
+ Por ultimo avisara al usuario, mediante la CLI, que la instalación se a
+ realizado exitosamente.
+\end_layout
+
+\end_deeper
+\begin_layout Subsection
+REQ Configurar FuL
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\emph on
+Objetivo :
+\series default
+\emph default
+ El objetivo de este requerimiento es proveer al usuario operaciones para
+ configurar los distintos parámetros relacionados con el funcionamiento
+ de FuL.
+ 
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\emph on
+Prioridad : 
+\series default
+\emph default
+Baja
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\emph on
+Descripción :
+\series default
+ 
+\emph default
+Deberá ser capaz de proveer operaciones para configurar los distintos aspectos
+ de FuL, tales como parámetros relacionados con la KB, extensiones, fulplanner
+ y fulmop.
+ Estos aspectos son y el grado de configurabilidad de cada uno sera TBD
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+Ya que dependerá del diseño e implementación de los elementos anteriormente
+ mencionados.
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Requerimientos No Funcionales
+\end_layout
+
+\begin_layout Subsection
+Requerimientos de Diseño
+\end_layout
+
+\begin_layout Standard
+Deben cumplirse los siguientes requerimientos de diseño :
+\end_layout
+
+\begin_layout Itemize
+En caso de utilizar C++ en su implementación, deberá cumplir los estándares
+ ANSI C++, conforme con el 
+\lang english
+coding-guideline
+\lang spanish
+ definido por FuDePAN.
+ 
+\end_layout
+
+\begin_layout Itemize
+Deberá ser capaz de construirse utilizando herramientas GNU.
+ 
+\end_layout
+
+\begin_layout Itemize
+El código deberá ser compilado sin advertencias, o las que sean permitidas
+ deberán ser documentadas.
+ 
+\end_layout
+
+\begin_layout Subsection
+Atributos del Software
+\end_layout
+
+\begin_layout Standard
+El producto debera tener los siguientes atributos :
+\end_layout
+
+\begin_layout Itemize
+Deberá ser testeado el 85% del código fuente presente en este producto.
+ 
+\end_layout
+
+\begin_layout Itemize
+Deberá definirse un lenguaje formal para la representación del conocimiento
+ del área de Virología, el cual deberá ser de fácil interpretación y utilización
+ tanto por personas calificadas de dicha área como por FuL.
+ Su semántica deberá ser capaz de representar el conocimiento relacionado
+ con el área de Virología.
+\end_layout
+
+\begin_layout Subsection
+Restricciones de Memoria
+\end_layout
+
+\begin_layout Standard
+Deben cumplirse las siguientes restricciones de memoria :
+\end_layout
+
+\begin_layout Itemize
+No deberá haber problemas de memorial o 
+\lang english
+leaks
+\lang spanish
+, que estén directamente relacionados con el proyecto.
+ 
+\end_layout
+
+\begin_layout Itemize
+En caso de que exista código C/C++ en el producto, se deberá utilizar el
+ comando 
+\begin_inset listings
+lstparams "language=bash"
+inline true
+status open
+
+\begin_layout Plain Layout
+
+valgrind --leak-check=full
+\end_layout
+
+\end_inset
+
+ para corroborar la existencia de 
+\lang english
+leaks
+\lang spanish
+.
+ 
+\end_layout
+
+\begin_layout Itemize
+Las dependencias externas que puedan llegar a ser usadas en producto no
+ deberán ser tenidas en cuenta a la hora de chequear problemas de memoria
+ o 
+\lang english
+leaks
+\lang spanish
+.
+\end_layout
+
+\begin_layout Standard
+Es importante hacer notar que se requerirá capacidad de almacenamiento
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+Tanto solida como volátil.
+\end_layout
+
+\end_inset
+
+ para el registro del conocimiento y la manipulación del mismo.
+ Por lo tanto el desempeño de FuL estará directamente relacionado con la
+ maquina en la que se corra.
+\end_layout
+
+\begin_layout Subsection
+Entorno de Funcionamiento
+\end_layout
+
+\begin_layout Standard
+FuL esta pensado para ser utilizado como una herramienta de consulta de
+ conocimiento del área de Virología y para la planificación de experimentos
+ relacionados con esta.
+\end_layout
+
+\begin_layout Standard
+Las plataformas en las que deberá correr sera en las basadas en GNU/Linux.
+\end_layout
+
+\begin_layout Subsection
+Licencias
+\end_layout
+
+\begin_layout Standard
+El código fuente de FuL estará licenciado como GPLv3.
+ Toda la documentación generada para el desarrollo de FuL sera licenciada
+ bajo Creative Commons para proteger tanto el texto como las ideas presentes
+ en este documento
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+Este ultimo punto podría modificarse a futuro para utilizar licencias mas
+ seguras para la protección de ideas.
+\end_layout
+
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
 \begin_layout Standard
 \begin_inset CommandInset nomencl_print
 LatexCommand printnomenclature
-set_width "custom"
-width "5cm"
 
 \end_inset
 
@@ -905,20 +1754,13 @@ width "5cm"
 \end_layout
 
 \begin_layout Standard
-\begin_inset Note Note
+\begin_inset Note Comment
 status collapsed
 
 \begin_layout Plain Layout
-Preguntar : Acordarse de Incluir el experimento Junin como un test a pasar
- por dicho producto.
- Esto debería estar definido en la sección 
-\emph on
-Requerimientos Funcionales 
-\emph default
-o en 
-\emph on
-Requerimientos No Funcionales.
- 
+Preguntar a Daniel : Sigo sin entender por que no hay un requerimiento que
+ sirva para buscar conocimiento en la KB sobre una entidad-definición determinad
+a.
 \end_layout
 
 \end_inset
