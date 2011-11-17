@@ -1,5 +1,5 @@
-#LyX 1.6.5 created this file. For more info see http://www.lyx.org/
-\lyxformat 345
+#LyX 2.0 created this file. For more info see http://www.lyx.org/
+\lyxformat 413
 \begin_document
 \begin_header
 \textclass article
@@ -12,18 +12,27 @@
 \usepackage{amsfonts}
 \end_preamble
 \use_default_options false
+\maintain_unincluded_children false
 \language spanish
+\language_package default
 \inputencoding auto
+\fontencoding global
 \font_roman default
 \font_sans default
 \font_typewriter default
 \font_default_family default
+\use_non_tex_fonts false
 \font_sc false
 \font_osf false
 \font_sf_scale 100
 \font_tt_scale 100
 
 \graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\float_placement h
 \paperfontsize 10
 \spacing single
 \use_hyperref false
@@ -31,21 +40,38 @@
 \use_geometry false
 \use_amsmath 2
 \use_esint 1
+\use_mhchem 1
+\use_mathdots 1
 \cite_engine basic
 \use_bibtopic false
+\use_indices false
 \paperorientation portrait
+\suppress_date false
+\use_refstyle 0
+\index Índice
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 3cm
+\topmargin 3cm
+\rightmargin 3cm
+\bottommargin 3cm
+\headheight 3cm
+\headsep 3cm
+\footskip 2cm
 \secnumdepth 3
 \tocdepth 3
 \paragraph_separation indent
-\defskip medskip
+\paragraph_indentation default
 \quotes_language french
 \papercolumns 1
 \papersides 1
 \paperpagestyle headings
 \tracking_changes false
 \output_changes false
-\author "" 
-\author "" 
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
 \end_header
 
 \begin_body
@@ -131,7 +157,7 @@ DEBE
 NO DEBE
 \emph default
 , REQUERIDO, DEBERÁ, NO DEBERÁ, DEBERÍA, NO DEBERÍA, RECOMENDADO, PUEDE
- Y OPCIONAL en este documento son interpretadas como esta descripto en el
+ Y OPCIONAL en este documento son interpretadas como esta descrito en el
  documento
 \emph on
  
@@ -293,7 +319,7 @@ Provee una descripción general de los aspectos generales del producto, como
 \emph on
 Sección 3: 
 \emph default
-Describe las interfases del producto, tanto las del usuario como interfases
+Describe las interfaces del producto, tanto las del usuario como interfaces
  de software.
  
 \end_layout
@@ -378,7 +404,7 @@ Procesamiento de la KB
 \end_layout
 
 \begin_layout Standard
-Provee la capacidad de procesar la información presente en la KB para así
+Proveer la capacidad de procesar la información presente en la KB para así
  obtener nuevas conclusiones del conocimiento disponible en ella 
 \begin_inset Note Comment
 status collapsed
@@ -397,6 +423,18 @@ Idea a Futuro!:Este proceso debería poderse detener y guardarlo para continuarl
 
 \end_inset
 
+
+\begin_inset Note Comment
+status collapsed
+
+\begin_layout Plain Layout
+Pregunta : Este ítem parece no tener sentido por que no tiene correlación
+ con los requerimientos.
+ Debería borrarlo ? 
+\end_layout
+
+\end_inset
+
 .
 \end_layout
 
@@ -405,22 +443,17 @@ Asistir en la planificación de experimentos
 \end_layout
 
 \begin_layout Standard
-Provee la capacidad de responder preguntas objetivo y, en caso de no ser
+Proveer la capacidad de responder preguntas objetivo y, en caso de no ser
  capaz de responder dicha pregunta, devolver preguntas relevantes para la
  que fue introducida.
  Se dice que son relevantes ya que deben ser contestadas para poder llegar
- a una respuesta para la pregunta objetivo.
- Dichas preguntas objetivo serán metas lógicas del tipo 
-\begin_inset Formula $A\Longrightarrow B$
-\end_inset
-
-
+ a una respuesta para la pregunta objetivo
 \begin_inset Note Comment
 status collapsed
 
 \begin_layout Plain Layout
-Debería hablar de estas como metas lógicas o seguirles llamando preguntas
- objetivo.
+Pregunta para Daniel : Debería hablar de estas como metas lógicas o seguirlos
+ llamando preguntas objetivo.
  Pregunto esto por que en los requerimientos funcionales habíamos convenido
  de que las denominaríamos como metas lógicas.
 \end_layout
@@ -442,18 +475,18 @@ API y SDK para Extensiones
 \end_layout
 
 \begin_layout Standard
-Provee una API y un SDK para la creación de extensiones, los cuales serán
+Proveer un API y un SDK para la creación de extensiones, los cuales serán
  utilizados para interpretar el conocimiento que le es otorgado a dicha
  base de datos.
  
 \end_layout
 
 \begin_layout Standard
-El API define la forma en la que se intercambiara el conocimiento entre
+El API define la forma en la que se intercambiará el conocimiento entre
  la extensión y FuL.
- El SDK otorga las librerías necesarias tanto para la construcción de la
- extensión en si, como también la definición de su lenguaje formal de representa
-ción de conocimiento correspondiente.
+ El SDK otorga las librerías y las herramientas necesarias tanto para la
+ construcción de la extensión en sí, como para la definición de su lenguaje
+ formal de representación de conocimiento correspondiente.
 \end_layout
 
 \begin_layout Subsubsection
@@ -461,10 +494,30 @@ Optimización de la KB*
 \end_layout
 
 \begin_layout Standard
-Tendrá la capacidad de optimizar la KB.
- Esta proveerá la eliminación de redundancias y devolverá una versión minimál
- de la KB original, de la cual se puede deducir todo el conocimiento presente
- en la original.
+Proveer la capacidad de optimizar la KB.
+ Ésta característica permite la detección de redundancias y obtener una
+ versión mínimal de la KB original en caso de no encontrarse redundancias,
+ de la cual se puede deducir todo el conocimiento presente en la original.
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+Pregunta para Daniel y Carlos : Al no tener la capacidad de eliminación
+ automática de redundancias no puedo asegurar que tenemos una KB mínimal,
+ solo lo podre asegurar cuando estas no existan.
+ Servirá seguir manteniendo esta característica de la KB mínimal o solo
+ queremos quedarnos con la detección de redundancias ?
+\end_layout
+
+\begin_layout Plain Layout
+Idea : Podría hacerse que al detectar una redundancia se detenga el proceso
+ y se avise al usuari@ para que decida como eliminarlo, para luego continuarse
+ con el proceso.
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsubsection
@@ -474,7 +527,39 @@ KB inicial con conocimientos de virología*
 \begin_layout Standard
 Proveer una KB inicial, la cual contenga conocimientos básicos de virología
  tales como lo que se encuentran el libros de estudio de nivel básico a
- intermedio.
+ intermedio
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+Por ejemplo: 
+\end_layout
+
+\begin_layout Itemize
+\begin_inset CommandInset href
+LatexCommand href
+name "Virus life in diagrams - Hans-Wolfgang Ackermann, Laurent Berthiaume, Michel Tremblay"
+target "http://books.google.com/books?id=V4aLSts_JnMC&dq=isbn:0849331269"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset CommandInset href
+LatexCommand href
+name "Fields Virology - Bernard N. Fields, David Mahan Knipe"
+target "http://books.google.com/books/about/Fields_virology.html?id=DMxcCOIGocUC"
+
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+.
  Restricciones al 
 \emph on
 \lang english
@@ -516,7 +601,7 @@ Se propuso restringirlo a los arenavirus y los retrovirus.
 
 
 \begin_inset Note Comment
-status collapsed
+status open
 
 \begin_layout Plain Layout
 Pregunta : Deberíamos agregar la posibilidad de imprimir/obtener el conocimiento
@@ -572,7 +657,11 @@ Interfaces de Usuario
 \end_layout
 
 \begin_layout Standard
-La interfase consiste en una 
+La interfaz consiste en un 
+\lang english
+command line
+\lang spanish
+, una 
 \emph on
 CLI (
 \lang english
@@ -587,9 +676,9 @@ description "Command Line Interface"
 
 \end_inset
 
- 
+
 \emph default
-y un lenguaje formal,
+ y un lenguaje formal,
 \emph on
  
 \emph default
@@ -597,25 +686,102 @@ descriptos a continuación.
 \end_layout
 
 \begin_layout Subsubsection
-CLI
+
+\lang english
+Command Line
 \end_layout
 
 \begin_layout Standard
-Este sera tratable como un comando de terminal, al cual se le podrán pasar
- al menos parámetros para realizar las siguientes operaciones
+Este se encarga de la puesta en funcionamiento de la CLI de FuL, para lo
+ cual el usuario podra otorgarle los siguientes parámetros 
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+Pregunta : La KB deberiamos considerarla opcional ya que podriamos comenzar
+ con una KB vacía y con los import la vamos llenando.
+ Esto ya es parte de diseño pero realmente lo único que veo con esta posibilidad
+ de pasar el parámetro es que no hace falta hacer ese import al principio.
+ También podriamos considerar opcional el de las extensiones ( que en caso
+ de no estar simplemente no se cargan extensiones :P, aunque si...
+ seria medio inútil pero relajaría mas el requerimiento ).
+\end_layout
+
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Itemize
+Un archivo de configuración XML donde se especifique el conjunto de extensiones
+ que FuL utilizara en esta ejecución, las variables que dicha extensiones
+ requieren registrar y los comandos que las mismas proveen.
+ Este parámetro es obligatorio.
+\begin_inset Newline newline
+\end_inset
+
+Ademas este archivo puede contener configuración para las variables de FuL.
+\end_layout
+
+\begin_layout Itemize
+La KB inicial la cual FuL utilizara durante toda la sesión.
+ Este parámetro es opcional, en caso de no otorgarse FuL iniciara con una
+ KB vacia.
+\end_layout
+
+\begin_layout Standard
+A medida que se cargan dichos elementos se mostraran por consola los mensajes
+ pertinentes al usuario, en caso de error se mostrara el mensaje correspondiente
+ y se anulara o continuara con su ejecución dependiendo de la gravedad del
+ error
 \begin_inset Foot
 status collapsed
 
 \begin_layout Plain Layout
-Las operaciones marcadas con 
-\emph on
-(V) 
-\emph default
-tendrán la opción ser puestas en modo verborrágico, lo que hará que muestren
- por pantalla mayor información relacionada con su procesamiento.
+La clasificación de nivel de gravedad de los errores esta TBD, la cual sera
+ definida una vez de que estos sean clasificados y estudiados en la fase
+ de análisis y/o diseño.
+\end_layout
 
+\end_inset
+
+.
+ Si no hay ningún error se pondrá en funcionamiento la CLI.
+\end_layout
+
+\begin_layout Subsubsection
+CLI
+\end_layout
+
+\begin_layout Standard
+Es una interfaz CLI, similar a un 
+\lang american
+prompt
+\lang spanish
+, la cual permite realizar ingresar los siguientes comandos
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+Los elementos presentes en un comando englobados con <> son parámetros que
+ el argumento requiere para ser ejecutado.
+ Los nombres de los parámetros son representativos y pueden diferir de los
+ que tenga el producto final.
+\end_layout
+
+\end_inset
+
+
+\begin_inset Note Comment
+status collapsed
+
+\begin_layout Plain Layout
+Los 
 \emph on
- 
+ID-10-T 
+\emph default
+los sacamos o quieres dejarlos como método de traumatización del usuario
+ ? :P
 \end_layout
 
 \end_inset
@@ -625,92 +791,285 @@ tendrán la opción ser puestas en modo verborrágico, lo que hará que muestren
 
 \begin_layout Enumerate
 
+\series bold
 \emph on
-Introducir un archivo con conocimiento en la KB (V):
+import
+\series default
+ <delta.kb> : 
 \emph default
- Parsea y chequea consistencia de dicho conocimiento para luego chequear
- contradicciones de este con la KB.
- En caso de éxito se agregara a la KB, caso contrario sera rechazado en
- su totalidad.
-\end_layout
-
-\begin_layout Enumerate
-
+Permite introducir el conocimiento presente en 
 \emph on
-Procesar el conocimiento en la KB (V): 
+delta.kb 
 \emph default
-Será la opción por defecto en la cual solo procesará el conocimiento existente
- en la KB para obtener nuevas conclusiones a los posibles experimentos.
- 
-\end_layout
-
-\begin_layout Enumerate
-
-\emph on
-Realizar un consulta de una meta lógica de tipo 
-\emph default
-
-\begin_inset Formula $A\Longrightarrow B$
-\end_inset
-
- 
-\emph on
-(V): 
-\emph default
-Chequea la valides de dicha consulta.
- En caso de ser valida FuL responderá con un valor booleano o con una lista
- de metas lógicas de tipo 
-\begin_inset Formula $A\Longrightarrow B$
-\end_inset
-
- para los cuales no tiene respuesta
-\begin_inset Note Comment
+a la KB actualmente cargada en FuL.
+ En caso de que delta.kb contenga conocimiento invalido
+\begin_inset Foot
 status collapsed
 
 \begin_layout Plain Layout
-Preguntar a Carlos : Debería recibir mas información que un booleano en
- caso de tener respuesta ? Quizás mostrar toda la linea de pensamiento utilizada
- para responder a dicho experimento.
- Respuesta de Carlos: Si, viene muy bien ( ver charla en gmail ).
- Hay herramientas muy útiles para esto que podemos aprovechar.
+Tanto por ser sintácticamente incorrecto respecto del lenguaje formal o
+ por contradecir el ya presente en la memoria de FuL.
+\end_layout
+
+\end_inset
+
+, FuL abortara el proceso de importación e informara al usuario mediante
+ la CLI del error con un nivel de detalle adecuado.
+ Si la ejecución del comando a sido exitosa se mostrara en la CLI el mensaje
+ 
+\emph on
+IMPORT OK
+\emph default
+.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+save 
+\series default
+\emph on
+<file.kb> : 
+\emph default
+Permite guardar la KB que FuL tiene en memoria dentro de 
+\emph on
+file.kb
+\emph default
+.
+
+\emph on
+ 
+\emph default
+Si la ejecución del comando a sido exitosa se mostrara en la CLI el mensaje
+ 
+\emph on
+SAVED
+\emph default
+.
+ En caso de error informara al usuario mediante la CLI de dicho error.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+query
+\series default
+ 
+\emph on
+<query-string> : 
+\emph default
+Permite realizar la consulta 
+\emph on
+query-string 
+\emph default
+a FuL, el cual devolverá una respuesta acorde con la KB y extensiones cargadas
+ previamente
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+Esta respuesta estará compuesta por una explicación del resultado obtenido
+ y las lineas de pensamiento que se utilizaron para arribar a el.
 \end_layout
 
 \end_inset
 
 .
- En caso de ser invalida mostrara el mensaje de error correspondiente.
+ En caso de que la consulta sea invalida respecto del lenguaje formal entonces
+ devolverá el mensaje de error correspondiente.
+ Si no se puede llegar a una respuesta definida entonces FuL devolverá la
+ lista de elementos requeridos para que FuL de una respuesta definida.
 \end_layout
 
 \begin_layout Enumerate
 
+\series bold
+execute
+\series default
+ 
 \emph on
-Agregar una nueva extensión a FuL (V): 
-\emph default
-El usuario introducirá el nombre de archivo de la extensión que desea agregar.
- En caso de que dicho archivo no sea valido o surja algún error sera informado
- del mismo.
-\end_layout
-
-\begin_layout Enumerate
-
-\emph on
-Configurar parámetros relacionados con FuL, su KB y extensiones : 
-\emph default
-TBD
-\emph on
-
-\begin_inset Foot
+<script.ful> 
+\begin_inset Note Comment
 status collapsed
 
 \begin_layout Plain Layout
-Dependerá de factores relacionados con el diseño e implementación de la
- KB, extensiones y otros aspectos relacionados con FuL tales su instalación,etc.
- Deberá ser resuelto en las etapas anteriormente mencionadas.
+La llamada de scripts la agrego acá para así poder hacer supra scripts que
+ carguen distintos scripts menores o en caso de querer cambiar por otro
+ setting que tenes con otro script no hace falta tener que cargar las extensione
+s y la KB de nuevo ( lo cual es bastante costoso ).
+ 
+\end_layout
+
+\end_inset
+
+: 
+\emph default
+Permite ejecutar 
+\emph on
+script.ful
+\begin_inset CommandInset nomenclature
+LatexCommand nomenclature
+prefix "script"
+symbol "script"
+description "Secuencia de comandos interpretables por la CLI de FuL"
+
+\end_inset
+
+ 
+\emph default
+el cual contiene una secuencia de comandos validos.
+ Cada linea se interpreta como un comando y en caso de error en alguno de
+ los comandos se detendrá la ejecución del script.
+\begin_inset Note Comment
+status collapsed
+
+\begin_layout Plain Layout
+Pregunta IMPORTANTE para Daniel : Para scripting es necesario permitir que
+ se utilice algún lenguaje imperativo o funcional? Pregunto sino los script
+ solo servirían para introducir grandes cantidades de conocimiento o realizar
+ una serie de consultas de forma desatendida.
+ Pensaba agregarlo de esta manera (si se prefiere funcional, dime y con
+ gusto lo cambio ):
+\end_layout
+
+\begin_layout Plain Layout
+
+\emph on
+Adicionalmente se permitirá el uso de sentencias del paradigma imperativo
+ puro, acompañado con operaciones aritméticas y de álgebra relacional.
+\end_layout
+
+\begin_layout Plain Layout
+Respuesta IMPORTANTE de Daniel : NO! NO! Y NO! ( bue no fue así :P ) , lo
+ que entendí es que vamos a poder extender el lenguaje de comandos mediante
+ las extensiones las cuales podrán registrar sus propios comandos.
+ Así que esto podría permitiría construir un lenguaje de scripting mas robusto.
 \end_layout
 
 \end_inset
 
 
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+show 
+\series default
+\emph on
+<variable> : 
+\emph default
+Permite ver el valor de 
+\emph on
+variable
+\emph default
+, la cual debe pertenecer a las variables registradas por FuL o las extensiones.
+ En caso de que 
+\emph on
+variable
+\emph default
+ no pertenezca se devolverá el mensaje 
+\emph on
+ID-10-T error: unrecognized variable
+\emph default
+.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+set 
+\series default
+\emph on
+<variable> <value> : 
+\emph default
+Permite asignar 
+\emph on
+value
+\emph default
+ a 
+\emph on
+variable
+\emph default
+ , siendo 
+\emph on
+variable
+\emph default
+ una variable registrada por FuL o las extensiones y 
+\emph on
+value 
+\emph default
+un valor valido para esta.
+ En caso de que 
+\emph on
+variable
+\emph default
+ no pertenezca al conjunto de variables registradas se devolverá el mensaje
+ 
+\emph on
+ID-10-T error: unrecognized variable
+\emph default
+.
+ En caso de que 
+\emph on
+value
+\emph default
+ sea un valor invalido para 
+\emph on
+variable 
+\emph default
+se devolverá el mensaje 
+\emph on
+ID-10-T error: invalid value
+\emph default
+ 
+\emph on
+for <variable>
+\emph default
+.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+quit
+\series default
+ 
+\emph on
+:
+\emph default
+ Permite salir de la CLI y cerrar FuL.
+ En caso de que no se haya guardado la KB que FuL tiene en memoria, se mostrara
+ el mensaje 
+\emph on
+WARNING: memory state not saved.
+ Sure to quit? (y/n).
+
+\emph default
+ Si el usuario lo confirma entonces se saldrá de la CLI y cerrara FuL ,
+ sino abortara el comando
+\begin_inset Note Comment
+status collapsed
+
+\begin_layout Plain Layout
+Algo mas ?!
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Adicionalmente se podrán ejecutar los comandos registrados por las extensiones,
+ las cuales definirán el comportamiento de los mismos.
+ En caso de el comando introducido no este registrado por las extensiones
+ cargadas o no sea parte de los anteriormente mencionados entonces se devolverá
+ el siguiente mensaje 
+\emph on
+ID-10-T error: unrecognized command
+\emph default
+.
 \end_layout
 
 \begin_layout Subsubsection
@@ -761,63 +1120,143 @@ Interfaces de Software
 \end_layout
 
 \begin_layout Standard
-El producto tendrá los siguientes módulos :
-\end_layout
-
-\begin_layout Enumerate
-
-\emph on
-fulmop : 
-\emph default
-Este es producto principal, el cual se encarga de articular los otros componente
-s, tales como la KB, ful
-\lang english
-planner
-\lang spanish
- y las extensiones para realizar las operaciones pedidas por el usuario.
-\end_layout
-
-\begin_layout Enumerate
-
-\emph on
-ful
-\lang english
-planner
-\lang spanish
- : 
-\emph default
-Es el encargado de organizar el proceso de razonamiento.
-\end_layout
-
-\begin_layout Enumerate
-
-\emph on
-fulapi : 
-\emph default
-Es la API definida para interactuar con las extensiones creadas por terceros.
- 
-\end_layout
-
-\begin_layout Enumerate
-
-\emph on
-fuldl :
-\emph default
- Extensión que permite interpretar conocimiento entendible por lenguajes
- DL.
- Actúa de la misma manera que cualquier otra extensión, recibiendo conocimiento
- a ser interpretado y devolviendo nuevo conocimiento respecto de este.
+Se deberán utilizar las siguientes librerías 
 \begin_inset Note Comment
 status collapsed
 
 \begin_layout Plain Layout
-Creo que es un poco pobre y debería extenderme mas en este punto.
- No se si aquí o en requerimientos funcionales.
+He anotado todas las que pensé necesarias.
+ No detalle mucho ni la razón de su presencia o utilidad ya que perdería
+ tiempo en las que puedan llegar a ser descartadas.
 \end_layout
 
 \end_inset
 
+:
+\end_layout
 
+\begin_layout Itemize
+\begin_inset CommandInset href
+LatexCommand href
+name "Boost"
+target "http://www.boost.org/"
+
+\end_inset
+
+ : Colección de librerías muy útiles y confiables para C++.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset CommandInset href
+LatexCommand href
+name "fud"
+target "http://code.google.com/p/fud/"
+
+\end_inset
+
+ : Abstracción Middleware HPC Distribuido.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset CommandInset href
+LatexCommand href
+name "FECa"
+target "http://code.google.com/p/feca/"
+
+\end_inset
+
+ : Librería Fudepan para caches extensibles.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset CommandInset href
+LatexCommand href
+name "fudepan-build"
+target "http://code.google.com/p/fudepan-build/"
+
+\end_inset
+
+ : Build system para proyectos de FuDePAN.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset CommandInset href
+LatexCommand href
+name "FXP"
+target "http://code.google.com/p/fx-parser/"
+
+\end_inset
+
+ : Parser XML para C++, requiere 
+\begin_inset CommandInset href
+LatexCommand href
+name "eXpat"
+target "http://expat.sourceforge.net/"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset CommandInset href
+LatexCommand href
+name "getoptpp"
+target "http://code.google.com/p/getoptpp/"
+
+\end_inset
+
+ : Versión C++ de la función getopt que permite parsear opciones command
+ line y manejar variables de entorno.
+ Fácil de usar y altamente compatible con STL.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset CommandInset href
+LatexCommand href
+name "MiLi"
+target "http://code.google.com/p/mili/"
+
+\end_inset
+
+: Colección de librerías útiles de C++.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset CommandInset href
+LatexCommand href
+name "libstdc++"
+target "http://gcc.gnu.org/libstdc++/"
+
+\end_inset
+
+ : Librería Estándar GNU para C++.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset CommandInset href
+LatexCommand href
+name "phaskell"
+target "http://code.google.com/p/phaskell/"
+
+\end_inset
+
+ : Traductor Haskell2C++ de Template metaprogramming.
+ Muy útil para realizar optimización a tiempo de compilación
+\begin_inset Note Comment
+status collapsed
+
+\begin_layout Plain Layout
+Idea : Pretendo usar esto para que compile los plugins que se den en el
+ XML junto con el resto de FuL para lograr optimizaciones.
+ Hay varias razones mas y se que esto es ya diseño/implementación pero como
+ dijiste que anotara las librerías que podría llegar a usar agregue esta
+ también.
+\end_layout
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Subsection
@@ -847,14 +1286,66 @@ Nomenclatura
 ERROR_EXIT
 \emph on
  :
-\emph default
+\series bold
  La CLI deberá informar al usuario de los errores ocurridos y se finalizara
  dicha operación.
  
 \end_layout
 
+\begin_layout Itemize
+ERROR_END
+\emph on
+ :
+\series bold
+ La CLI deberá informar al usuario de los errores ocurridos y se finalizara
+ dicha operación.
+ 
+\end_layout
+
+\begin_layout Itemize
+
+\emph on
+<parámetro> : 
+\emph default
+Es un parámetro ingresado al comando de dicha linea, siendo 
+\emph on
+parámetro 
+\emph default
+el valor del mismo
+\begin_inset Note Comment
+status collapsed
+
+\begin_layout Plain Layout
+Pregunta : Parece medio confuso, o estoy aclarando algo obvio ? Pregunto
+ por que no se si este es el nivel de especificación que se busca o no hace
+ falta tanto.
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+PUSH_REQ_XX(
+\emph on
+<p_1> ...
+ <p_n>)
+\emph default
+ : 
+\series bold
+\emph on
+Los pasos posteriores serán definidos en el requerimiento REQ_XX con respecto
+ a los parámetros 
+\series default
+<p_1> ...
+ <p_n>
+\series bold
+.
+\end_layout
+
 \begin_layout Subsection
-REQ Introducir Conocimiento en la KB
+REQ_01 Ejecutar FuL como command-line
 \end_layout
 
 \begin_layout Itemize
@@ -864,8 +1355,10 @@ REQ Introducir Conocimiento en la KB
 Objetivo :
 \series default
 \emph default
- El objetivo de este requerimiento es permitirle al usuario introducir conocimie
-nto en la KB.
+ El objetivo de este requerimiento es permitirle al usuario ejecutar FuL
+ como si fuera un comando de linea.
+ Este tiene como parámetros una KB inicial y un archivo de configuración
+ de extensiones contenidos en archivos de formato kb y xml respectivamente.
 \end_layout
 
 \begin_layout Itemize
@@ -885,14 +1378,492 @@ Prioridad :
 Descripción :
 \series default
  
-\emph default
+\end_layout
 
+\begin_deeper
+\begin_layout Enumerate
+
+\emph on
+Ejecución del comando en la terminal : 
+\emph default
+El usuario ejecuta en la terminal el comando 
+\begin_inset listings
+lstparams "language=bash"
+inline true
+status open
+
+\begin_layout Plain Layout
+
+ful <config.xml> <database.kb> 
+\end_layout
+
+\end_inset
+
+, siendo 
+\emph on
+:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\emph on
+config.xml : 
+\emph default
+El archivo XML que contiene la configuración de las extensiones.
+ Esta podra tener una lista de las extensiones a agregar, las cuales podrán
+ estar acompañadas por una declaración de los comandos y variables que ellas
+ otorgan al usuario para que este manipule.
+ Este parámetro es obligatorio.
+\end_layout
+
+\begin_layout Itemize
+
+\emph on
+database.kb : 
+\emph default
+La KB inicial con la cual FuL procesara los comandos posteriores provenientes
+ de la CLI.
+ El conocimiento deberá estar expresado en el lenguaje formal de FuL.
+ Este parámetro es opcional.
+\end_layout
+
+\begin_layout Standard
+En caso de que no se otorguen los parámetros requeridos se devolverá el
+ mensaje 
+\emph on
+ID-10-T error: invalid parameters 
+\emph default
+y se finalizara la ejecución de FuL.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+
+\emph on
+Cargar configuración de FuL: 
+\emph default
+Se deberá procesar la configuración de las variables de FuL presente en
+ 
+\emph on
+config.xml
+\emph default
+.
+ Las variables de FuL no presentes en dicho archivo tomara el valor default
+ definido por FuL.
+ En caso de que error ERROR_EXIT.
+\end_layout
+
+\begin_layout Enumerate
+
+\emph on
+Cargar las extensiones : 
+\emph default
+Se deberá cargar las extensiones presentes en 
+\emph on
+config.xml 
+\emph default
+y se conectan con FuL, aplicando para cada una de las extensiones la configuraci
+ón de estas presente en el mismo documento.
+ En caso de no encontrarse la configuración de dicha extensión, no encontrarse
+ la extensión propiamente dicha u algún otro tipo de error ERROR_EXIT.
+\end_layout
+
+\begin_layout Enumerate
+
+\emph on
+Cargar la KB : 
+\emph default
+Se deberá procesar el conocimiento existente en la KB por parte de FuL,
+ teniendo en cuenta su configuración y las de las extensiones que fueron
+ cargadas.
+ 
+\begin_inset Newline newline
+\end_inset
+
+En caso de encontrarse conocimiento dirigido a una extensión determinada,
+ se deberá procesar dicho conocimiento de la manera que dicha extensión
+ lo indique.
+ En caso de no encontraste dicha extensión ERROR_EXIT
 \begin_inset Note Comment
 status collapsed
 
 \begin_layout Plain Layout
-Preguntar a Daniel : Acaso no debería mostrar ahora cual es el nuevo conocimient
-o que se desprende del que se agrego actualmente ?
+Pregunta : Estoy siendo muy drástico en esta parte ? Debería dar solo un
+ warning ?
+\end_layout
+
+\end_inset
+
+.
+\begin_inset Newline newline
+\end_inset
+
+En caso de que no se haya otorgado una KB, se pasara al paso siguiente.
+\end_layout
+
+\begin_layout Enumerate
+
+\emph on
+Puesta en funcionamiento de la CLI : 
+\emph default
+Se deberá poner en funcionamiento la CLI de FuL con la configuración, extensione
+s y KB obtenidas en los paso previos.
+ Los pasos posteriores serán presentados en el requerimiento REQ_02.
+\end_layout
+
+\end_deeper
+\begin_layout Subsection
+REQ_02 Ejecución de comandos en la CLI
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\emph on
+Objetivo :
+\series default
+\emph default
+ El objetivo de este requerimiento es permitirle al usuario interactuar
+ con la CLI mediante la introducción de comandos
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+Los cuales son especificados en este requerimiento o pertenecen al conjunto
+ de comandos registrados por extensiones, tal como se especifica en REQ_01.
+\end_layout
+
+\end_inset
+
+ y la devolución de respuestas.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\emph on
+Prioridad :
+\series default
+\emph default
+ Alta
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\emph on
+Descripción :
+\series default
+ 
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+
+\emph on
+Introducir un comando : 
+\emph default
+El usuario podra introducir un comando con el formato 
+\begin_inset listings
+lstparams "language=bash"
+inline true
+status open
+
+\begin_layout Plain Layout
+
+<comm> <p_1> ...
+ <p_n>
+\end_layout
+
+\end_inset
+
+ siendo 
+\emph on
+comm 
+\emph default
+el comando a ejecutar y 
+\emph on
+<p_1> ...
+ <p_n> 
+\emph default
+un conjunto de 
+\begin_inset Formula $n$
+\end_inset
+
+ parámetros que 
+\emph on
+comm 
+\emph default
+permite y/o requiere
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+Puede ser 
+\begin_inset Formula $n=0$
+\end_inset
+
+ , en cuyo caso no habrá parámetro alguno.
+\end_layout
+
+\end_inset
+
+.
+ Si así sucede se proceda a los siguientes pasos:
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+
+\emph on
+Validación del comando : 
+\emph default
+Se deberá chequear que 
+\emph on
+comm 
+\emph default
+sea un comando registrado en FuL.
+ En caso de no serlo ERROR_EXIT.
+\end_layout
+
+\begin_layout Enumerate
+
+\emph on
+Validación de los parámetros 
+\begin_inset Note Comment
+status collapsed
+
+\begin_layout Plain Layout
+AVISO! : Si...
+ probablemente no te guste y te parezca intrincado...
+ pero realmente hace falta que diga lo mismo 20 veces ?.
+ Creo que es una forma de lograr que la lectura sea mas rápida e intuitiva
+ ( probablemente desde el punto de vista de un programador -.- ).
+ Igual esta bien aclarado en Nomenclatura que significa.
+\end_layout
+
+\end_inset
+
+:
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Si 
+\begin_inset Formula $comm="quit"$
+\end_inset
+
+ entonces, si 
+\begin_inset Formula $n=0$
+\end_inset
+
+, se deberá realizar el paso 3.
+ Caso contrario se deberá devolver el mensaje 
+\emph on
+ID-10-T error: invalid parameters
+\emph default
+.
+\end_layout
+
+\begin_layout Enumerate
+Si 
+\begin_inset Formula $comm="import"$
+\end_inset
+
+ PUSH_REQ_03(
+\emph on
+<p_1> ...
+ <p_n>
+\emph default
+).
+\end_layout
+
+\begin_layout Enumerate
+Si 
+\begin_inset Formula $comm="save"$
+\end_inset
+
+ PUSH_REQ_04(
+\emph on
+<p_1> ...
+ <p_n>
+\emph default
+).
+\end_layout
+
+\begin_layout Enumerate
+Si 
+\begin_inset Formula $comm="query"$
+\end_inset
+
+ PUSH_REQ_05(
+\emph on
+<p_1> ...
+ <p_n>
+\emph default
+).
+\end_layout
+
+\begin_layout Enumerate
+Si 
+\begin_inset Formula $comm="execute"$
+\end_inset
+
+ PUSH_REQ_06(
+\emph on
+<p_1> ...
+ <p_n>
+\emph default
+).
+\end_layout
+
+\begin_layout Enumerate
+Si 
+\begin_inset Formula $comm="show"$
+\end_inset
+
+ PUSH_REQ_07(
+\emph on
+<p_1> ...
+ <p_n>
+\emph default
+).
+\end_layout
+
+\begin_layout Enumerate
+Si 
+\begin_inset Formula $comm="set"$
+\end_inset
+
+ PUSH_REQ_08(
+\emph on
+<p_1> ...
+ <p_n>
+\emph default
+).
+\end_layout
+
+\begin_layout Enumerate
+Sino se cumple ninguno de los anteriores se procederá deslindar la ejecución
+ de dicho comando a la extensión bajo la cual fue registrado
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+Ver REQ_01.
+\end_layout
+
+\end_inset
+
+, con los parámetros 
+\emph on
+<p_1> ...
+ <p_n>
+\emph default
+.
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Enumerate
+
+\emph on
+Espera : 
+\emph default
+Se esperara hasta que el usuario introduzca un nuevo comando, en cuyo caso
+ se volverá al paso 1.
+\end_layout
+
+\begin_layout Enumerate
+
+\emph on
+Nacionalización : 
+\emph default
+Si la KB que FuL tiene en memoria no fue guardada en un archivo
+\begin_inset Note Comment
+status collapsed
+
+\begin_layout Plain Layout
+Pregunta : Preferís que me refiera a la secuencia import-save o esta mejor
+ así ? Elegí esta forma por que así no depende del comando save ni de import
+ sino de un estado que la KB pueda tener, lo cual permite a futuro ejecutar
+ otros comandos que guarden la KB.
+\end_layout
+
+\end_inset
+
+ se le deberá mostrar al usuario el mensaje 
+\emph on
+WARNING: memory state not saved.
+ Sure to quit? (y/n)
+\emph default
+.
+ Si el usuario elije 
+\emph on
+y
+\emph default
+ entonces se finaliza la ejecución de CLI y de FuL, devolviendo al usuario
+ a la terminal desde donde se ejecuto el command-line de FuL.
+ Si elije 
+\emph on
+n
+\emph default
+ entonces se volverá al paso 2.
+\begin_inset Newline newline
+\end_inset
+
+Si la KB que FuL tiene en memoria fue guardada en un archivo entonces se
+ finaliza la ejecución de CLI y de FuL, devolviendo al usuario a la terminal
+ desde donde se ejecuto el command-line de FuL.
+\end_layout
+
+\end_deeper
+\begin_layout Subsection
+REQ_03 Ejecución del comando IMPORT
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\emph on
+Objetivo :
+\series default
+\emph default
+ El objetivo de este requerimiento es permitirle al usuario importar el
+ conocimiento presente en un archivo 
+\emph on
+<delta.kb>
+\emph default
+ y agregarlo a la KB de FuL.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\emph on
+Prioridad :
+\series default
+\emph default
+ Alta
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\emph on
+Descripción :
+\series default
+ 
+\begin_inset Note Comment
+status collapsed
+
+\begin_layout Plain Layout
+Pregunta : Algo que pienso que podría estar mal acá es el hecho de que pareciera
+ que le estoy dando un orden particular a la validación de lo que es para
+ FuL y lo que es para las extensiones.
+ Debería fusionar quizás el 2 con el 4 para evitar esto o esta bien que
+ lo deje así ?
 \end_layout
 
 \end_inset
@@ -904,32 +1875,43 @@ o que se desprende del que se agrego actualmente ?
 \begin_layout Enumerate
 
 \emph on
-Apertura : 
+Validación de parámetros : 
 \emph default
-La CLI deberá proveer una opción para introducirle como parámetro el nombre
- del archivo a ser abierto.
- En caso de no poder ser abierto, ERROR_EXIT.
+Se deberá validar que la cantidad de parámetros 
+\begin_inset Formula $n=1$
+\end_inset
+
+ y 
+\begin_inset Formula $p\_1=delta.kb$
+\end_inset
+
+ deberá ser un archivo que contendrá conocimiento interpretable por FuL
+ o por las extensiones registradas en el.
+ De no cumplirse alguna de estas condiciones se deberá devolver el mensaje
+ de error correspondiente a través de la CLI y se pasara al paso final.
 \end_layout
 
 \begin_layout Enumerate
 
 \emph on
-Lectura, validación sintáctica y gramatical :
+Lectura, validación sintáctica y gramatical del conocimiento dirigido a
+ FuL :
 \emph default
- Se leerá el contenido del archivo.
- En caso de que su contenido no corresponda con el lenguaje formal especificado
- por FuL, ERROR_EXIT.
+ Se leerá el contenido de 
+\emph on
+\lang english
+delta.kb
+\emph default
+\lang spanish
+.
+ En caso de que su contenido dirigido a FuL no corresponda con el lenguaje
+ formal especificado por FuL se deberá mostrar a través de la CLI el mensaje
  
-\end_layout
-
-\begin_layout Enumerate
-
 \emph on
-Validación de la semántica interna del archivo :
+WARNING: import failed due to invalid syntax
 \emph default
- Se deberá validar que cada una de las afirmaciones en el archivo no se
- contradicen entre si.
- En caso de encontrarse alguna contradicción, ERROR_EXIT.
+ , una descripción del mismo y se procederá a realizar el paso final.
+ 
 \end_layout
 
 \begin_layout Enumerate
@@ -937,27 +1919,107 @@ Validación de la semántica interna del archivo :
 \emph on
 Validación de la semántica del archivo respecto de la KB de FuL : 
 \emph default
-Se deberá validar las afirmaciones en el archivo con las existentes en la
- KB de FuL.
- En caso de encontrarse contradicciones entre dichos conjuntos, ERROR_EXIT.
+Se deberá validar las afirmaciones en 
+\emph on
+\lang english
+delta.kb
+\emph default
+\lang spanish
+ dirigidas a FuL con las existentes en la KB de FuL.
+ En caso de encontrarse contradicciones entre dichos conjuntos se deberá
+ mostrar a través de la CLI el mensaje 
+\emph on
+WARNING: import failed due to the following conflicts
+\emph default
+ , una descripción del conflicto que incluya los elementos que lo provocaron
+\begin_inset Note Comment
+status collapsed
+
+\begin_layout Plain Layout
+Pregunta para Carlos y Daniel : Aquí desearíamos tener el conjunto mínimo
+ de elementos que lo provocaron ? Por lo que entendí de los papers que me
+ paso Carlos es posible obtener dicho conjunto.
+ Avísenme así lo cambio.
+\end_layout
+
+\end_inset
+
+ y se procederá a realizar el paso final.
 \end_layout
 
 \begin_layout Enumerate
 
 \emph on
-Registrado de las afirmaciones : 
+Derivación del conocimiento dirigido a las extensiones : 
 \emph default
-Se deberá registrar las afirmaciones presentes en el archivo en la KB.
+Se deberá derivar la validación de conocimiento presente en 
+\emph on
+\lang english
+delta.kb
+\emph default
+\lang spanish
+ a la extensión a la cual este es dirigido, siendo la extensión la encargada
+ de resolver el proceso.
+ Si el proceso se resuelve positivamente se continuara con el paso siguiente,
+ sino se continuara con el paso final.
+\begin_inset Newline newline
+\end_inset
+
+Si dicho conocimiento esta dirigido a una extensión que no fue registrada
+ entonces se deberá mostrar a través de la CLI el mensaje 
+\emph on
+WARNING: extensión <nombre de la extensión> not found, 
+\emph default
+donde esta en 
+\emph on
+\lang english
+delta.kb
+\emph default
+\lang spanish
+ y se procederá a realizarse el paso final
+\begin_inset Note Comment
+status collapsed
+
+\begin_layout Plain Layout
+Pregunta : Deseamos que import termine o preferimos darle al usuario la
+ opción de continuar o no en caso de que no le importe saltárselo ? Pienso
+ que podría haber algunos casos en que deseemos saltárnoslo.
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+
+\emph on
+Registrado del conocimiento : 
+\emph default
+Se deberá registrar el conocimiento presente en 
+\emph on
+\lang english
+delta.kb
+\emph default
+\lang spanish
+ en la KB de FuL.
  Finalizado el registrado se deberá mostrar al usuario, mediante la CLI,
- un aviso del registrado exitoso de las afirmaciones contenidas en el archivo.
+ el mensaje 
+\emph on
+IMPORT OK.
+\end_layout
+
+\begin_layout Enumerate
 
 \emph on
- 
+Finalizada la ejecución del comando : 
+\emph default
+Se finaliza la ejecución del comando.
 \end_layout
 
 \end_deeper
 \begin_layout Subsection
-REQ Procesar el Conocimiento en la KB
+REQ_04 Ejecución del comando SAVE
 \end_layout
 
 \begin_layout Itemize
@@ -967,146 +2029,10 @@ REQ Procesar el Conocimiento en la KB
 Objetivo :
 \series default
 \emph default
- El objetivo de este requerimiento es permitirle al usuario procesar el
- conocimiento existente en la KB de FuL para obtener nuevo conocimiento,
- el cual sera agregado a esta.
-\end_layout
-
-\begin_layout Itemize
-
-\series bold
+ El objetivo de este requerimiento es permitirle al usuario guardar el conocimie
+nto presente en en la KB en un archivo 
 \emph on
-Prioridad : 
-\series default
-\emph default
-Alta
-\end_layout
-
-\begin_layout Itemize
-
-\series bold
-\emph on
-Descripción : 
-\series default
-\emph default
-
-\begin_inset Note Comment
-status collapsed
-
-\begin_layout Plain Layout
-Preguntar a Daniel : Debería existir algún parámetro de entrada aparte de
- verbosidad o cosa similar ?
-\end_layout
-
-\end_inset
-
- 
-\begin_inset Note Comment
-status collapsed
-
-\begin_layout Plain Layout
-Preguntar a Daniel: En este caso no debe existir hipótesis alguna, donde
- especifico esto ?
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_deeper
-\begin_layout Enumerate
-
-\emph on
-Obtención del conjunto de inicio : 
-\emph default
-fulmop deberá obtener el conjunto de estados iniciales, utilizando el conocimien
-to existente en la KB y las extensiones.
- 
-\end_layout
-
-\begin_layout Enumerate
-
-\emph on
-Creación de las lineas de pensamiento : 
-\emph default
-Utilizando dicho conjunto, fulplanner deberá crear las lineas de pensamiento
- correspondientes a cada uno.
-\end_layout
-
-\begin_layout Enumerate
-
-\emph on
-Expansión de las lineas de pensamiento : 
-\emph default
-fulmop, utilizando su KB y las extensiones, deberá expandir los estados
- de cada una de las lineas de pensamiento creadas por fulplanner.
- Se deberá eliminar todo ciclo  presente en las lineas de pensamiento.
- Cada ciclo deberá eliminarse evitando eliminar otras lineas de pensamiento
- presentes en este que no sean cíclicas.
- Las lineas de pensamiento deberán ser extendidas hasta el punto de que
- no sea posible extenderlas mas.
-\emph on
-
-\begin_inset Note Comment
-status collapsed
-
-\begin_layout Plain Layout
-Este paso estaba dividido en 3 pasos, pero como había un ciclo entre ellos
- decidí fusionarlos todos en uno solo para evitar introducir diseño/implementaci
-ón.
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Enumerate
-
-\emph on
-Registrado del nuevo conocimiento en la KB : 
-\emph default
-fulmop deberá registrar en la KB el nuevo conocimiento derivable de las
- lineas de pensamiento obtenidas.
-\end_layout
-
-\begin_layout Enumerate
-
-\emph on
-Mostrar el nuevo conocimiento obtenido : 
-\emph default
-El nuevo conocimiento registrado en la KB deberá ser devuelto al usuario
- mediante la CLI, ya sea devolviendo las lineas de pensamiento obtenidas
- y/o una explicación del significado de las mismas.
-\end_layout
-
-\end_deeper
-\begin_layout Subsection
-REQ Consultar Metas Lógicas de Tipo 
-\emph on
-
-\begin_inset Formula $A\Longrightarrow B$
-\end_inset
-
- 
-\end_layout
-
-\begin_layout Itemize
-
-\series bold
-\emph on
-Objetivo :
-\series default
-\emph default
- El objetivo de este requerimiento es permitirle al usuario consultar las
- conclusiones a las que FuL puede llegar para una meta lógica de tipo 
-\emph on
-
-\begin_inset Formula $A\Longrightarrow B$
-\end_inset
-
-
+<database.kb>
 \emph default
 .
 \end_layout
@@ -1115,10 +2041,108 @@ Objetivo :
 
 \series bold
 \emph on
-Prioridad : 
+Prioridad :
 \series default
 \emph default
-Alta
+ Alta
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\emph on
+Descripción :
+\series default
+ 
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+
+\emph on
+Validación de parámetros : 
+\emph default
+Se deberá validar que la cantidad de parámetros 
+\begin_inset Formula $n=1$
+\end_inset
+
+ y 
+\begin_inset Formula $p\_1=database.kb$
+\end_inset
+
+ deberá ser un nombre valido para de un archivo
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+Ya sea que este exista o no en el sistema de archivos de la sistema donde
+ se esta ejecutando FuL.
+\end_layout
+
+\end_inset
+
+.
+ De no cumplirse alguna de estas condiciones se deberá devolver el mensaje
+ de error correspondiente a través de la CLI y se pasara al paso final.
+\end_layout
+
+\begin_layout Enumerate
+
+\emph on
+Guardado :
+\emph default
+ Se
+\emph on
+ 
+\emph default
+guardara en el archivo la KB presente en la memoria de FuL.
+ Una vez guardada se mostrara el mensaje 
+\emph on
+SAVED
+\emph default
+.
+\end_layout
+
+\begin_layout Enumerate
+
+\emph on
+Finalizada la ejecución del comando : 
+\emph default
+Se finaliza la ejecución del comando.
+\end_layout
+
+\end_deeper
+\begin_layout Subsection
+REQ_05 Ejecución del comando QUERY
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\emph on
+Objetivo :
+\series default
+\emph default
+ El objetivo de este requerimiento es permitirle al usuario
+\emph on
+ 
+\emph default
+realizar una consulta
+\emph on
+ 
+\emph default
+a FuL a través de la CLI, la cual este dará una respuesta respecto de su
+ KB y las extensiones registradas en dicha sesión.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\emph on
+Prioridad :
+\series default
+\emph default
+ Alta
 \end_layout
 
 \begin_layout Itemize
@@ -1141,92 +2165,6 @@ Preguntar a Daniel y Carlos : Se desea poder decir cual es el limite máximo
 \end_inset
 
 
-\begin_inset Note Comment
-status collapsed
-
-\begin_layout Plain Layout
-Pregunta para Daniel : Desde el paso 4 hasta el paso 9 se encuentra presente
- un ciclo y esto me resulta demasiado algorítmico.
- Debería eliminarlo por ser parte de diseño/implementación ?
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_deeper
-\begin_layout Enumerate
-
-\emph on
-Ingreso del Experimento : 
-\emph default
-La CLI deberá proveer una opción para introducir la meta lógica de tipo
- 
-\emph on
-
-\begin_inset Formula $A\Longrightarrow B$
-\end_inset
-
- 
-\emph default
-a ser consultado.
- 
-\end_layout
-
-\begin_layout Enumerate
-
-\emph on
-Lectura, validación sintáctica y gramatical : 
-\emph default
-Una vez introducida la meta lógica se validara que su sintaxis corresponda
- con la del lenguaje formal definido en FuL.
- En caso contrario, ERROR_EXIT.
-\end_layout
-
-\begin_layout Enumerate
-
-\emph on
-Validación de definiciones : 
-\emph default
-Si la meta lógica esta bien definida respecto del lenguaje formal entonces
- validaremos las definiciones 
-\begin_inset Formula $A$
-\end_inset
-
- y 
-\begin_inset Formula $B$
-\end_inset
-
-, utilizando la KB y las extensiones.
- En caso de no sean validas, ERROR_EXIT.
-\end_layout
-
-\begin_layout Enumerate
-
-\emph on
-Iniciado de fulplanner : 
-\emph default
-Si 
-\begin_inset Formula $A$
-\end_inset
-
- y 
-\begin_inset Formula $B$
-\end_inset
-
- son definiciones validas, entonces se procederá a iniciar fulplanner con
- la definición 
-\begin_inset Formula $A$
-\end_inset
-
- como su estado inicial.
-\end_layout
-
-\begin_layout Enumerate
-
-\emph on
-Expansión a nuevos estados :
 \emph default
 
 \begin_inset Note Comment
@@ -1241,10 +2179,10 @@ Discutir con Daniel y Carlos : Las propiedades presentes en cada estado
 \end_inset
 
  La necesidad de representar dichos estados proviene de que los requerimos
- para poder demostrar, en un experimento o validación de nuevo conocimiento,
- cuales son las lineas de pensamiento que dieron un resultado positivo u
- negativo y cual fue el conjunto de hipótesis utilizadas para llegar a dicha
- conclusión en cada linea.
+ para poder demostrar, en un experimento o validación del nuevo conocimiento,
+ los cuales son las lineas de pensamiento que dieron un resultado positivo
+ u negativo y cual fue el conjunto de hipótesis utilizadas para llegar a
+ dicha conclusión en cada linea.
  
 \begin_inset Newline newline
 \end_inset
@@ -1256,147 +2194,15 @@ El problema con esta forma de presentarlo es que habría tantos desconocidos
 
 \end_inset
 
-
-\begin_inset Note Comment
-status collapsed
-
-\begin_layout Plain Layout
-
-\emph on
-(Versión demasiado rebuscada) Obtención del conjunto de conceptos derivables
- de 
-\begin_inset Formula $X$
-\end_inset
-
- (INT_ERROR): 
-\emph default
-Iniciado fulplanner, se le enviara a fulmop el conjunto 
-\begin_inset Formula $X$
-\end_inset
-
- para que obtenga
-\begin_inset Formula \begin{multline*}
-Y=\{C\rightarrow D\,:\, D\in def(KB)\wedge\\
-C=\min\{C\subseteq X:C\underset{KB}{\overset{1}{\vDash}}D\}\,\wedge\\
-\nexists E\subseteq X:E\underset{KB}{\overset{1}{\vDash}}\neg D\}\end{multline*}
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\emph on
  
-\emph default
-Luego fulmop deberá tomar los estados que no han sido expandidos y, mediante
- KB y las extensiones, obtener los nuevos estados a los que estos pueden
- ser expandidos.
-\end_layout
-
-\begin_layout Enumerate
-
-\emph on
-Agregación de los nuevos estados : 
-\emph default
-fulplanner conectara a los estados a expandir los nuevos estados obtenidos
- para estos.
- Si se obtuvieron nuevos estados para alguno de los estados a expandir entonces
- se procederá al paso siguiente.
- En caso contrario se procederá al paso final.
-\end_layout
-
-\begin_layout Enumerate
-
-\emph on
-Eliminación de ciclos : 
-\emph default
-fulplanner deberá eliminar todo ciclo
-\begin_inset Foot
-status collapsed
-
-\begin_layout Plain Layout
-Léase como la presencia de 
-\begin_inset Formula $A\rightarrow A$
-\end_inset
-
- en alguna parte de la planificación.
-\end_layout
-
-\end_inset
-
- presente en la planificación.
- Cada ciclo deberá eliminarse evitando eliminar otras lineas de pensamiento
- presentes en este que no sean cíclicas.
-\begin_inset Note Comment
-status collapsed
-
-\begin_layout Plain Layout
-Esta ultima linea no esta clara ni tampoco se si es necesaria.
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Enumerate
-
-\emph on
-Validación de la presencia de 
-\begin_inset Formula $B$
-\end_inset
-
- en la planificación : 
-\emph default
-Si existe en la planificación el estado 
-\begin_inset Formula $B$
-\end_inset
-
- tal que es alcanzado desde el estado raíz 
-\begin_inset Formula $A$
-\end_inset
-
- por una linea de pensamiento afirmativa
-\begin_inset Foot
-status collapsed
-
-\begin_layout Plain Layout
-No contiene falsedades ni hipótesis en ella.
-\end_layout
-
-\end_inset
-
- entonces se procederá con el paso final.
- En caso contrario se procederá al siguiente.
-\end_layout
-
-\begin_layout Enumerate
-
-\emph on
-Verificación de presencia de estados a expandir : 
-\emph default
-Si existen en la planificación estados a expandir entonces se deberá realizar
- el paso 5.
-\end_layout
-
-\begin_layout Enumerate
-
-\emph on
-Retorno de la planificación obtenida :
-\emph default
- Se retorna mediante la CLI la planificación obtenida, una explicación del
- significado de la misma y/o el resultado de la operación realizada.
 \begin_inset Note Comment
 status collapsed
 
 \begin_layout Plain Layout
 Cuales de las 3 deberían estar como retorno ? Debería ser solo un output
  o debería presentarse en algún formato mas manejable y quizás también seria
- deseable poder reintroducir la planificación obtenida para luego de ingresar
- nuevo conocimiento a la KB reprocesar dicha planificación.
+ deseable poder reintroducir la planificación obtenida para luego ingresarlo
+ como nuevo conocimiento a la KB.
 \end_layout
 
 \end_inset
@@ -1404,9 +2210,287 @@ Cuales de las 3 deberían estar como retorno ? Debería ser solo un output
 
 \end_layout
 
+\begin_deeper
+\begin_layout Enumerate
+
+\emph on
+Validación de parámetros : 
+\emph default
+Se deberá validar que la cantidad de parámetros 
+\begin_inset Formula $n=1$
+\end_inset
+
+ y 
+\begin_inset Formula $p\_1=consulta$
+\end_inset
+
+ deberá ser una consulta interpretable por FuL, la cual respete las restriccione
+s de su lenguaje formal.
+ De no cumplirse alguna de estas condiciones se deberá devolver el mensaje
+ de error correspondiente a través de la CLI y se pasara al paso final.
+\end_layout
+
+\begin_layout Enumerate
+
+\emph on
+Procesado de la Consulta : 
+\emph default
+Se deberá procesar la consulta con respecto a la conocimiento presente en
+ la KB de FuL y las extensiones registradas.
+\end_layout
+
+\begin_layout Enumerate
+
+\emph on
+Retorno de las conclusiones obtenidas :
+\emph default
+ Se retorna mediante la CLI las conclusiones obtenidas y una explicación
+ del significado de las mismas.
+\end_layout
+
+\begin_layout Enumerate
+
+\emph on
+Finalizada la ejecución del comando : 
+\emph default
+Se finaliza la ejecución del comando.
+\end_layout
+
 \end_deeper
 \begin_layout Subsection
-REQ Prueba: Experimento Junin
+REQ_06 Ejecución del comando EXECUTE
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\emph on
+Objetivo :
+\series default
+\emph default
+ El objetivo de este requerimiento es permitirle al usuario
+\emph on
+ 
+\emph default
+ejecutar un script en
+\emph on
+ 
+\emph default
+FuL a través de la CLI, la cual este dará una respuesta respecto de su KB
+ y las extensiones registradas en dicha sesión.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\emph on
+Prioridad :
+\series default
+\emph default
+ Baja
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\emph on
+Descripción :
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+
+\emph on
+Validación de parámetros : 
+\emph default
+Se deberá validar que la cantidad de parámetros 
+\begin_inset Formula $n=1$
+\end_inset
+
+ y 
+\begin_inset Formula $p\_1=script.ful$
+\end_inset
+
+ deberá ser un archivo el cual contenga comandos validos para FuL y las
+ extensiones registradas.
+ De no cumplirse alguna de estas condiciones se deberá devolver el mensaje
+ de error correspondiente a través de la CLI y se pasara al paso final.
+\end_layout
+
+\begin_layout Enumerate
+
+\emph on
+Procesado de ejecución del script : 
+\emph default
+Se deberá ejecutar cada uno de los comandos presentes en script.ful acorde
+ con lo especificado en el requerimiento REQ_02.
+\end_layout
+
+\begin_layout Enumerate
+
+\emph on
+Finalizada la ejecución del comando : 
+\emph default
+Se finaliza la ejecución del comando.
+\end_layout
+
+\end_deeper
+\begin_layout Subsection
+REQ_07 Ejecución del comando SHOW
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\emph on
+Objetivo :
+\series default
+\emph default
+ El objetivo de este requerimiento es permitirle al usuario
+\emph on
+ 
+\emph default
+ver el valor de una variable registrada en FuL.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\emph on
+Prioridad :
+\series default
+\emph default
+ Baja
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\emph on
+Descripción :
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+
+\emph on
+Validación de parámetros : 
+\emph default
+Se deberá validar que la cantidad de parámetros 
+\begin_inset Formula $n=1$
+\end_inset
+
+ y 
+\begin_inset Formula $p\_1=variable$
+\end_inset
+
+ deberá ser una variable registrada en FuL.
+ De no cumplirse alguna de estas condiciones se deberá devolver el mensaje
+ de error correspondiente a través de la CLI y se pasara al paso final.
+\end_layout
+
+\begin_layout Enumerate
+
+\emph on
+Obtención del valor de la variable:
+\emph default
+ Se deberá mostrar a través de la CLI el valor de la variable solicitada.
+\end_layout
+
+\begin_layout Enumerate
+
+\emph on
+Finalizada la ejecución del comando : 
+\emph default
+Se finaliza la ejecución del comando.
+\end_layout
+
+\end_deeper
+\begin_layout Subsection
+REQ_08 Ejecución del comando SET
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\emph on
+Objetivo :
+\series default
+\emph default
+ El objetivo de este requerimiento es permitirle al usuario
+\emph on
+ 
+\emph default
+darle un valor a una variable registrada en FuL.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\emph on
+Prioridad :
+\series default
+\emph default
+ Baja
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\emph on
+Descripción :
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+
+\emph on
+Validación de parámetros : 
+\emph default
+Se deberá validar que la cantidad de parámetros 
+\begin_inset Formula $n=2$
+\end_inset
+
+ , 
+\begin_inset Formula $p\_1=variable$
+\end_inset
+
+ deberá ser una variable registrada en FuL y 
+\begin_inset Formula $p\_1=value$
+\end_inset
+
+ deberá ser un valor valido para dicha variable.
+ De no cumplirse alguna de estas condiciones se deberá devolver el mensaje
+ de error correspondiente a través de la CLI y se pasara al paso final.
+\end_layout
+
+\begin_layout Enumerate
+
+\emph on
+Registrado del valor en la variable:
+\emph default
+ Se deberá registrar 
+\emph on
+value
+\emph default
+ en 
+\emph on
+variable
+\emph default
+.
+\end_layout
+
+\begin_layout Enumerate
+
+\emph on
+Finalizada la ejecución del comando : 
+\emph default
+Se finaliza la ejecución del comando.
+\end_layout
+
+\end_deeper
+\begin_layout Subsection
+REQ_09 Prueba: Experimento Junin
 \end_layout
 
 \begin_layout Itemize
@@ -1457,122 +2541,6 @@ Preguntar a Daniel : Debería poner un link a los documentos relacionados
 
 \end_layout
 
-\begin_layout Subsection
-REQ Agregar una Nueva Extensión
-\end_layout
-
-\begin_layout Itemize
-
-\series bold
-\emph on
-Objetivo :
-\series default
-\emph default
- El objetivo de este requerimiento es permitirle al usuario agregar una
- nueva extensión a FuL, la cual podrá ser usada por fulmop en las otras
- operaciones representadas en los requerimientos previos.
-\end_layout
-
-\begin_layout Itemize
-
-\series bold
-\emph on
-Prioridad : 
-\series default
-\emph default
-Baja
-\end_layout
-
-\begin_layout Itemize
-
-\series bold
-\emph on
-Descripción :
-\series default
- 
-\end_layout
-
-\begin_deeper
-\begin_layout Enumerate
-Ingreso : La CLI deberá proveer una opción para introducir el nombre del
- archivo que contiene la extensión a ser agregada, formato del archivo TBD
-\begin_inset Foot
-status collapsed
-
-\begin_layout Plain Layout
-Esto deberá ser definido en el paso de diseño.
-\end_layout
-
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Enumerate
-Validación : FuL deberá validar que la extensión introducida cumple con
- las interfases definidas en su API y que sus dependencias han sido satisfechas.
-\end_layout
-
-\begin_layout Enumerate
-Instalación : Una vez validada, FuL instalara dicha extensión en el entorno
- de trabajo de FuL.
- Por ultimo avisara al usuario, mediante la CLI, que la instalación se a
- realizado exitosamente.
-\end_layout
-
-\end_deeper
-\begin_layout Subsection
-REQ Configurar FuL
-\end_layout
-
-\begin_layout Itemize
-
-\series bold
-\emph on
-Objetivo :
-\series default
-\emph default
- El objetivo de este requerimiento es proveer al usuario operaciones para
- configurar los distintos parámetros relacionados con el funcionamiento
- de FuL.
- 
-\end_layout
-
-\begin_layout Itemize
-
-\series bold
-\emph on
-Prioridad : 
-\series default
-\emph default
-Baja
-\end_layout
-
-\begin_layout Itemize
-
-\series bold
-\emph on
-Descripción :
-\series default
- 
-\emph default
-Deberá ser capaz de proveer operaciones para configurar los distintos aspectos
- de FuL, tales como parámetros relacionados con la KB, extensiones, fulplanner
- y fulmop.
- Estos aspectos son y el grado de configurabilidad de cada uno sera TBD
-\begin_inset Foot
-status collapsed
-
-\begin_layout Plain Layout
-Ya que dependerá del diseño e implementación de los elementos anteriormente
- mencionados.
-\end_layout
-
-\end_inset
-
-.
-\end_layout
-
 \begin_layout Standard
 \begin_inset Newpage pagebreak
 \end_inset
@@ -1593,8 +2561,80 @@ Deben cumplirse los siguientes requerimientos de diseño :
 \end_layout
 
 \begin_layout Itemize
-En caso de utilizar C++ en su implementación, deberá cumplir los estándares
- ANSI C++, conforme con el 
+El producto DEBERÁ cumplir con los siguientes principios de diseño de la
+ programación orientada a objetos.
+ Los primeros 5, son también conocidos por el acrónimo 
+\begin_inset Quotes eld
+\end_inset
+
+
+\series bold
+SOLID
+\series default
+
+\begin_inset Quotes erd
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\series bold
+S
+\series default
+ingle responsibility principle (SRP) 
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+O
+\series default
+pen/closed principle (OCP) 
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+L
+\series default
+iskov substitution principle (LSP) 
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+I
+\series default
+nterface segregation principle (ISP) 
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+D
+\series default
+ependency inversion principle (DIP) 
+\end_layout
+
+\begin_layout Itemize
+Law of Demeter (LoD) 
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+En caso de utilizar C++ en su implementación, deberá cumplir los 
+\begin_inset CommandInset href
+LatexCommand href
+name "estándares ANSI C++"
+target "http://www.open-std.org/jtc1/sc22/wg21/"
+
+\end_inset
+
+, conforme con el 
 \lang english
 coding-guideline
 \lang spanish
@@ -1618,12 +2658,12 @@ Atributos del Software
 \end_layout
 
 \begin_layout Standard
-El producto deberá tener los siguientes atributos :
+El código del producto DEBERÁ:
 \end_layout
 
 \begin_layout Itemize
-Deberá ser testeado el 85% del código fuente presente en este producto.
- 
+compilar sin advertencias, o las advertencias aceptadas DEBERÁN estar documentad
+as.
 \end_layout
 
 \begin_layout Itemize
@@ -1634,7 +2674,31 @@ Deberá definirse un lenguaje formal para la representación del conocimiento
  con el área de Virología.
 \end_layout
 
-\begin_layout Subsection
+\begin_layout Itemize
+cumplir con el 
+\begin_inset CommandInset href
+LatexCommand href
+name "estándar ANSI C++"
+target "http://www.open-std.org/jtc1/sc22/wg21/"
+
+\end_inset
+
+ y el 
+\lang english
+coding-guideline
+\lang spanish
+ definido por FuDePAN.
+\end_layout
+
+\begin_layout Standard
+El software DEBERÁ:
+\end_layout
+
+\begin_layout Itemize
+tener al menos un 85% de cobertura con pruebas automatizadas.
+\end_layout
+
+\begin_layout Subsubsection
 Restricciones de Memoria
 \end_layout
 
@@ -1643,7 +2707,7 @@ Deben cumplirse las siguientes restricciones de memoria :
 \end_layout
 
 \begin_layout Itemize
-No deberá haber problemas de memorial o 
+No deberá haber problemas de memoria o 
 \lang english
 leaks
 \lang spanish
@@ -1700,7 +2764,7 @@ Tanto solida como volátil.
  maquina en la que se corra.
 \end_layout
 
-\begin_layout Subsection
+\begin_layout Subsubsection
 Entorno de Funcionamiento
 \end_layout
 
@@ -1711,7 +2775,7 @@ FuL esta pensado para ser utilizado como una herramienta de consulta de
 \end_layout
 
 \begin_layout Standard
-Las plataformas en las que deberá correr sera en las basadas en GNU/Linux.
+Las plataformas en las que correrá deberán estar basadas en GNU/Linux.
 \end_layout
 
 \begin_layout Subsection
@@ -1719,7 +2783,15 @@ Licencias
 \end_layout
 
 \begin_layout Standard
-El código fuente de FuL estará licenciado como GPLv3.
+El código fuente de FuL estará licenciado como 
+\begin_inset CommandInset href
+LatexCommand href
+name "GPL v3"
+target "http://www.gnu.org/licenses/gpl-3.0.html"
+
+\end_inset
+
+.
  Toda la documentación generada para el desarrollo de FuL sera licenciada
  bajo Creative Commons para proteger tanto el texto como las ideas presentes
  en este documento
@@ -1747,21 +2819,7 @@ Este ultimo punto podría modificarse a futuro para utilizar licencias mas
 \begin_layout Standard
 \begin_inset CommandInset nomencl_print
 LatexCommand printnomenclature
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Note Comment
-status collapsed
-
-\begin_layout Plain Layout
-Preguntar a Daniel : Sigo sin entender por que no hay un requerimiento que
- sirva para buscar conocimiento en la KB sobre una entidad-definición determinad
-a.
-\end_layout
+set_width "none"
 
 \end_inset
 

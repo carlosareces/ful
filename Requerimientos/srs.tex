@@ -1,6 +1,6 @@
-%% LyX 1.6.5 created this file.  For more info, see http://www.lyx.org/.
+%% LyX 2.0.1 created this file.  For more info, see http://www.lyx.org/.
 %% Do not edit unless you really know what you are doing.
-\documentclass[10pt,a4paper,english,spanish]{article}
+\documentclass[10pt,a4paper,american,english,spanish]{article}
 \usepackage[T1]{fontenc}
 \usepackage[latin9]{inputenc}
 \usepackage{listings}
@@ -16,12 +16,16 @@
 \providecommand{\printnomenclature}{\printglossary}
 \providecommand{\makenomenclature}{\makeglossary}
 \makenomenclature
-\usepackage[unicode=true, pdfusetitle,
- bookmarks=true,bookmarksnumbered=false,bookmarksopen=false,
- breaklinks=false,pdfborder={0 0 1},backref=false,colorlinks=false]
+\usepackage[unicode=true]
  {hyperref}
 
 \makeatletter
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% LyX specific LaTeX commands.
+\pdfpageheight\paperheight
+\pdfpagewidth\paperwidth
+
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% User specified LaTeX commands.
 % Added by lyx2lyx
 \setlength{\nomlabelwidth}{5cm}
@@ -70,7 +74,7 @@ de dicha tesis.
 
 Las palabras clave \emph{DEBE}, \emph{NO DEBE}, REQUERIDO, DEBERÁ,
 NO DEBERÁ, DEBERÍA, NO DEBERÍA, RECOMENDADO, PUEDE Y OPCIONAL en este
-documento son interpretadas como esta descripto en el documento\emph{
+documento son interpretadas como esta descrito en el documento\emph{
 \href{http://www.ietf.org/rfc/rfc2119.txt}{RFC 2119}}.
 
 
@@ -118,8 +122,8 @@ para la especificación de requerimientos de la IEEE (\href{http://standards.ieee
 \begin{itemize}
 \item \emph{Sección 2: }Provee una descripción general de los aspectos generales
 del producto, como la perspectiva de este, características principales.
-\item \emph{Sección 3: }Describe las interfases del producto, tanto las
-del usuario como interfases de software. 
+\item \emph{Sección 3: }Describe las interfaces del producto, tanto las
+del usuario como interfaces de software. 
 \item \emph{Sección 4:} Organiza y describe los requerimientos funcionales
 del producto.
 \item \emph{Sección 5: }Organiza y describe los requerimientos no funcionales.
@@ -158,9 +162,9 @@ contradicciones con esta, para luego ser aceptado o mostrar las encontradas.
 
 \subsubsection{Procesamiento de la KB }
 
-Provee la capacidad de procesar la información presente en la KB para
-así obtener nuevas conclusiones del conocimiento disponible en ella
-%
+Proveer la capacidad de procesar la información presente en la KB
+para así obtener nuevas conclusiones del conocimiento disponible en
+ella %
 \begin{comment}
 Idea a Futuro!:Este proceso debería poderse detener y guardarlo para
 continuarlo posteriormente. Me gustaría que dicho proceso se pudiera
@@ -171,22 +175,27 @@ frontend para consultas y una backend para que se introduzca y procese
 nuevo conocimiento. Para este ultimo caso se deberá definir la forma
 de actualización de la KB frontend con la backend.
 \end{comment}
-{}.
+\begin{comment}
+Pregunta : Este ítem parece no tener sentido por que no tiene correlación
+con los requerimientos. Debería borrarlo ? 
+\end{comment}
+.
 
 
 \subsubsection{Asistir en la planificación de experimentos}
 
-Provee la capacidad de responder preguntas objetivo y, en caso de
+Proveer la capacidad de responder preguntas objetivo y, en caso de
 no ser capaz de responder dicha pregunta, devolver preguntas relevantes
 para la que fue introducida. Se dice que son relevantes ya que deben
 ser contestadas para poder llegar a una respuesta para la pregunta
-objetivo. Dichas preguntas objetivo serán metas lógicas del tipo $A\Longrightarrow B$%
+objetivo%
 \begin{comment}
-Debería hablar de estas como metas lógicas o seguirles llamando preguntas
-objetivo. Pregunto esto por que en los requerimientos funcionales
-habíamos convenido de que las denominaríamos como metas lógicas.
+Pregunta para Daniel : Debería hablar de estas como metas lógicas
+o seguirlos llamando preguntas objetivo. Pregunto esto por que en
+los requerimientos funcionales habíamos convenido de que las denominaríamos
+como metas lógicas.
 \end{comment}
-{}.
+.
 
 Estas preguntas devueltas son útiles para el usuario en el desarrollo
 de sus experimentos, ya que sirven para la confección de arboles de
@@ -195,28 +204,48 @@ hipótesis y planeamiento de escenarios.
 
 \subsubsection{API y SDK para Extensiones}
 
-Provee una API y un SDK para la creación de extensiones, los cuales
+Proveer un API y un SDK para la creación de extensiones, los cuales
 serán utilizados para interpretar el conocimiento que le es otorgado
 a dicha base de datos. 
 
-El API define la forma en la que se intercambiara el conocimiento
-entre la extensión y FuL. El SDK otorga las librerías necesarias tanto
-para la construcción de la extensión en si, como también la definición
-de su lenguaje formal de representación de conocimiento correspondiente.
+El API define la forma en la que se intercambiará el conocimiento
+entre la extensión y FuL. El SDK otorga las librerías y las herramientas
+necesarias tanto para la construcción de la extensión en sí, como
+para la definición de su lenguaje formal de representación de conocimiento
+correspondiente.
 
 
 \subsubsection{Optimización de la KB{*}}
 
-Tendrá la capacidad de optimizar la KB. Esta proveerá la eliminación
-de redundancias y devolverá una versión minimál de la KB original,
-de la cual se puede deducir todo el conocimiento presente en la original.
+Proveer la capacidad de optimizar la KB. Ésta característica permite
+la detección de redundancias y obtener una versión mínimal de la KB
+original en caso de no encontrarse redundancias, de la cual se puede
+deducir todo el conocimiento presente en la original.%
+\begin{comment}
+Pregunta para Daniel y Carlos : Al no tener la capacidad de eliminación
+automática de redundancias no puedo asegurar que tenemos una KB mínimal,
+solo lo podre asegurar cuando estas no existan. Servirá seguir manteniendo
+esta característica de la KB mínimal o solo queremos quedarnos con
+la detección de redundancias ?
+
+Idea : Podría hacerse que al detectar una redundancia se detenga el
+proceso y se avise al usuari@ para que decida como eliminarlo, para
+luego continuarse con el proceso.
+\end{comment}
+
 
 
 \subsubsection{KB inicial con conocimientos de virología{*}}
 
 Proveer una KB inicial, la cual contenga conocimientos básicos de
 virología tales como lo que se encuentran el libros de estudio de
-nivel básico a intermedio. Restricciones al \foreignlanguage{english}{\emph{scope\nomenclature[scope]{scope}{Alcance de cierto objeto}}}
+nivel básico a intermedio%
+\footnote{Por ejemplo: 
+\begin{itemize}
+\item \href{http://books.google.com/books?id=V4aLSts_JnMC&dq=isbn:0849331269}{Virus life in diagrams - Hans-Wolfgang Ackermann, Laurent Berthiaume, Michel Tremblay}.
+\item \href{http://books.google.com/books/about/Fields_virology.html?id=DMxcCOIGocUC}{Fields Virology - Bernard N. Fields, David Mahan Knipe}.\end{itemize}
+%
+}. Restricciones al \foreignlanguage{english}{\emph{scope\nomenclature[scope]{scope}{Alcance de cierto objeto}}}
 de dicha KB están \emph{por ser determinadas (TBD)\nomenclature[TBD]{TBD}{To Be Determinated ( Por ser Determinado)}}%
 \footnote{Se propuso restringirlo a los arenavirus y los retrovirus. Se decidirá
 acorde con las necesidades de FuDePAN y los tiempos disponibles.%
@@ -225,10 +254,10 @@ acorde con las necesidades de FuDePAN y los tiempos disponibles.%
 Pregunta : Deberíamos agregar la posibilidad de imprimir/obtener el
 conocimiento existente en la KB en algún formato ? Esta operación
 no tendría relación con la consulta de experimentos.\\
-Respuesta de Daniel : Por ahora no nos interesa, cuando tengamos
-la necesidad veremos de agregarlo. La interfaz es a tracción preguntas/metas.
+Respuesta de Daniel : Por ahora no nos interesa, cuando tengamos la
+necesidad veremos de agregarlo. La interfaz es a tracción preguntas/metas.
 \end{comment}
-{}. 
+. 
 
 \pagebreak{}
 
@@ -244,56 +273,150 @@ hecho sólo se utilizaran librerías compatibles con sistemas GNU/Linux.%
 Revisar si aquí debo agregar que debería usar ciertas librerías estándar
 de la fundación a la hora de trabajar en C++ o Python.
 \end{comment}
-{}
+
 
 
 \subsection{Interfaces de Usuario}
 
-La interfase consiste en una \emph{CLI (}\foreignlanguage{english}{\emph{Command
-Line Interface}}\emph{)\nomenclature[CLI]{CLI}{Command Line Interface}
-}y un lenguaje formal,\emph{ }descriptos a continuación.
+La interfaz consiste en un \foreignlanguage{english}{command line},
+una \emph{CLI (}\foreignlanguage{english}{\emph{Command Line Interface}}\emph{)\nomenclature[CLI]{CLI}{Command Line Interface}}
+y un lenguaje formal,\emph{ }descriptos a continuación.
+
+\selectlanguage{english}%
+
+\subsubsection{Command Line}
+
+\selectlanguage{spanish}%
+Este se encarga de la puesta en funcionamiento de la CLI de FuL, para
+lo cual el usuario podra otorgarle los siguientes parámetros %
+\begin{comment}
+Pregunta : La KB deberiamos considerarla opcional ya que podriamos
+comenzar con una KB vacía y con los import la vamos llenando. Esto
+ya es parte de diseño pero realmente lo único que veo con esta posibilidad
+de pasar el parámetro es que no hace falta hacer ese import al principio.
+También podriamos considerar opcional el de las extensiones ( que
+en caso de no estar simplemente no se cargan extensiones :P, aunque
+si... seria medio inútil pero relajaría mas el requerimiento ).
+\end{comment}
+:
+\begin{itemize}
+\item Un archivo de configuración XML donde se especifique el conjunto de
+extensiones que FuL utilizara en esta ejecución, las variables que
+dicha extensiones requieren registrar y los comandos que las mismas
+proveen. Este parámetro es obligatorio.\\
+Ademas este archivo puede contener configuración para las variables
+de FuL.
+\item La KB inicial la cual FuL utilizara durante toda la sesión. Este parámetro
+es opcional, en caso de no otorgarse FuL iniciara con una KB vacia.
+\end{itemize}
+A medida que se cargan dichos elementos se mostraran por consola los
+mensajes pertinentes al usuario, en caso de error se mostrara el mensaje
+correspondiente y se anulara o continuara con su ejecución dependiendo
+de la gravedad del error%
+\footnote{La clasificación de nivel de gravedad de los errores esta TBD, la
+cual sera definida una vez de que estos sean clasificados y estudiados
+en la fase de análisis y/o diseño.%
+}. Si no hay ningún error se pondrá en funcionamiento la CLI.
 
 
 \subsubsection{CLI}
 
-Este sera tratable como un comando de terminal, al cual se le podrán
-pasar al menos parámetros para realizar las siguientes operaciones%
-\footnote{Las operaciones marcadas con \emph{(V) }tendrán la opción ser puestas
-en modo verborrágico, lo que hará que muestren por pantalla mayor
-información relacionada con su procesamiento.\emph{ }%
-}:
-\begin{enumerate}
-\item \emph{Introducir un archivo con conocimiento en la KB (V):} Parsea
-y chequea consistencia de dicho conocimiento para luego chequear contradicciones
-de este con la KB. En caso de éxito se agregara a la KB, caso contrario
-sera rechazado en su totalidad.
-\item \emph{Procesar el conocimiento en la KB (V): }Será la opción por defecto
-en la cual solo procesará el conocimiento existente en la KB para
-obtener nuevas conclusiones a los posibles experimentos. 
-\item \emph{Realizar un consulta de una meta lógica de tipo }$A\Longrightarrow B$
-\emph{(V): }Chequea la valides de dicha consulta. En caso de ser valida
-FuL responderá con un valor booleano o con una lista de metas lógicas
-de tipo $A\Longrightarrow B$ para los cuales no tiene respuesta%
+Es una interfaz CLI, similar a un \foreignlanguage{american}{prompt},
+la cual permite realizar ingresar los siguientes comandos%
+\footnote{Los elementos presentes en un comando englobados con <> son parámetros
+que el argumento requiere para ser ejecutado. Los nombres de los parámetros
+son representativos y pueden diferir de los que tenga el producto
+final.%
+}%
 \begin{comment}
-Preguntar a Carlos : Debería recibir mas información que un booleano
-en caso de tener respuesta ? Quizás mostrar toda la linea de pensamiento
-utilizada para responder a dicho experimento. Respuesta de Carlos:
-Si, viene muy bien ( ver charla en gmail ). Hay herramientas muy útiles
-para esto que podemos aprovechar.
+Los \emph{ID-10-T }los sacamos o quieres dejarlos como método de traumatización
+del usuario ? :P
 \end{comment}
-{}. En caso de ser invalida mostrara el mensaje de error correspondiente.
-\item \emph{Agregar una nueva extensión a FuL (V): }El usuario introducirá
-el nombre de archivo de la extensión que desea agregar. En caso de
-que dicho archivo no sea valido o surja algún error sera informado
-del mismo.
-\item \emph{Configurar parámetros relacionados con FuL, su KB y extensiones
-: }TBD\emph{}%
-\footnote{Dependerá de factores relacionados con el diseño e implementación
-de la KB, extensiones y otros aspectos relacionados con FuL tales
-su instalación,etc. Deberá ser resuelto en las etapas anteriormente
-mencionadas.%
-}
+:
+\begin{enumerate}
+\item \textbf{\emph{import}}\emph{ <delta.kb> : }Permite introducir el conocimiento
+presente en \emph{delta.kb }a la KB actualmente cargada en FuL. En
+caso de que delta.kb contenga conocimiento invalido%
+\footnote{Tanto por ser sintácticamente incorrecto respecto del lenguaje formal
+o por contradecir el ya presente en la memoria de FuL.%
+}, FuL abortara el proceso de importación e informara al usuario mediante
+la CLI del error con un nivel de detalle adecuado. Si la ejecución
+del comando a sido exitosa se mostrara en la CLI el mensaje \emph{IMPORT
+OK}.
+\item \textbf{save }\emph{<file.kb> : }Permite guardar la KB que FuL tiene
+en memoria dentro de \emph{file.kb}.\emph{ }Si la ejecución del comando
+a sido exitosa se mostrara en la CLI el mensaje \emph{SAVED}. En caso
+de error informara al usuario mediante la CLI de dicho error.
+\item \textbf{query} \emph{<query-string> : }Permite realizar la consulta
+\emph{query-string }a FuL, el cual devolverá una respuesta acorde
+con la KB y extensiones cargadas previamente%
+\footnote{Esta respuesta estará compuesta por una explicación del resultado
+obtenido y las lineas de pensamiento que se utilizaron para arribar
+a el.%
+}. En caso de que la consulta sea invalida respecto del lenguaje formal
+entonces devolverá el mensaje de error correspondiente. Si no se puede
+llegar a una respuesta definida entonces FuL devolverá la lista de
+elementos requeridos para que FuL de una respuesta definida.
+\item \textbf{execute} \emph{<script.ful> }%
+\begin{comment}
+La llamada de scripts la agrego acá para así poder hacer supra scripts
+que carguen distintos scripts menores o en caso de querer cambiar
+por otro setting que tenes con otro script no hace falta tener que
+cargar las extensiones y la KB de nuevo ( lo cual es bastante costoso
+). 
+\end{comment}
+\emph{: }Permite ejecutar \emph{script.ful\nomenclature[script]{script}{Secuencia de comandos interpretables por la CLI de FuL}
+}el cual contiene una secuencia de comandos validos. Cada linea se
+interpreta como un comando y en caso de error en alguno de los comandos
+se detendrá la ejecución del script.%
+\begin{comment}
+Pregunta IMPORTANTE para Daniel : Para scripting es necesario permitir
+que se utilice algún lenguaje imperativo o funcional? Pregunto sino
+los script solo servirían para introducir grandes cantidades de conocimiento
+o realizar una serie de consultas de forma desatendida. Pensaba agregarlo
+de esta manera (si se prefiere funcional, dime y con gusto lo cambio
+):
+
+\emph{Adicionalmente se permitirá el uso de sentencias del paradigma
+imperativo puro, acompañado con operaciones aritméticas y de álgebra
+relacional.}
+
+Respuesta IMPORTANTE de Daniel : NO! NO! Y NO! ( bue no fue así :P
+) , lo que entendí es que vamos a poder extender el lenguaje de comandos
+mediante las extensiones las cuales podrán registrar sus propios comandos.
+Así que esto podría permitiría construir un lenguaje de scripting
+mas robusto.
+\end{comment}
+
+\item \textbf{show }\emph{<variable> : }Permite ver el valor de \emph{variable},
+la cual debe pertenecer a las variables registradas por FuL o las
+extensiones. En caso de que \emph{variable} no pertenezca se devolverá
+el mensaje \emph{ID-10-T error: unrecognized variable}.
+\item \textbf{set }\emph{<variable> <value> : }Permite asignar \emph{value}
+a \emph{variable} , siendo \emph{variable} una variable registrada
+por FuL o las extensiones y \emph{value }un valor valido para esta.
+En caso de que \emph{variable} no pertenezca al conjunto de variables
+registradas se devolverá el mensaje \emph{ID-10-T error: unrecognized
+variable}. En caso de que \emph{value} sea un valor invalido para
+\emph{variable }se devolverá el mensaje \emph{ID-10-T error: invalid
+value} \emph{for <variable>}.
+\item \textbf{quit} \emph{:} Permite salir de la CLI y cerrar FuL. En caso
+de que no se haya guardado la KB que FuL tiene en memoria, se mostrara
+el mensaje \emph{WARNING: memory state not saved. Sure to quit? (y/n).}
+Si el usuario lo confirma entonces se saldrá de la CLI y cerrara FuL
+, sino abortara el comando%
+\begin{comment}
+Algo mas ?!
+\end{comment}
+.
 \end{enumerate}
+Adicionalmente se podrán ejecutar los comandos registrados por las
+extensiones, las cuales definirán el comportamiento de los mismos.
+En caso de el comando introducido no este registrado por las extensiones
+cargadas o no sea parte de los anteriormente mencionados entonces
+se devolverá el siguiente mensaje \emph{ID-10-T error: unrecognized
+command}.
+
 
 \subsubsection{Lenguaje Formal}
 
@@ -310,7 +433,7 @@ No debería poner acá el lenguaje que usara FuL para representar el
 conocimiento? Si, pero solo a grandes rasgos como es y que conocimiento
 va a representar.
 \end{comment}
-{}
+
 
 
 \subsection{Interfaces de Hardware}
@@ -320,25 +443,43 @@ No hay requerimientos especificados.
 
 \subsection{Interfaces de Software}
 
-El producto tendrá los siguientes módulos :
-\begin{enumerate}
-\item \emph{fulmop : }Este es producto principal, el cual se encarga de
-articular los otros componentes, tales como la KB, ful\foreignlanguage{english}{planner}
-y las extensiones para realizar las operaciones pedidas por el usuario.
-\item \emph{ful}\foreignlanguage{english}{\emph{planner}}\emph{ : }Es el
-encargado de organizar el proceso de razonamiento.
-\item \emph{fulapi : }Es la API definida para interactuar con las extensiones
-creadas por terceros. 
-\item \emph{fuldl :} Extensión que permite interpretar conocimiento entendible
-por lenguajes DL. Actúa de la misma manera que cualquier otra extensión,
-recibiendo conocimiento a ser interpretado y devolviendo nuevo conocimiento
-respecto de este.%
+Se deberán utilizar las siguientes librerías %
 \begin{comment}
-Creo que es un poco pobre y debería extenderme mas en este punto.
-No se si aquí o en requerimientos funcionales.
+He anotado todas las que pensé necesarias. No detalle mucho ni la
+razón de su presencia o utilidad ya que perdería tiempo en las que
+puedan llegar a ser descartadas.
 \end{comment}
-{}
-\end{enumerate}
+:
+\begin{itemize}
+\item \href{http://www.boost.org/}{Boost} : Colección de librerías muy
+útiles y confiables para C++.
+\item \href{http://code.google.com/p/fud/}{fud} : Abstracción Middleware
+HPC Distribuido.
+\item \href{http://code.google.com/p/feca/}{FECa} : Librería Fudepan para
+caches extensibles.
+\item \href{http://code.google.com/p/fudepan-build/}{fudepan-build} : Build
+system para proyectos de FuDePAN.
+\item \href{http://code.google.com/p/fx-parser/}{FXP} : Parser XML para
+C++, requiere \href{http://expat.sourceforge.net/}{eXpat}.
+\item \href{http://code.google.com/p/getoptpp/}{getoptpp} : Versión C++
+de la función getopt que permite parsear opciones command line y manejar
+variables de entorno. Fácil de usar y altamente compatible con STL.
+\item \href{http://code.google.com/p/mili/}{MiLi}: Colección de librerías
+útiles de C++.
+\item \href{http://gcc.gnu.org/libstdc++/}{libstdc++} : Librería Estándar
+GNU para C++.
+\item \href{http://code.google.com/p/phaskell/}{phaskell} : Traductor Haskell2C++
+de Template metaprogramming. Muy útil para realizar optimización a
+tiempo de compilación%
+\begin{comment}
+Idea : Pretendo usar esto para que compile los plugins que se den
+en el XML junto con el resto de FuL para lograr optimizaciones. Hay
+varias razones mas y se que esto es ya diseño/implementación pero
+como dijiste que anotara las librerías que podría llegar a usar agregue
+esta también.
+\end{comment}
+.
+\end{itemize}
 
 \subsection{Interfaces de Comunicación}
 
@@ -352,97 +493,249 @@ No hay requerimientos especificados.
 
 \paragraph{Nomenclatura}
 \begin{itemize}
-\item ERROR\_EXIT\emph{ :} La CLI deberá informar al usuario de los errores
-ocurridos y se finalizara dicha operación. 
+\item ERROR\_EXIT\emph{ :}\textbf{\emph{ La CLI deberá informar al usuario
+de los errores ocurridos y se finalizara dicha operación. }}
+\item ERROR\_END\emph{ :}\textbf{\emph{ La CLI deberá informar al usuario
+de los errores ocurridos y se finalizara dicha operación. }}
+\item \emph{<parámetro> : }Es un parámetro ingresado al comando de dicha
+linea, siendo \emph{parámetro }el valor del mismo%
+\begin{comment}
+Pregunta : Parece medio confuso, o estoy aclarando algo obvio ? Pregunto
+por que no se si este es el nivel de especificación que se busca o
+no hace falta tanto.
+\end{comment}
+.
+\item PUSH\_REQ\_XX(\emph{<p\_1> ... <p\_n>)} : \textbf{\emph{Los pasos
+posteriores serán definidos en el requerimiento REQ\_XX con respecto
+a los parámetros }}\emph{<p\_1> ... <p\_n>}\textbf{\emph{.}}
 \end{itemize}
 
-\subsection{REQ Introducir Conocimiento en la KB}
+\subsection{REQ\_01 Ejecutar FuL como command-line}
 \begin{itemize}
 \item \textbf{\emph{Objetivo :}} El objetivo de este requerimiento es permitirle
-al usuario introducir conocimiento en la KB.
+al usuario ejecutar FuL como si fuera un comando de linea. Este tiene
+como parámetros una KB inicial y un archivo de configuración de extensiones
+contenidos en archivos de formato kb y xml respectivamente.
+\item \textbf{\emph{Prioridad :}} Alta
+\item \textbf{\emph{Descripción :}}\emph{ }
+
+\begin{enumerate}
+\item \emph{Ejecución del comando en la terminal : }El usuario ejecuta en
+la terminal el comando \lstinline[language=bash]!ful <config.xml> <database.kb> !,
+siendo \emph{:}
+
+\begin{itemize}
+\item \emph{config.xml : }El archivo XML que contiene la configuración de
+las extensiones. Esta podra tener una lista de las extensiones a agregar,
+las cuales podrán estar acompañadas por una declaración de los comandos
+y variables que ellas otorgan al usuario para que este manipule. Este
+parámetro es obligatorio.
+\item \emph{database.kb : }La KB inicial con la cual FuL procesara los comandos
+posteriores provenientes de la CLI. El conocimiento deberá estar expresado
+en el lenguaje formal de FuL. Este parámetro es opcional.
+\end{itemize}
+
+En caso de que no se otorguen los parámetros requeridos se devolverá
+el mensaje \emph{ID-10-T error: invalid parameters }y se finalizara
+la ejecución de FuL.
+
+\item \emph{Cargar configuración de FuL: }Se deberá procesar la configuración
+de las variables de FuL presente en \emph{config.xml}. Las variables
+de FuL no presentes en dicho archivo tomara el valor default definido
+por FuL. En caso de que error ERROR\_EXIT.
+\item \emph{Cargar las extensiones : }Se deberá cargar las extensiones presentes
+en \emph{config.xml }y se conectan con FuL, aplicando para cada una
+de las extensiones la configuración de estas presente en el mismo
+documento. En caso de no encontrarse la configuración de dicha extensión,
+no encontrarse la extensión propiamente dicha u algún otro tipo de
+error ERROR\_EXIT.
+\item \emph{Cargar la KB : }Se deberá procesar el conocimiento existente
+en la KB por parte de FuL, teniendo en cuenta su configuración y las
+de las extensiones que fueron cargadas. \\
+En caso de encontrarse conocimiento dirigido a una extensión determinada,
+se deberá procesar dicho conocimiento de la manera que dicha extensión
+lo indique. En caso de no encontraste dicha extensión ERROR\_EXIT%
+\begin{comment}
+Pregunta : Estoy siendo muy drástico en esta parte ? Debería dar solo
+un warning ?
+\end{comment}
+.\\
+En caso de que no se haya otorgado una KB, se pasara al paso siguiente.
+\item \emph{Puesta en funcionamiento de la CLI : }Se deberá poner en funcionamiento
+la CLI de FuL con la configuración, extensiones y KB obtenidas en
+los paso previos. Los pasos posteriores serán presentados en el requerimiento
+REQ\_02.
+\end{enumerate}
+\end{itemize}
+
+\subsection{REQ\_02 Ejecución de comandos en la CLI}
+\begin{itemize}
+\item \textbf{\emph{Objetivo :}} El objetivo de este requerimiento es permitirle
+al usuario interactuar con la CLI mediante la introducción de comandos%
+\footnote{Los cuales son especificados en este requerimiento o pertenecen al
+conjunto de comandos registrados por extensiones, tal como se especifica
+en REQ\_01.%
+} y la devolución de respuestas.
+\item \textbf{\emph{Prioridad :}} Alta
+\item \textbf{\emph{Descripción :}}\emph{ }
+
+\begin{enumerate}
+\item \emph{Introducir un comando : }El usuario podra introducir un comando
+con el formato \lstinline[language=bash]!<comm> <p_1> ... <p_n>!
+siendo \emph{comm }el comando a ejecutar y \emph{<p\_1> ... <p\_n>
+}un conjunto de $n$ parámetros que \emph{comm }permite y/o requiere%
+\footnote{Puede ser $n=0$ , en cuyo caso no habrá parámetro alguno.%
+}. Si así sucede se proceda a los siguientes pasos:
+
+\begin{enumerate}
+\item \emph{Validación del comando : }Se deberá chequear que \emph{comm
+}sea un comando registrado en FuL. En caso de no serlo ERROR\_EXIT.
+\item \emph{Validación de los parámetros }%
+\begin{comment}
+AVISO! : Si... probablemente no te guste y te parezca intrincado...
+pero realmente hace falta que diga lo mismo 20 veces ?. Creo que es
+una forma de lograr que la lectura sea mas rápida e intuitiva ( probablemente
+desde el punto de vista de un programador -.- ). Igual esta bien aclarado
+en Nomenclatura que significa.
+\end{comment}
+\emph{:}
+
+\begin{enumerate}
+\item Si $comm="quit"$ entonces, si $n=0$, se deberá realizar el paso
+3. Caso contrario se deberá devolver el mensaje \emph{ID-10-T error:
+invalid parameters}.
+\item Si $comm="import"$ PUSH\_REQ\_03(\emph{<p\_1> ... <p\_n>}).
+\item Si $comm="save"$ PUSH\_REQ\_04(\emph{<p\_1> ... <p\_n>}).
+\item Si $comm="query"$ PUSH\_REQ\_05(\emph{<p\_1> ... <p\_n>}).
+\item Si $comm="execute"$ PUSH\_REQ\_06(\emph{<p\_1> ... <p\_n>}).
+\item Si $comm="show"$ PUSH\_REQ\_07(\emph{<p\_1> ... <p\_n>}).
+\item Si $comm="set"$ PUSH\_REQ\_08(\emph{<p\_1> ... <p\_n>}).
+\item Sino se cumple ninguno de los anteriores se procederá deslindar la
+ejecución de dicho comando a la extensión bajo la cual fue registrado%
+\footnote{Ver REQ\_01.%
+}, con los parámetros \emph{<p\_1> ... <p\_n>}.
+\end{enumerate}
+\end{enumerate}
+\item \emph{Espera : }Se esperara hasta que el usuario introduzca un nuevo
+comando, en cuyo caso se volverá al paso 1.
+\item \emph{Nacionalización : }Si la KB que FuL tiene en memoria no fue
+guardada en un archivo%
+\begin{comment}
+Pregunta : Preferís que me refiera a la secuencia import-save o esta
+mejor así ? Elegí esta forma por que así no depende del comando save
+ni de import sino de un estado que la KB pueda tener, lo cual permite
+a futuro ejecutar otros comandos que guarden la KB.
+\end{comment}
+{} se le deberá mostrar al usuario el mensaje \emph{WARNING: memory
+state not saved. Sure to quit? (y/n)}. Si el usuario elije \emph{y}
+entonces se finaliza la ejecución de CLI y de FuL, devolviendo al
+usuario a la terminal desde donde se ejecuto el command-line de FuL.
+Si elije \emph{n} entonces se volverá al paso 2.\\
+Si la KB que FuL tiene en memoria fue guardada en un archivo entonces
+se finaliza la ejecución de CLI y de FuL, devolviendo al usuario a
+la terminal desde donde se ejecuto el command-line de FuL.
+\end{enumerate}
+\end{itemize}
+
+\subsection{REQ\_03 Ejecución del comando IMPORT}
+\begin{itemize}
+\item \textbf{\emph{Objetivo :}} El objetivo de este requerimiento es permitirle
+al usuario importar el conocimiento presente en un archivo \emph{<delta.kb>}
+y agregarlo a la KB de FuL.
 \item \textbf{\emph{Prioridad :}} Alta
 \item \textbf{\emph{Descripción :}}\emph{ }%
 \begin{comment}
-Preguntar a Daniel : Acaso no debería mostrar ahora cual es el nuevo
-conocimiento que se desprende del que se agrego actualmente ?
+Pregunta : Algo que pienso que podría estar mal acá es el hecho de
+que pareciera que le estoy dando un orden particular a la validación
+de lo que es para FuL y lo que es para las extensiones. Debería fusionar
+quizás el 2 con el 4 para evitar esto o esta bien que lo deje así
+?
 \end{comment}
-{}
+
 
 \begin{enumerate}
-\item \emph{Apertura : }La CLI deberá proveer una opción para introducirle
-como parámetro el nombre del archivo a ser abierto. En caso de no
-poder ser abierto, ERROR\_EXIT.
-\item \emph{Lectura, validación sintáctica y gramatical :} Se leerá el contenido
-del archivo. En caso de que su contenido no corresponda con el lenguaje
-formal especificado por FuL, ERROR\_EXIT. 
-\item \emph{Validación de la semántica interna del archivo :} Se deberá
-validar que cada una de las afirmaciones en el archivo no se contradicen
-entre si. En caso de encontrarse alguna contradicción, ERROR\_EXIT.
+\item \emph{Validación de parámetros : }Se deberá validar que la cantidad
+de parámetros $n=1$ y $p\_1=delta.kb$ deberá ser un archivo que
+contendrá conocimiento interpretable por FuL o por las extensiones
+registradas en el. De no cumplirse alguna de estas condiciones se
+deberá devolver el mensaje de error correspondiente a través de la
+CLI y se pasara al paso final.
+\item \emph{Lectura, validación sintáctica y gramatical del conocimiento
+dirigido a FuL :} Se leerá el contenido de \foreignlanguage{english}{\emph{delta.kb}}.
+En caso de que su contenido dirigido a FuL no corresponda con el lenguaje
+formal especificado por FuL se deberá mostrar a través de la CLI el
+mensaje \emph{WARNING: import failed due to invalid syntax} , una
+descripción del mismo y se procederá a realizar el paso final. 
 \item \emph{Validación de la semántica del archivo respecto de la KB de
-FuL : }Se deberá validar las afirmaciones en el archivo con las existentes
-en la KB de FuL. En caso de encontrarse contradicciones entre dichos
-conjuntos, ERROR\_EXIT.
-\item \emph{Registrado de las afirmaciones : }Se deberá registrar las afirmaciones
-presentes en el archivo en la KB. Finalizado el registrado se deberá
-mostrar al usuario, mediante la CLI, un aviso del registrado exitoso
-de las afirmaciones contenidas en el archivo.\emph{ }
+FuL : }Se deberá validar las afirmaciones en \foreignlanguage{english}{\emph{delta.kb}}
+dirigidas a FuL con las existentes en la KB de FuL. En caso de encontrarse
+contradicciones entre dichos conjuntos se deberá mostrar a través
+de la CLI el mensaje \emph{WARNING: import failed due to the following
+conflicts} , una descripción del conflicto que incluya los elementos
+que lo provocaron%
+\begin{comment}
+Pregunta para Carlos y Daniel : Aquí desearíamos tener el conjunto
+mínimo de elementos que lo provocaron ? Por lo que entendí de los
+papers que me paso Carlos es posible obtener dicho conjunto. Avísenme
+así lo cambio.
+\end{comment}
+{} y se procederá a realizar el paso final.
+\item \emph{Derivación del conocimiento dirigido a las extensiones : }Se
+deberá derivar la validación de conocimiento presente en \foreignlanguage{english}{\emph{delta.kb}}
+a la extensión a la cual este es dirigido, siendo la extensión la
+encargada de resolver el proceso. Si el proceso se resuelve positivamente
+se continuara con el paso siguiente, sino se continuara con el paso
+final.\\
+Si dicho conocimiento esta dirigido a una extensión que no fue registrada
+entonces se deberá mostrar a través de la CLI el mensaje \emph{WARNING:
+extensión <nombre de la extensión> not found, }donde esta en \foreignlanguage{english}{\emph{delta.kb}}
+y se procederá a realizarse el paso final%
+\begin{comment}
+Pregunta : Deseamos que import termine o preferimos darle al usuario
+la opción de continuar o no en caso de que no le importe saltárselo
+? Pienso que podría haber algunos casos en que deseemos saltárnoslo.
+\end{comment}
+.
+\item \emph{Registrado del conocimiento : }Se deberá registrar el conocimiento
+presente en \foreignlanguage{english}{\emph{delta.kb}} en la KB de
+FuL. Finalizado el registrado se deberá mostrar al usuario, mediante
+la CLI, el mensaje \emph{IMPORT OK.}
+\item \emph{Finalizada la ejecución del comando : }Se finaliza la ejecución
+del comando.
 \end{enumerate}
 \end{itemize}
 
-\subsection{REQ Procesar el Conocimiento en la KB}
+\subsection{REQ\_04 Ejecución del comando SAVE}
 \begin{itemize}
 \item \textbf{\emph{Objetivo :}} El objetivo de este requerimiento es permitirle
-al usuario procesar el conocimiento existente en la KB de FuL para
-obtener nuevo conocimiento, el cual sera agregado a esta.
-\item \textbf{\emph{Prioridad : }}Alta
-\item \textbf{\emph{Descripción : }}%
-\begin{comment}
-Preguntar a Daniel : Debería existir algún parámetro de entrada aparte
-de verbosidad o cosa similar ?
-\end{comment}
-{} %
-\begin{comment}
-Preguntar a Daniel: En este caso no debe existir hipótesis alguna,
-donde especifico esto ?
-\end{comment}
-{}
+al usuario guardar el conocimiento presente en en la KB en un archivo
+\emph{<database.kb>}.
+\item \textbf{\emph{Prioridad :}} Alta
+\item \textbf{\emph{Descripción :}}\emph{ }
 
 \begin{enumerate}
-\item \emph{Obtención del conjunto de inicio : }fulmop deberá obtener el
-conjunto de estados iniciales, utilizando el conocimiento existente
-en la KB y las extensiones. 
-\item \emph{Creación de las lineas de pensamiento : }Utilizando dicho conjunto,
-fulplanner deberá crear las lineas de pensamiento correspondientes
-a cada uno.
-\item \emph{Expansión de las lineas de pensamiento : }fulmop, utilizando
-su KB y las extensiones, deberá expandir los estados de cada una de
-las lineas de pensamiento creadas por fulplanner. Se deberá eliminar
-todo ciclo  presente en las lineas de pensamiento. Cada ciclo deberá
-eliminarse evitando eliminar otras lineas de pensamiento presentes
-en este que no sean cíclicas. Las lineas de pensamiento deberán ser
-extendidas hasta el punto de que no sea posible extenderlas mas.\emph{}%
-\begin{comment}
-Este paso estaba dividido en 3 pasos, pero como había un ciclo entre
-ellos decidí fusionarlos todos en uno solo para evitar introducir
-diseño/implementación.
-\end{comment}
-{}
-\item \emph{Registrado del nuevo conocimiento en la KB : }fulmop deberá
-registrar en la KB el nuevo conocimiento derivable de las lineas de
-pensamiento obtenidas.
-\item \emph{Mostrar el nuevo conocimiento obtenido : }El nuevo conocimiento
-registrado en la KB deberá ser devuelto al usuario mediante la CLI,
-ya sea devolviendo las lineas de pensamiento obtenidas y/o una explicación
-del significado de las mismas.
+\item \emph{Validación de parámetros : }Se deberá validar que la cantidad
+de parámetros $n=1$ y $p\_1=database.kb$ deberá ser un nombre valido
+para de un archivo%
+\footnote{Ya sea que este exista o no en el sistema de archivos de la sistema
+donde se esta ejecutando FuL.%
+}. De no cumplirse alguna de estas condiciones se deberá devolver el
+mensaje de error correspondiente a través de la CLI y se pasara al
+paso final.
+\item \emph{Guardado :} Se\emph{ }guardara en el archivo la KB presente
+en la memoria de FuL. Una vez guardada se mostrara el mensaje \emph{SAVED}.
+\item \emph{Finalizada la ejecución del comando : }Se finaliza la ejecución
+del comando.
 \end{enumerate}
 \end{itemize}
 
-\subsection{REQ Consultar Metas Lógicas de Tipo \emph{$A\Longrightarrow B$ }}
+\subsection{REQ\_05 Ejecución del comando QUERY}
 \begin{itemize}
 \item \textbf{\emph{Objetivo :}} El objetivo de este requerimiento es permitirle
-al usuario consultar las conclusiones a las que FuL puede llegar para
-una meta lógica de tipo \emph{$A\Longrightarrow B$}.
-\item \textbf{\emph{Prioridad : }}Alta
+al usuario\emph{ }realizar una consulta\emph{ }a FuL a través de la
+CLI, la cual este dará una respuesta respecto de su KB y las extensiones
+registradas en dicha sesión.
+\item \textbf{\emph{Prioridad :}} Alta
 \item \textbf{\emph{Descripción :}}\emph{ }%
 \begin{comment}
 Preguntar a Daniel y Carlos : Se desea poder decir cual es el limite
@@ -450,96 +743,113 @@ máximo de hipótesis por linea de pensamiento, para evitar así un excesivo
 uso de suposiciones ? También deberían considerarse otras formas de
 limitar las hipótesis aparte de la cardinalidad ?
 \end{comment}
-{}\emph{}%
-\begin{comment}
-Pregunta para Daniel : Desde el paso 4 hasta el paso 9 se encuentra
-presente un ciclo y esto me resulta demasiado algorítmico. Debería
-eliminarlo por ser parte de diseño/implementación ?
-\end{comment}
-{}
-
-\begin{enumerate}
-\item \emph{Ingreso del Experimento : }La CLI deberá proveer una opción
-para introducir la meta lógica de tipo \emph{$A\Longrightarrow B$
-}a ser consultado. 
-\item \emph{Lectura, validación sintáctica y gramatical : }Una vez introducida
-la meta lógica se validara que su sintaxis corresponda con la del
-lenguaje formal definido en FuL. En caso contrario, ERROR\_EXIT.
-\item \emph{Validación de definiciones : }Si la meta lógica esta bien definida
-respecto del lenguaje formal entonces validaremos las definiciones
-$A$ y $B$, utilizando la KB y las extensiones. En caso de no sean
-validas, ERROR\_EXIT.
-\item \emph{Iniciado de fulplanner : }Si $A$ y $B$ son definiciones validas,
-entonces se procederá a iniciar fulplanner con la definición $A$
-como su estado inicial.
-\item \emph{Expansión a nuevos estados :}%
 \begin{comment}
 Discutir con Daniel y Carlos : Las propiedades presentes en cada estado
 deberían poder representarse como verdaderas, falsas o desconocidas.
 Podría definirse que las propiedades no presentes en el estado se
 consideran desconocidas.\\
- La necesidad de representar dichos estados proviene de que los
-requerimos para poder demostrar, en un experimento o validación de
-nuevo conocimiento, cuales son las lineas de pensamiento que dieron
-un resultado positivo u negativo y cual fue el conjunto de hipótesis
-utilizadas para llegar a dicha conclusión en cada linea. \\
-El problema con esta forma de presentarlo es que habría tantos
-desconocidos como definiciones en la KB de fulmop y de las extensiones
-( debería tener en cuentas las extensiones también para esto ??!?!
-)
+ La necesidad de representar dichos estados proviene de que los requerimos
+para poder demostrar, en un experimento o validación del nuevo conocimiento,
+los cuales son las lineas de pensamiento que dieron un resultado positivo
+u negativo y cual fue el conjunto de hipótesis utilizadas para llegar
+a dicha conclusión en cada linea. \\
+El problema con esta forma de presentarlo es que habría tantos desconocidos
+como definiciones en la KB de fulmop y de las extensiones ( debería
+tener en cuentas las extensiones también para esto ??!?! )
 \end{comment}
-{}%
-\begin{comment}
-\emph{(Versión demasiado rebuscada) Obtención del conjunto de conceptos
-derivables de $X$ (INT\_ERROR): }Iniciado fulplanner, se le enviara
-a fulmop el conjunto $X$ para que obtenga\begin{multline*}
-Y=\{C\rightarrow D\,:\, D\in def(KB)\wedge\\
-C=\min\{C\subseteq X:C\underset{KB}{\overset{1}{\vDash}}D\}\,\wedge\\
-\nexists E\subseteq X:E\underset{KB}{\overset{1}{\vDash}}\neg D\}\end{multline*}
-
-\end{comment}
-{}\emph{ }Luego fulmop deberá tomar los estados que no han sido expandidos
-y, mediante KB y las extensiones, obtener los nuevos estados a los
-que estos pueden ser expandidos.
-\item \emph{Agregación de los nuevos estados : }fulplanner conectara a los
-estados a expandir los nuevos estados obtenidos para estos. Si se
-obtuvieron nuevos estados para alguno de los estados a expandir entonces
-se procederá al paso siguiente. En caso contrario se procederá al
-paso final.
-\item \emph{Eliminación de ciclos : }fulplanner deberá eliminar todo ciclo%
-\footnote{Léase como la presencia de $A\rightarrow A$ en alguna parte de la
-planificación.%
-} presente en la planificación. Cada ciclo deberá eliminarse evitando
-eliminar otras lineas de pensamiento presentes en este que no sean
-cíclicas.%
-\begin{comment}
-Esta ultima linea no esta clara ni tampoco se si es necesaria.
-\end{comment}
-{}
-\item \emph{Validación de la presencia de $B$ en la planificación : }Si
-existe en la planificación el estado $B$ tal que es alcanzado desde
-el estado raíz $A$ por una linea de pensamiento afirmativa%
-\footnote{No contiene falsedades ni hipótesis en ella.%
-} entonces se procederá con el paso final. En caso contrario se procederá
-al siguiente.
-\item \emph{Verificación de presencia de estados a expandir : }Si existen
-en la planificación estados a expandir entonces se deberá realizar
-el paso 5.
-\item \emph{Retorno de la planificación obtenida :} Se retorna mediante
-la CLI la planificación obtenida, una explicación del significado
-de la misma y/o el resultado de la operación realizada.%
+{} %
 \begin{comment}
 Cuales de las 3 deberían estar como retorno ? Debería ser solo un
 output o debería presentarse en algún formato mas manejable y quizás
 también seria deseable poder reintroducir la planificación obtenida
-para luego de ingresar nuevo conocimiento a la KB reprocesar dicha
-planificación.
+para luego ingresarlo como nuevo conocimiento a la KB.
 \end{comment}
-{}
+
+
+\begin{enumerate}
+\item \emph{Validación de parámetros : }Se deberá validar que la cantidad
+de parámetros $n=1$ y $p\_1=consulta$ deberá ser una consulta interpretable
+por FuL, la cual respete las restricciones de su lenguaje formal.
+De no cumplirse alguna de estas condiciones se deberá devolver el
+mensaje de error correspondiente a través de la CLI y se pasara al
+paso final.
+\item \emph{Procesado de la Consulta : }Se deberá procesar la consulta con
+respecto a la conocimiento presente en la KB de FuL y las extensiones
+registradas.
+\item \emph{Retorno de las conclusiones obtenidas :} Se retorna mediante
+la CLI las conclusiones obtenidas y una explicación del significado
+de las mismas.
+\item \emph{Finalizada la ejecución del comando : }Se finaliza la ejecución
+del comando.
 \end{enumerate}
 \end{itemize}
 
-\subsection{REQ Prueba: Experimento Junin}
+\subsection{REQ\_06 Ejecución del comando EXECUTE}
+\begin{itemize}
+\item \textbf{\emph{Objetivo :}} El objetivo de este requerimiento es permitirle
+al usuario\emph{ }ejecutar un script en\emph{ }FuL a través de la
+CLI, la cual este dará una respuesta respecto de su KB y las extensiones
+registradas en dicha sesión.
+\item \textbf{\emph{Prioridad :}} Baja
+\item \textbf{\emph{Descripción :}}
+
+\begin{enumerate}
+\item \emph{Validación de parámetros : }Se deberá validar que la cantidad
+de parámetros $n=1$ y $p\_1=script.ful$ deberá ser un archivo el
+cual contenga comandos validos para FuL y las extensiones registradas.
+De no cumplirse alguna de estas condiciones se deberá devolver el
+mensaje de error correspondiente a través de la CLI y se pasara al
+paso final.
+\item \emph{Procesado de ejecución del script : }Se deberá ejecutar cada
+uno de los comandos presentes en script.ful acorde con lo especificado
+en el requerimiento REQ\_02.
+\item \emph{Finalizada la ejecución del comando : }Se finaliza la ejecución
+del comando.
+\end{enumerate}
+\end{itemize}
+
+\subsection{REQ\_07 Ejecución del comando SHOW}
+\begin{itemize}
+\item \textbf{\emph{Objetivo :}} El objetivo de este requerimiento es permitirle
+al usuario\emph{ }ver el valor de una variable registrada en FuL.
+\item \textbf{\emph{Prioridad :}} Baja
+\item \textbf{\emph{Descripción :}}
+
+\begin{enumerate}
+\item \emph{Validación de parámetros : }Se deberá validar que la cantidad
+de parámetros $n=1$ y $p\_1=variable$ deberá ser una variable registrada
+en FuL. De no cumplirse alguna de estas condiciones se deberá devolver
+el mensaje de error correspondiente a través de la CLI y se pasara
+al paso final.
+\item \emph{Obtención del valor de la variable:} Se deberá mostrar a través
+de la CLI el valor de la variable solicitada.
+\item \emph{Finalizada la ejecución del comando : }Se finaliza la ejecución
+del comando.
+\end{enumerate}
+\end{itemize}
+
+\subsection{REQ\_08 Ejecución del comando SET}
+\begin{itemize}
+\item \textbf{\emph{Objetivo :}} El objetivo de este requerimiento es permitirle
+al usuario\emph{ }darle un valor a una variable registrada en FuL.
+\item \textbf{\emph{Prioridad :}} Baja
+\item \textbf{\emph{Descripción :}}
+
+\begin{enumerate}
+\item \emph{Validación de parámetros : }Se deberá validar que la cantidad
+de parámetros $n=2$ , $p\_1=variable$ deberá ser una variable registrada
+en FuL y $p\_1=value$ deberá ser un valor valido para dicha variable.
+De no cumplirse alguna de estas condiciones se deberá devolver el
+mensaje de error correspondiente a través de la CLI y se pasara al
+paso final.
+\item \emph{Registrado del valor en la variable:} Se deberá registrar \emph{value}
+en \emph{variable}.
+\item \emph{Finalizada la ejecución del comando : }Se finaliza la ejecución
+del comando.
+\end{enumerate}
+\end{itemize}
+
+\subsection{REQ\_09 Prueba: Experimento Junin}
 \begin{itemize}
 \item \textbf{\emph{Objetivo :}} El objetivo de este requerimiento es demostrar
 que FuL es capaz de validar las conclusiones obtenidas en el experimento
@@ -554,46 +864,7 @@ una consulta de meta lógica.%
 Preguntar a Daniel : Debería poner un link a los documentos relacionados
 con dicho experimento ?
 \end{comment}
-{}
-\end{itemize}
 
-\subsection{REQ Agregar una Nueva Extensión}
-\begin{itemize}
-\item \textbf{\emph{Objetivo :}} El objetivo de este requerimiento es permitirle
-al usuario agregar una nueva extensión a FuL, la cual podrá ser usada
-por fulmop en las otras operaciones representadas en los requerimientos
-previos.
-\item \textbf{\emph{Prioridad : }}Baja
-\item \textbf{\emph{Descripción :}}\emph{ }
-
-\begin{enumerate}
-\item Ingreso : La CLI deberá proveer una opción para introducir el nombre
-del archivo que contiene la extensión a ser agregada, formato del
-archivo TBD%
-\footnote{Esto deberá ser definido en el paso de diseño.%
-}.
-\item Validación : FuL deberá validar que la extensión introducida cumple
-con las interfases definidas en su API y que sus dependencias han
-sido satisfechas.
-\item Instalación : Una vez validada, FuL instalara dicha extensión en el
-entorno de trabajo de FuL. Por ultimo avisara al usuario, mediante
-la CLI, que la instalación se a realizado exitosamente.
-\end{enumerate}
-\end{itemize}
-
-\subsection{REQ Configurar FuL}
-\begin{itemize}
-\item \textbf{\emph{Objetivo :}} El objetivo de este requerimiento es proveer
-al usuario operaciones para configurar los distintos parámetros relacionados
-con el funcionamiento de FuL. 
-\item \textbf{\emph{Prioridad : }}Baja
-\item \textbf{\emph{Descripción :}}\emph{ }Deberá ser capaz de proveer operaciones
-para configurar los distintos aspectos de FuL, tales como parámetros
-relacionados con la KB, extensiones, fulplanner y fulmop. Estos aspectos
-son y el grado de configurabilidad de cada uno sera TBD%
-\footnote{Ya que dependerá del diseño e implementación de los elementos anteriormente
-mencionados.%
-}.
 \end{itemize}
 \pagebreak{}
 
@@ -605,9 +876,21 @@ mencionados.%
 
 Deben cumplirse los siguientes requerimientos de diseño :
 \begin{itemize}
-\item En caso de utilizar C++ en su implementación, deberá cumplir los estándares
-ANSI C++, conforme con el \foreignlanguage{english}{coding-guideline}
-definido por FuDePAN. 
+\item El producto DEBERÁ cumplir con los siguientes principios de diseño
+de la programación orientada a objetos. Los primeros 5, son también
+conocidos por el acrónimo ``\textbf{SOLID}''. 
+
+\begin{itemize}
+\item \textbf{S}ingle responsibility principle (SRP) 
+\item \textbf{O}pen/closed principle (OCP) 
+\item \textbf{L}iskov substitution principle (LSP) 
+\item \textbf{I}nterface segregation principle (ISP) 
+\item \textbf{D}ependency inversion principle (DIP) 
+\item Law of Demeter (LoD) 
+\end{itemize}
+\item En caso de utilizar C++ en su implementación, deberá cumplir los \href{http://www.open-std.org/jtc1/sc22/wg21/}{estándares ANSI C++},
+conforme con el \foreignlanguage{english}{coding-guideline} definido
+por FuDePAN. 
 \item Deberá ser capaz de construirse utilizando herramientas GNU. 
 \item El código deberá ser compilado sin advertencias, o las que sean permitidas
 deberán ser documentadas. 
@@ -615,21 +898,28 @@ deberán ser documentadas.
 
 \subsection{Atributos del Software}
 
-El producto deberá tener los siguientes atributos :
+El código del producto DEBERÁ:
 \begin{itemize}
-\item Deberá ser testeado el 85\% del código fuente presente en este producto. 
+\item compilar sin advertencias, o las advertencias aceptadas DEBERÁN estar
+documentadas.
 \item Deberá definirse un lenguaje formal para la representación del conocimiento
 del área de Virología, el cual deberá ser de fácil interpretación
 y utilización tanto por personas calificadas de dicha área como por
 FuL. Su semántica deberá ser capaz de representar el conocimiento
 relacionado con el área de Virología.
+\item cumplir con el \href{http://www.open-std.org/jtc1/sc22/wg21/}{estándar ANSI C++}
+y el \foreignlanguage{english}{coding-guideline} definido por FuDePAN.
+\end{itemize}
+El software DEBERÁ:
+\begin{itemize}
+\item tener al menos un 85\% de cobertura con pruebas automatizadas.
 \end{itemize}
 
-\subsection{Restricciones de Memoria}
+\subsubsection{Restricciones de Memoria}
 
 Deben cumplirse las siguientes restricciones de memoria :
 \begin{itemize}
-\item No deberá haber problemas de memorial o \foreignlanguage{english}{leaks},
+\item No deberá haber problemas de memoria o \foreignlanguage{english}{leaks},
 que estén directamente relacionados con el proyecto. 
 \item En caso de que exista código C/C++ en el producto, se deberá utilizar
 el comando \lstinline[language=bash]!valgrind --leak-check=full!
@@ -645,20 +935,21 @@ lo tanto el desempeño de FuL estará directamente relacionado con la
 maquina en la que se corra.
 
 
-\subsection{Entorno de Funcionamiento}
+\subsubsection{Entorno de Funcionamiento}
 
 FuL esta pensado para ser utilizado como una herramienta de consulta
 de conocimiento del área de Virología y para la planificación de experimentos
 relacionados con esta.
 
-Las plataformas en las que deberá correr sera en las basadas en GNU/Linux.
+Las plataformas en las que correrá deberán estar basadas en GNU/Linux.
 
 
 \subsection{Licencias}
 
-El código fuente de FuL estará licenciado como GPLv3. Toda la documentación
-generada para el desarrollo de FuL sera licenciada bajo Creative Commons
-para proteger tanto el texto como las ideas presentes en este documento%
+El código fuente de FuL estará licenciado como \href{http://www.gnu.org/licenses/gpl-3.0.html}{GPL v3}.
+Toda la documentación generada para el desarrollo de FuL sera licenciada
+bajo Creative Commons para proteger tanto el texto como las ideas
+presentes en este documento%
 \footnote{Este ultimo punto podría modificarse a futuro para utilizar licencias
 mas seguras para la protección de ideas.%
 }. 
@@ -666,12 +957,4 @@ mas seguras para la protección de ideas.%
 \pagebreak{}
 
 \printnomenclature{}
-
-%
-\begin{comment}
-Preguntar a Daniel : Sigo sin entender por que no hay un requerimiento
-que sirva para buscar conocimiento en la KB sobre una entidad-definición
-determinada.
-\end{comment}
-{}
 \end{document}
