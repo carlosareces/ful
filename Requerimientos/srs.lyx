@@ -1,5 +1,5 @@
-#LyX 2.0 created this file. For more info see http://www.lyx.org/
-\lyxformat 413
+#LyX 1.6.5 created this file. For more info see http://www.lyx.org/
+\lyxformat 345
 \begin_document
 \begin_header
 \textclass article
@@ -12,26 +12,18 @@
 \usepackage{amsfonts}
 \end_preamble
 \use_default_options false
-\maintain_unincluded_children false
 \language spanish
-\language_package default
 \inputencoding auto
-\fontencoding global
 \font_roman default
 \font_sans default
 \font_typewriter default
 \font_default_family default
-\use_non_tex_fonts false
 \font_sc false
 \font_osf false
 \font_sf_scale 100
 \font_tt_scale 100
 
 \graphics default
-\default_output_format default
-\output_sync 0
-\bibtex_command default
-\index_command default
 \float_placement h
 \paperfontsize 10
 \spacing single
@@ -40,18 +32,9 @@
 \use_geometry false
 \use_amsmath 2
 \use_esint 1
-\use_mhchem 1
-\use_mathdots 1
 \cite_engine basic
 \use_bibtopic false
-\use_indices false
 \paperorientation portrait
-\suppress_date false
-\use_refstyle 0
-\index Índice
-\shortcut idx
-\color #008000
-\end_index
 \leftmargin 3cm
 \topmargin 3cm
 \rightmargin 3cm
@@ -62,16 +45,15 @@
 \secnumdepth 3
 \tocdepth 3
 \paragraph_separation indent
-\paragraph_indentation default
+\defskip medskip
 \quotes_language french
 \papercolumns 1
 \papersides 1
 \paperpagestyle headings
 \tracking_changes false
 \output_changes false
-\html_math_output 0
-\html_css_as_file 0
-\html_be_strict false
+\author "" 
+\author "" 
 \end_header
 
 \begin_body
@@ -458,6 +440,11 @@ Pregunta para Daniel : Debería hablar de estas como metas lógicas o seguirlos
  de que las denominaríamos como metas lógicas.
 \end_layout
 
+\begin_layout Plain Layout
+Respuesta de Daniel : Metas lógicas es mas de implementación mientras que
+ al usuario le interesa hacer preguntas.
+\end_layout
+
 \end_inset
 
 .
@@ -485,8 +472,7 @@ Proveer un API y un SDK para la creación de extensiones, los cuales serán
 El API define la forma en la que se intercambiará el conocimiento entre
  la extensión y FuL.
  El SDK otorga las librerías y las herramientas necesarias tanto para la
- construcción de la extensión en sí, como para la definición de su lenguaje
- formal de representación de conocimiento correspondiente.
+ construcción de la extensión en sí.
 \end_layout
 
 \begin_layout Subsubsection
@@ -496,16 +482,16 @@ Optimización de la KB*
 \begin_layout Standard
 Proveer la capacidad de optimizar la KB.
  Ésta característica permite la detección de redundancias y obtener una
- versión mínimal de la KB original en caso de no encontrarse redundancias,
+ versión minimál de la KB original en caso de no encontrarse redundancias,
  de la cual se puede deducir todo el conocimiento presente en la original.
 \begin_inset Note Comment
-status open
+status collapsed
 
 \begin_layout Plain Layout
 Pregunta para Daniel y Carlos : Al no tener la capacidad de eliminación
- automática de redundancias no puedo asegurar que tenemos una KB mínimal,
+ automática de redundancias no puedo asegurar que tenemos una KB minimál,
  solo lo podre asegurar cuando estas no existan.
- Servirá seguir manteniendo esta característica de la KB mínimal o solo
+ Servirá seguir manteniendo esta característica de la KB minimál o solo
  queremos quedarnos con la detección de redundancias ?
 \end_layout
 
@@ -513,6 +499,11 @@ Pregunta para Daniel y Carlos : Al no tener la capacidad de eliminación
 Idea : Podría hacerse que al detectar una redundancia se detenga el proceso
  y se avise al usuari@ para que decida como eliminarlo, para luego continuarse
  con el proceso.
+\end_layout
+
+\begin_layout Plain Layout
+Respuesta de Daniel : No, solo vamos a realizar avisos de redundancias,
+ se deberá arreglar manualmente.
 \end_layout
 
 \end_inset
@@ -601,7 +592,7 @@ Se propuso restringirlo a los arenavirus y los retrovirus.
 
 
 \begin_inset Note Comment
-status open
+status collapsed
 
 \begin_layout Plain Layout
 Pregunta : Deberíamos agregar la posibilidad de imprimir/obtener el conocimiento
@@ -692,19 +683,24 @@ Command Line
 \end_layout
 
 \begin_layout Standard
-Este se encarga de la puesta en funcionamiento de la CLI de FuL, para lo
- cual el usuario podra otorgarle los siguientes parámetros 
+Provee un comando del linea a través del cual configurar y acceder a la
+ CLI de FuL, al cual el usuario le otorgara los siguientes parámetros 
 \begin_inset Note Comment
-status open
+status collapsed
 
 \begin_layout Plain Layout
-Pregunta : La KB deberiamos considerarla opcional ya que podriamos comenzar
+Pregunta : La KB deberíamos considerarla opcional ya que podríamos comenzar
  con una KB vacía y con los import la vamos llenando.
  Esto ya es parte de diseño pero realmente lo único que veo con esta posibilidad
  de pasar el parámetro es que no hace falta hacer ese import al principio.
- También podriamos considerar opcional el de las extensiones ( que en caso
+ También podríamos considerar opcional el de las extensiones ( que en caso
  de no estar simplemente no se cargan extensiones :P, aunque si...
  seria medio inútil pero relajaría mas el requerimiento ).
+\end_layout
+
+\begin_layout Plain Layout
+Respuesta de Daniel : Ambas cosas serán opcionales, pero debe darse un archivo
+ de configuración aunque este este vació.
 \end_layout
 
 \end_inset
@@ -714,19 +710,20 @@ Pregunta : La KB deberiamos considerarla opcional ya que podriamos comenzar
 
 \begin_layout Itemize
 Un archivo de configuración XML donde se especifique el conjunto de extensiones
- que FuL utilizara en esta ejecución, las variables que dicha extensiones
- requieren registrar y los comandos que las mismas proveen.
- Este parámetro es obligatorio.
+ que FuL utilizara en esta ejecución.
+ Además este archivo puede contener configuración para las variables de
+ FuL y las extensiones a registrar.
 \begin_inset Newline newline
 \end_inset
 
-Ademas este archivo puede contener configuración para las variables de FuL.
+Este parámetro es obligatorio, pero se considera valido un XML que no presente
+ configuración ni registrado de extensiones alguna.
 \end_layout
 
 \begin_layout Itemize
 La KB inicial la cual FuL utilizara durante toda la sesión.
  Este parámetro es opcional, en caso de no otorgarse FuL iniciara con una
- KB vacia.
+ KB vacía.
 \end_layout
 
 \begin_layout Standard
@@ -895,8 +892,8 @@ status collapsed
 \begin_layout Plain Layout
 La llamada de scripts la agrego acá para así poder hacer supra scripts que
  carguen distintos scripts menores o en caso de querer cambiar por otro
- setting que tenes con otro script no hace falta tener que cargar las extensione
-s y la KB de nuevo ( lo cual es bastante costoso ).
+ setting que tienes con otro script no hace falta tener que cargar las extension
+es y la KB de nuevo ( lo cual es bastante costoso ).
  
 \end_layout
 
@@ -940,10 +937,7 @@ Adicionalmente se permitirá el uso de sentencias del paradigma imperativo
 \end_layout
 
 \begin_layout Plain Layout
-Respuesta IMPORTANTE de Daniel : NO! NO! Y NO! ( bue no fue así :P ) , lo
- que entendí es que vamos a poder extender el lenguaje de comandos mediante
- las extensiones las cuales podrán registrar sus propios comandos.
- Así que esto podría permitiría construir un lenguaje de scripting mas robusto.
+Respuesta IMPORTANTE de Daniel : KISS & YANGI
 \end_layout
 
 \end_inset
@@ -1047,17 +1041,7 @@ WARNING: memory state not saved.
 
 \emph default
  Si el usuario lo confirma entonces se saldrá de la CLI y cerrara FuL ,
- sino abortara el comando
-\begin_inset Note Comment
-status collapsed
-
-\begin_layout Plain Layout
-Algo mas ?!
-\end_layout
-
-\end_inset
-
-.
+ sino abortara el comando.
 \end_layout
 
 \begin_layout Standard
@@ -1120,52 +1104,7 @@ Interfaces de Software
 \end_layout
 
 \begin_layout Standard
-Se deberán utilizar las siguientes librerías 
-\begin_inset Note Comment
-status collapsed
-
-\begin_layout Plain Layout
-He anotado todas las que pensé necesarias.
- No detalle mucho ni la razón de su presencia o utilidad ya que perdería
- tiempo en las que puedan llegar a ser descartadas.
-\end_layout
-
-\end_inset
-
-:
-\end_layout
-
-\begin_layout Itemize
-\begin_inset CommandInset href
-LatexCommand href
-name "Boost"
-target "http://www.boost.org/"
-
-\end_inset
-
- : Colección de librerías muy útiles y confiables para C++.
-\end_layout
-
-\begin_layout Itemize
-\begin_inset CommandInset href
-LatexCommand href
-name "fud"
-target "http://code.google.com/p/fud/"
-
-\end_inset
-
- : Abstracción Middleware HPC Distribuido.
-\end_layout
-
-\begin_layout Itemize
-\begin_inset CommandInset href
-LatexCommand href
-name "FECa"
-target "http://code.google.com/p/feca/"
-
-\end_inset
-
- : Librería Fudepan para caches extensibles.
+Se deberán utilizar las siguientes librerías :
 \end_layout
 
 \begin_layout Itemize
@@ -1180,6 +1119,13 @@ target "http://code.google.com/p/fudepan-build/"
 \end_layout
 
 \begin_layout Itemize
+\begin_inset CommandInset label
+LatexCommand label
+name "ite::-FXP-"
+
+\end_inset
+
+
 \begin_inset CommandInset href
 LatexCommand href
 name "FXP"
@@ -1219,44 +1165,27 @@ target "http://code.google.com/p/mili/"
 
 \end_inset
 
-: Colección de librerías útiles de C++.
+ : Colección de librerías útiles de C++.
 \end_layout
 
 \begin_layout Itemize
+\begin_inset CommandInset label
+LatexCommand label
+name "ite::-unplugged-"
+
+\end_inset
+
+
 \begin_inset CommandInset href
 LatexCommand href
-name "libstdc++"
-target "http://gcc.gnu.org/libstdc++/"
+name "unplugged"
+target "http://code.google.com/p/unplugged/"
 
 \end_inset
 
- : Librería Estándar GNU para C++.
-\end_layout
-
-\begin_layout Itemize
-\begin_inset CommandInset href
-LatexCommand href
-name "phaskell"
-target "http://code.google.com/p/phaskell/"
-
-\end_inset
-
- : Traductor Haskell2C++ de Template metaprogramming.
- Muy útil para realizar optimización a tiempo de compilación
-\begin_inset Note Comment
-status collapsed
-
-\begin_layout Plain Layout
-Idea : Pretendo usar esto para que compile los plugins que se den en el
- XML junto con el resto de FuL para lograr optimizaciones.
- Hay varias razones mas y se que esto es ya diseño/implementación pero como
- dijiste que anotara las librerías que podría llegar a usar agregue esta
- también.
-\end_layout
-
-\end_inset
-
-.
+: Librería que provee las herramientas genéricas necesarias para el soporte
+ de extensiones en Linux y Windows.
+ 
 \end_layout
 
 \begin_layout Subsection
@@ -1279,21 +1208,11 @@ Requerimientos Funcionales
 \end_layout
 
 \begin_layout Paragraph
-Nomenclatura
+Nomenclatura para los requerimientos
 \end_layout
 
 \begin_layout Itemize
 ERROR_EXIT
-\emph on
- :
-\series bold
- La CLI deberá informar al usuario de los errores ocurridos y se finalizara
- dicha operación.
- 
-\end_layout
-
-\begin_layout Itemize
-ERROR_END
 \emph on
  :
 \series bold
@@ -1326,25 +1245,13 @@ Pregunta : Parece medio confuso, o estoy aclarando algo obvio ? Pregunto
 .
 \end_layout
 
-\begin_layout Itemize
-PUSH_REQ_XX(
-\emph on
-<p_1> ...
- <p_n>)
-\emph default
- : 
-\series bold
-\emph on
-Los pasos posteriores serán definidos en el requerimiento REQ_XX con respecto
- a los parámetros 
-\series default
-<p_1> ...
- <p_n>
-\series bold
-.
-\end_layout
-
 \begin_layout Subsection
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:REQ_01-Ejecutar-FuL"
+
+\end_inset
+
 REQ_01 Ejecutar FuL como command-line
 \end_layout
 
@@ -1411,8 +1318,8 @@ ful <config.xml> <database.kb>
 config.xml : 
 \emph default
 El archivo XML que contiene la configuración de las extensiones.
- Esta podra tener una lista de las extensiones a agregar, las cuales podrán
- estar acompañadas por una declaración de los comandos y variables que ellas
+ Esta podrá tener una lista de las extensiones a agregar, las cuales podrán
+ estar acompañadas por una asignación de valores a las variables que ellas
  otorgan al usuario para que este manipule.
  Este parámetro es obligatorio.
 \end_layout
@@ -1451,6 +1358,24 @@ config.xml
 .
  Las variables de FuL no presentes en dicho archivo tomara el valor default
  definido por FuL.
+ Para esto deberá utilizarse FXP
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+Leer 
+\begin_inset CommandInset ref
+LatexCommand vref
+reference "ite::-FXP-"
+
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+.
  En caso de que error ERROR_EXIT.
 \end_layout
 
@@ -1465,6 +1390,25 @@ config.xml
 \emph default
 y se conectan con FuL, aplicando para cada una de las extensiones la configuraci
 ón de estas presente en el mismo documento.
+ También se registraran los comandos que cada extensión otorgue.
+ Para esto se deberá utilizar unplugged
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+Leer 
+\begin_inset CommandInset ref
+LatexCommand vref
+reference "ite::-unplugged-"
+
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+.
  En caso de no encontrarse la configuración de dicha extensión, no encontrarse
  la extensión propiamente dicha u algún otro tipo de error ERROR_EXIT.
 \end_layout
@@ -1493,6 +1437,10 @@ Pregunta : Estoy siendo muy drástico en esta parte ? Debería dar solo un
  warning ?
 \end_layout
 
+\begin_layout Plain Layout
+Respuesta de Daniel : LET THE GALAXY BURN!!!!.
+\end_layout
+
 \end_inset
 
 .
@@ -1509,11 +1457,24 @@ Puesta en funcionamiento de la CLI :
 \emph default
 Se deberá poner en funcionamiento la CLI de FuL con la configuración, extensione
 s y KB obtenidas en los paso previos.
- Los pasos posteriores serán presentados en el requerimiento REQ_02.
+ Para los pasos posteriores leer 
+\begin_inset CommandInset ref
+LatexCommand vref
+reference "sub:REQ_02-Ejecución-de"
+
+\end_inset
+
+.
 \end_layout
 
 \end_deeper
 \begin_layout Subsection
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:REQ_02-Ejecución-de"
+
+\end_inset
+
 REQ_02 Ejecución de comandos en la CLI
 \end_layout
 
@@ -1531,7 +1492,15 @@ status collapsed
 
 \begin_layout Plain Layout
 Los cuales son especificados en este requerimiento o pertenecen al conjunto
- de comandos registrados por extensiones, tal como se especifica en REQ_01.
+ de comandos registrados por extensiones.
+ Leer 
+\begin_inset CommandInset ref
+LatexCommand vref
+reference "sub:REQ_01-Ejecutar-FuL"
+
+\end_inset
+
+.
 \end_layout
 
 \end_inset
@@ -1564,7 +1533,7 @@ Descripción :
 \emph on
 Introducir un comando : 
 \emph default
-El usuario podra introducir un comando con el formato 
+El usuario podrá introducir un comando con el formato 
 \begin_inset listings
 lstparams "language=bash"
 inline true
@@ -1630,22 +1599,7 @@ sea un comando registrado en FuL.
 \begin_layout Enumerate
 
 \emph on
-Validación de los parámetros 
-\begin_inset Note Comment
-status collapsed
-
-\begin_layout Plain Layout
-AVISO! : Si...
- probablemente no te guste y te parezca intrincado...
- pero realmente hace falta que diga lo mismo 20 veces ?.
- Creo que es una forma de lograr que la lectura sea mas rápida e intuitiva
- ( probablemente desde el punto de vista de un programador -.- ).
- Igual esta bien aclarado en Nomenclatura que significa.
-\end_layout
-
-\end_inset
-
-:
+Validación de los parámetros :
 \end_layout
 
 \begin_deeper
@@ -1671,12 +1625,14 @@ Si
 \begin_inset Formula $comm="import"$
 \end_inset
 
- PUSH_REQ_03(
-\emph on
-<p_1> ...
- <p_n>
-\emph default
-).
+, leer el requerimiento especificado en 
+\begin_inset CommandInset ref
+LatexCommand vref
+reference "sub:REQ_03"
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Enumerate
@@ -1684,12 +1640,14 @@ Si
 \begin_inset Formula $comm="save"$
 \end_inset
 
- PUSH_REQ_04(
-\emph on
-<p_1> ...
- <p_n>
-\emph default
-).
+, leer el requerimiento especificado en 
+\begin_inset CommandInset ref
+LatexCommand vref
+reference "sub:REQ_04"
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Enumerate
@@ -1697,12 +1655,14 @@ Si
 \begin_inset Formula $comm="query"$
 \end_inset
 
- PUSH_REQ_05(
-\emph on
-<p_1> ...
- <p_n>
-\emph default
-).
+, leer el requerimiento especificado en 
+\begin_inset CommandInset ref
+LatexCommand vref
+reference "sub:REQ_05"
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Enumerate
@@ -1710,12 +1670,14 @@ Si
 \begin_inset Formula $comm="execute"$
 \end_inset
 
- PUSH_REQ_06(
-\emph on
-<p_1> ...
- <p_n>
-\emph default
-).
+, leer el requerimiento especificado en 
+\begin_inset CommandInset ref
+LatexCommand vref
+reference "sub:REQ_06"
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Enumerate
@@ -1723,12 +1685,14 @@ Si
 \begin_inset Formula $comm="show"$
 \end_inset
 
- PUSH_REQ_07(
-\emph on
-<p_1> ...
- <p_n>
-\emph default
-).
+, leer el requerimiento especificado en 
+\begin_inset CommandInset ref
+LatexCommand vref
+reference "sub:REQ_07"
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Enumerate
@@ -1736,12 +1700,14 @@ Si
 \begin_inset Formula $comm="set"$
 \end_inset
 
- PUSH_REQ_08(
-\emph on
-<p_1> ...
- <p_n>
-\emph default
-).
+, leer el requerimiento especificado en 
+\begin_inset CommandInset ref
+LatexCommand vref
+reference "sub:REQ_08"
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Enumerate
@@ -1751,7 +1717,14 @@ Sino se cumple ninguno de los anteriores se procederá deslindar la ejecución
 status collapsed
 
 \begin_layout Plain Layout
-Ver REQ_01.
+Leer 
+\begin_inset CommandInset ref
+LatexCommand vref
+reference "sub:REQ_01-Ejecutar-FuL"
+
+\end_inset
+
+.
 \end_layout
 
 \end_inset
@@ -1769,7 +1742,7 @@ Ver REQ_01.
 \begin_layout Enumerate
 
 \emph on
-Espera : 
+Esperar : 
 \emph default
 Se esperara hasta que el usuario introduzca un nuevo comando, en cuyo caso
  se volverá al paso 1.
@@ -1778,7 +1751,7 @@ Se esperara hasta que el usuario introduzca un nuevo comando, en cuyo caso
 \begin_layout Enumerate
 
 \emph on
-Nacionalización : 
+Finalizar : 
 \emph default
 Si la KB que FuL tiene en memoria no fue guardada en un archivo
 \begin_inset Note Comment
@@ -1799,12 +1772,12 @@ WARNING: memory state not saved.
  Sure to quit? (y/n)
 \emph default
 .
- Si el usuario elije 
+ Si el usuario elige 
 \emph on
 y
 \emph default
- entonces se finaliza la ejecución de CLI y de FuL, devolviendo al usuario
- a la terminal desde donde se ejecuto el command-line de FuL.
+ entonces se finaliza la ejecución de FuL, devolviendo al usuario a la terminal
+ desde donde se ejecuto el command-line de FuL.
  Si elije 
 \emph on
 n
@@ -1820,6 +1793,12 @@ Si la KB que FuL tiene en memoria fue guardada en un archivo entonces se
 
 \end_deeper
 \begin_layout Subsection
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:REQ_03"
+
+\end_inset
+
 REQ_03 Ejecución del comando IMPORT
 \end_layout
 
@@ -1866,6 +1845,21 @@ Pregunta : Algo que pienso que podría estar mal acá es el hecho de que parecie
  lo deje así ?
 \end_layout
 
+\begin_layout Plain Layout
+Respuesta de Daniel : Si, todo esto es implementación, tienes que representarlo
+ como una caja negra.
+\end_layout
+
+\begin_layout Plain Layout
+Mi Solución : Elimine todos los pasos que decían que se debía hacer después
+ de que y solo me quede con 2 pasos.
+ No creo que este mal aclarar que hay un paso de validación y otro de registrado
+ ya que es algo que queremos que se haga en ese orden para evitar que se
+ registre una parte de lo que hay en delta.kb cuando en otro punto podríamos
+ encontrar otro error.
+ Por eso pienso que hace falta que haya 2 pasos claros.
+\end_layout
+
 \end_inset
 
 
@@ -1885,110 +1879,13 @@ Se deberá validar que la cantidad de parámetros
 \begin_inset Formula $p\_1=delta.kb$
 \end_inset
 
- deberá ser un archivo que contendrá conocimiento interpretable por FuL
- o por las extensiones registradas en el.
+ deberá ser un archivo que contendrá conocimiento, sintáctica y semánticamente
+ valido, interpretable por FuL o por las extensiones registradas en el.
+ También se deberá chequear que dicho conocimiento no es contradictorio
+ con el presente en la KB de FuL.
  De no cumplirse alguna de estas condiciones se deberá devolver el mensaje
- de error correspondiente a través de la CLI y se pasara al paso final.
-\end_layout
-
-\begin_layout Enumerate
-
-\emph on
-Lectura, validación sintáctica y gramatical del conocimiento dirigido a
- FuL :
-\emph default
- Se leerá el contenido de 
-\emph on
-\lang english
-delta.kb
-\emph default
-\lang spanish
-.
- En caso de que su contenido dirigido a FuL no corresponda con el lenguaje
- formal especificado por FuL se deberá mostrar a través de la CLI el mensaje
- 
-\emph on
-WARNING: import failed due to invalid syntax
-\emph default
- , una descripción del mismo y se procederá a realizar el paso final.
- 
-\end_layout
-
-\begin_layout Enumerate
-
-\emph on
-Validación de la semántica del archivo respecto de la KB de FuL : 
-\emph default
-Se deberá validar las afirmaciones en 
-\emph on
-\lang english
-delta.kb
-\emph default
-\lang spanish
- dirigidas a FuL con las existentes en la KB de FuL.
- En caso de encontrarse contradicciones entre dichos conjuntos se deberá
- mostrar a través de la CLI el mensaje 
-\emph on
-WARNING: import failed due to the following conflicts
-\emph default
- , una descripción del conflicto que incluya los elementos que lo provocaron
-\begin_inset Note Comment
-status collapsed
-
-\begin_layout Plain Layout
-Pregunta para Carlos y Daniel : Aquí desearíamos tener el conjunto mínimo
- de elementos que lo provocaron ? Por lo que entendí de los papers que me
- paso Carlos es posible obtener dicho conjunto.
- Avísenme así lo cambio.
-\end_layout
-
-\end_inset
-
- y se procederá a realizar el paso final.
-\end_layout
-
-\begin_layout Enumerate
-
-\emph on
-Derivación del conocimiento dirigido a las extensiones : 
-\emph default
-Se deberá derivar la validación de conocimiento presente en 
-\emph on
-\lang english
-delta.kb
-\emph default
-\lang spanish
- a la extensión a la cual este es dirigido, siendo la extensión la encargada
- de resolver el proceso.
- Si el proceso se resuelve positivamente se continuara con el paso siguiente,
- sino se continuara con el paso final.
-\begin_inset Newline newline
-\end_inset
-
-Si dicho conocimiento esta dirigido a una extensión que no fue registrada
- entonces se deberá mostrar a través de la CLI el mensaje 
-\emph on
-WARNING: extensión <nombre de la extensión> not found, 
-\emph default
-donde esta en 
-\emph on
-\lang english
-delta.kb
-\emph default
-\lang spanish
- y se procederá a realizarse el paso final
-\begin_inset Note Comment
-status collapsed
-
-\begin_layout Plain Layout
-Pregunta : Deseamos que import termine o preferimos darle al usuario la
- opción de continuar o no en caso de que no le importe saltárselo ? Pienso
- que podría haber algunos casos en que deseemos saltárnoslo.
-\end_layout
-
-\end_inset
-
-.
+ de error correspondiente a través de la CLI y se finaliza la ejecución
+ del comando.
 \end_layout
 
 \begin_layout Enumerate
@@ -2002,23 +1899,28 @@ Se deberá registrar el conocimiento presente en
 delta.kb
 \emph default
 \lang spanish
- en la KB de FuL.
+ en la KB de FuL, junto con todo el conocimiento que se pueda derivar al
+ agregar dicho archivo.
  Finalizado el registrado se deberá mostrar al usuario, mediante la CLI,
  el mensaje 
 \emph on
-IMPORT OK.
-\end_layout
-
-\begin_layout Enumerate
-
-\emph on
-Finalizada la ejecución del comando : 
+IMPORT OK 
 \emph default
-Se finaliza la ejecución del comando.
+y
+\emph on
+ 
+\emph default
+se finaliza la ejecución del comando
 \end_layout
 
 \end_deeper
 \begin_layout Subsection
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:REQ_04"
+
+\end_inset
+
 REQ_04 Ejecución del comando SAVE
 \end_layout
 
@@ -2113,6 +2015,12 @@ Se finaliza la ejecución del comando.
 
 \end_deeper
 \begin_layout Subsection
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:REQ_05"
+
+\end_inset
+
 REQ_05 Ejecución del comando QUERY
 \end_layout
 
@@ -2258,6 +2166,12 @@ Se finaliza la ejecución del comando.
 
 \end_deeper
 \begin_layout Subsection
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:REQ_06"
+
+\end_inset
+
 REQ_06 Ejecución del comando EXECUTE
 \end_layout
 
@@ -2322,8 +2236,24 @@ Se deberá validar que la cantidad de parámetros
 \emph on
 Procesado de ejecución del script : 
 \emph default
-Se deberá ejecutar cada uno de los comandos presentes en script.ful acorde
- con lo especificado en el requerimiento REQ_02.
+Se deberá ejecutar cada uno de los comandos presentes en script.ful
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+Leer 
+\begin_inset CommandInset ref
+LatexCommand vref
+reference "sub:REQ_02-Ejecución-de"
+
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Enumerate
@@ -2336,6 +2266,12 @@ Se finaliza la ejecución del comando.
 
 \end_deeper
 \begin_layout Subsection
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:REQ_07"
+
+\end_inset
+
 REQ_07 Ejecución del comando SHOW
 \end_layout
 
@@ -2407,6 +2343,12 @@ Se finaliza la ejecución del comando.
 
 \end_deeper
 \begin_layout Subsection
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:REQ_08"
+
+\end_inset
+
 REQ_08 Ejecución del comando SET
 \end_layout
 
@@ -2527,7 +2469,7 @@ Descripción :
 FuL deberá ser capaz de validar las conclusiones obtenidas en el experimento.
  Para esto se deberá proveer a FuL de una KB que represente el conocimiento
  utilizado para llegar a dichas conclusiones.
- Deberá llevar acabo esta prueba mediante una consulta de meta lógica.
+ Deberá llevar acabo esta prueba mediante una pregunta objetivo.
 \begin_inset Note Comment
 status collapsed
 
@@ -2819,7 +2761,6 @@ Este ultimo punto podría modificarse a futuro para utilizar licencias mas
 \begin_layout Standard
 \begin_inset CommandInset nomencl_print
 LatexCommand printnomenclature
-set_width "none"
 
 \end_inset
 
