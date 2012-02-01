@@ -214,17 +214,17 @@ entre la extensión y FuL. El SDK otorga las librerías y las herramientas
 necesarias tanto para la construcción de la extensión en sí.
 
 
-\subsubsection{Optimización de la KB{*}}
+\subsubsection{Optimización de la KB {*}}
 
-Proveer la capacidad de optimizar la KB. Ésta característica permite
-la detección de redundancias y obtener una versión minimál de la KB
+Proveer la capacidad de optimizar la KB. Esta característica permite
+la detección de redundancias y obtener una versión minimal de la KB
 original en caso de no encontrarse redundancias, de la cual se puede
 deducir todo el conocimiento presente en la original.%
 \begin{comment}
 Pregunta para Daniel y Carlos : Al no tener la capacidad de eliminación
-automática de redundancias no puedo asegurar que tenemos una KB minimál,
+automática de redundancias no puedo asegurar que tenemos una KB minimal,
 solo lo podre asegurar cuando estas no existan. Servirá seguir manteniendo
-esta característica de la KB minimál o solo queremos quedarnos con
+esta característica de la KB minimal o solo queremos quedarnos con
 la detección de redundancias ?
 
 Idea : Podría hacerse que al detectar una redundancia se detenga el
@@ -237,7 +237,7 @@ se deberá arreglar manualmente.
 {}
 
 
-\subsubsection{KB inicial con conocimientos de virología{*}}
+\subsubsection{KB inicial con conocimientos de virología {*}}
 
 Proveer una KB inicial, la cual contenga conocimientos básicos de
 virología tales como lo que se encuentran el libros de estudio de
@@ -329,7 +329,7 @@ en la fase de análisis y/o diseño.%
 \subsubsection{CLI}
 
 Es una interfaz CLI, similar a un \foreignlanguage{american}{prompt},
-la cual permite realizar ingresar los siguientes comandos%
+la cual permite ejecutar los siguientes comandos%
 \footnote{Los elementos presentes en un comando englobados con <> son parámetros
 que el argumento requiere para ser ejecutado. Los nombres de los parámetros
 son representativos y pueden diferir de los que tenga el producto
@@ -411,7 +411,7 @@ Si el usuario lo confirma entonces se saldrá de la CLI y cerrara FuL
 \end{enumerate}
 Adicionalmente se podrán ejecutar los comandos registrados por las
 extensiones, las cuales definirán el comportamiento de los mismos.
-En caso de el comando introducido no este registrado por las extensiones
+En caso de que el comando introducido no este registrado por las extensiones
 cargadas o no sea parte de los anteriormente mencionados entonces
 se devolverá el siguiente mensaje \emph{ID-10-T error: unrecognized
 command}.
@@ -573,12 +573,8 @@ siendo \emph{comm }el comando a ejecutar y \emph{<p\_1> ... <p\_n>
 \item Si $comm="quit"$ entonces, si $n=0$, se deberá realizar el paso
 3. Caso contrario se deberá devolver el mensaje \emph{ID-10-T error:
 invalid parameters}.
-\item Si $comm="import"$, leer el requerimiento especificado en \vref{sub:REQ_03}.
-\item Si $comm="save"$, leer el requerimiento especificado en \vref{sub:REQ_04}.
-\item Si $comm="query"$, leer el requerimiento especificado en \vref{sub:REQ_05}.
-\item Si $comm="execute"$, leer el requerimiento especificado en \vref{sub:REQ_06}.
-\item Si $comm="show"$, leer el requerimiento especificado en \vref{sub:REQ_07}.
-\item Si $comm="set"$, leer el requerimiento especificado en \vref{sub:REQ_08}.
+\item Si $comm\,\epsilon\,\{"import","save","query","execute","show","set"\}$,
+leer el requerimiento correspondiente.
 \item Sino se cumple ninguno de los anteriores se procederá deslindar la
 ejecución de dicho comando a la extensión bajo la cual fue registrado%
 \footnote{Leer \vref{sub:REQ_01-Ejecutar-FuL}.%

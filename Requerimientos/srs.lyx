@@ -476,22 +476,22 @@ El API define la forma en la que se intercambiará el conocimiento entre
 \end_layout
 
 \begin_layout Subsubsection
-Optimización de la KB*
+Optimización de la KB *
 \end_layout
 
 \begin_layout Standard
 Proveer la capacidad de optimizar la KB.
- Ésta característica permite la detección de redundancias y obtener una
- versión minimál de la KB original en caso de no encontrarse redundancias,
+ Esta característica permite la detección de redundancias y obtener una
+ versión minimal de la KB original en caso de no encontrarse redundancias,
  de la cual se puede deducir todo el conocimiento presente en la original.
 \begin_inset Note Comment
 status collapsed
 
 \begin_layout Plain Layout
 Pregunta para Daniel y Carlos : Al no tener la capacidad de eliminación
- automática de redundancias no puedo asegurar que tenemos una KB minimál,
+ automática de redundancias no puedo asegurar que tenemos una KB minimal,
  solo lo podre asegurar cuando estas no existan.
- Servirá seguir manteniendo esta característica de la KB minimál o solo
+ Servirá seguir manteniendo esta característica de la KB minimal o solo
  queremos quedarnos con la detección de redundancias ?
 \end_layout
 
@@ -512,7 +512,7 @@ Respuesta de Daniel : No, solo vamos a realizar avisos de redundancias,
 \end_layout
 
 \begin_layout Subsubsection
-KB inicial con conocimientos de virología*
+KB inicial con conocimientos de virología *
 \end_layout
 
 \begin_layout Standard
@@ -755,7 +755,7 @@ Es una interfaz CLI, similar a un
 \lang american
 prompt
 \lang spanish
-, la cual permite realizar ingresar los siguientes comandos
+, la cual permite ejecutar los siguientes comandos
 \begin_inset Foot
 status collapsed
 
@@ -1047,7 +1047,7 @@ WARNING: memory state not saved.
 \begin_layout Standard
 Adicionalmente se podrán ejecutar los comandos registrados por las extensiones,
  las cuales definirán el comportamiento de los mismos.
- En caso de el comando introducido no este registrado por las extensiones
+ En caso de que el comando introducido no este registrado por las extensiones
  cargadas o no sea parte de los anteriormente mencionados entonces se devolverá
  el siguiente mensaje 
 \emph on
@@ -1622,92 +1622,10 @@ ID-10-T error: invalid parameters
 
 \begin_layout Enumerate
 Si 
-\begin_inset Formula $comm="import"$
+\begin_inset Formula $comm\,\epsilon\,\{"import","save","query","execute","show","set"\}$
 \end_inset
 
-, leer el requerimiento especificado en 
-\begin_inset CommandInset ref
-LatexCommand vref
-reference "sub:REQ_03"
-
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Enumerate
-Si 
-\begin_inset Formula $comm="save"$
-\end_inset
-
-, leer el requerimiento especificado en 
-\begin_inset CommandInset ref
-LatexCommand vref
-reference "sub:REQ_04"
-
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Enumerate
-Si 
-\begin_inset Formula $comm="query"$
-\end_inset
-
-, leer el requerimiento especificado en 
-\begin_inset CommandInset ref
-LatexCommand vref
-reference "sub:REQ_05"
-
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Enumerate
-Si 
-\begin_inset Formula $comm="execute"$
-\end_inset
-
-, leer el requerimiento especificado en 
-\begin_inset CommandInset ref
-LatexCommand vref
-reference "sub:REQ_06"
-
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Enumerate
-Si 
-\begin_inset Formula $comm="show"$
-\end_inset
-
-, leer el requerimiento especificado en 
-\begin_inset CommandInset ref
-LatexCommand vref
-reference "sub:REQ_07"
-
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Enumerate
-Si 
-\begin_inset Formula $comm="set"$
-\end_inset
-
-, leer el requerimiento especificado en 
-\begin_inset CommandInset ref
-LatexCommand vref
-reference "sub:REQ_08"
-
-\end_inset
-
-.
+, leer el requerimiento correspondiente.
 \end_layout
 
 \begin_layout Enumerate
