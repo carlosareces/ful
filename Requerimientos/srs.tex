@@ -562,21 +562,21 @@ con el formato \lstinline[language=bash]!<comm> <p_1> ... <p_n>!
 siendo \emph{comm }el comando a ejecutar y \emph{<p\_1> ... <p\_n>
 }un conjunto de $n$ parámetros que \emph{comm }permite y/o requiere%
 \footnote{Puede ser $n=0$ , en cuyo caso no habrá parámetro alguno.%
-}. Si así sucede se proceda a los siguientes pasos:
+}. Si así sucede se procederá a los siguientes pasos:
 
 \begin{enumerate}
 \item \emph{Validación del comando : }Se deberá chequear que \emph{comm
 }sea un comando registrado en FuL. En caso de no serlo ERROR\_EXIT.
-\item \emph{Validación de los parámetros :}
+\item \emph{Validación de los parámetros : }
 
 \begin{enumerate}
 \item Si $comm="quit"$ entonces, si $n=0$, se deberá realizar el paso
 3. Caso contrario se deberá devolver el mensaje \emph{ID-10-T error:
 invalid parameters}.
 \item Si $comm\,\epsilon\,\{"import","save","query","execute","show","set"\}$,
-leer el requerimiento correspondiente.
-\item Sino se cumple ninguno de los anteriores se procederá deslindar la
-ejecución de dicho comando a la extensión bajo la cual fue registrado%
+se procederá acorde al requerimiento correspondiente para dicho comando
+\item Sino se cumple ninguno de los anteriores se procederá a deslindar
+la ejecución de dicho comando a la extensión bajo la cual fue registrado%
 \footnote{Leer \vref{sub:REQ_01-Ejecutar-FuL}.%
 }, con los parámetros \emph{<p\_1> ... <p\_n>}.
 \end{enumerate}
