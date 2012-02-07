@@ -1579,7 +1579,7 @@ Puede ser
 \end_inset
 
 .
- Si así sucede se proceda a los siguientes pasos:
+ Si así sucede se procederá a los siguientes pasos:
 \end_layout
 
 \begin_deeper
@@ -1599,7 +1599,7 @@ sea un comando registrado en FuL.
 \begin_layout Enumerate
 
 \emph on
-Validación de los parámetros :
+Validación de los parámetros : 
 \end_layout
 
 \begin_deeper
@@ -1625,11 +1625,11 @@ Si
 \begin_inset Formula $comm\,\epsilon\,\{"import","save","query","execute","show","set"\}$
 \end_inset
 
-, leer el requerimiento correspondiente.
+, se procederá acorde al requerimiento correspondiente para dicho comando
 \end_layout
 
 \begin_layout Enumerate
-Sino se cumple ninguno de los anteriores se procederá deslindar la ejecución
+Sino se cumple ninguno de los anteriores se procederá a deslindar la ejecución
  de dicho comando a la extensión bajo la cual fue registrado
 \begin_inset Foot
 status collapsed
