@@ -101,10 +101,6 @@ Introducción
 Propósito
 \end_layout
 
-\begin_layout Paragraph
-
-\end_layout
-
 \begin_layout Standard
 El propósito de este documento es la especificación de requerimientos de
  software en el marco de la tesis de grado de la carrera Lic.
@@ -213,8 +209,7 @@ description "Knowledge Base (Base de Conocimiento)"
 
 \emph default
  del área de virología, organizar, analizar, chequear incongruencias en
- ella y poder utilizarla para asistir en la planificación de experimentos
- .
+ ella y poder utilizarla para asistir en la planificación de experimentos.
  A la vez que introducimos nuevos conocimientos a la KB, ésta deberá pasar
  por los procesos previamente nombrados.
  
@@ -271,9 +266,9 @@ Estructura del Documento
 \end_layout
 
 \begin_layout Standard
-La estructura de este documento sigue las recomendaciones de 
+La estructura de este documento sigue las recomendaciones de la 
 \emph on
-Guía para la especificación de requerimientos de la IEEE (
+guía para la especificación de requerimientos de la IEEE (
 \begin_inset CommandInset href
 LatexCommand href
 name "IEEE Std 830-1998 "
@@ -293,7 +288,7 @@ Contiene las siguientes secciones :
 Sección 2: 
 \emph default
 Provee una descripción general de los aspectos generales del producto, como
- la perspectiva de este, características principales.
+ la perspectiva de este y sus características principales.
 \end_layout
 
 \begin_layout Itemize
@@ -301,7 +296,7 @@ Provee una descripción general de los aspectos generales del producto, como
 \emph on
 Sección 3: 
 \emph default
-Describe las interfaces del producto, tanto las del usuario como interfaces
+Describe las interfaces del producto, tanto las del usuario como las interfaces
  de software.
  
 \end_layout
@@ -346,11 +341,7 @@ es derivadas automáticamente de dicho conocimiento.
 
 \begin_layout Standard
 Otra de sus funciones principales es la asistencia informática para planificar
- experimentos equivalentes a preguntas del tipo 
-\begin_inset Formula $A\Longrightarrow B$
-\end_inset
-
-.
+ experimentos.
 \end_layout
 
 \begin_layout Subsection
@@ -378,7 +369,8 @@ Dicho lenguaje será traducible a lenguajes de representación de datos.
 \end_inset
 
 , introducir conocimiento a la KB el cual sera chequeado para encontrar
- contradicciones con esta, para luego ser aceptado o mostrar las encontradas.
+ contradicciones con esta, para luego ser aceptado o mostrar las contradicciones
+ encontradas.
 \end_layout
 
 \begin_layout Subsubsection
@@ -387,7 +379,7 @@ Procesamiento de la KB
 
 \begin_layout Standard
 Proveer la capacidad de procesar la información presente en la KB para así
- obtener nuevas conclusiones del conocimiento disponible en ella 
+ obtener nuevas conclusiones del conocimiento disponible en ella.
 \begin_inset Note Comment
 status collapsed
 
@@ -417,7 +409,7 @@ Pregunta : Este ítem parece no tener sentido por que no tiene correlación
 
 \end_inset
 
-.
+
 \end_layout
 
 \begin_layout Subsubsection
@@ -471,8 +463,8 @@ Proveer un API y un SDK para la creación de extensiones, los cuales serán
 \begin_layout Standard
 El API define la forma en la que se intercambiará el conocimiento entre
  la extensión y FuL.
- El SDK otorga las librerías y las herramientas necesarias tanto para la
- construcción de la extensión en sí.
+ El SDK otorga las librerías y las herramientas necesarias para la construcción
+ de la extensión en sí.
 \end_layout
 
 \begin_layout Subsubsection
@@ -517,7 +509,7 @@ KB inicial con conocimientos de virología *
 
 \begin_layout Standard
 Proveer una KB inicial, la cual contenga conocimientos básicos de virología
- tales como lo que se encuentran el libros de estudio de nivel básico a
+ tales como lo que se encuentran en libros de estudio de nivel básico a
  intermedio
 \begin_inset Foot
 status collapsed
@@ -629,7 +621,7 @@ Interfaces de Sistema
 
 \begin_layout Standard
 Será capaz de correr al menos en sistemas GNU/Linux, así que por este hecho
- sólo se utilizaran librerías compatibles con sistemas GNU/Linux.
+ sólo se utilizarán librerías compatibles con sistemas GNU/Linux.
 \begin_inset Note Comment
 status collapsed
 
@@ -710,14 +702,14 @@ Respuesta de Daniel : Ambas cosas serán opcionales, pero debe darse un archivo
 
 \begin_layout Itemize
 Un archivo de configuración XML donde se especifique el conjunto de extensiones
- que FuL utilizara en esta ejecución.
+ que FuL utilizará en esta ejecución.
  Además este archivo puede contener configuración para las variables de
  FuL y las extensiones a registrar.
 \begin_inset Newline newline
 \end_inset
 
 Este parámetro es obligatorio, pero se considera valido un XML que no presente
- configuración ni registrado de extensiones alguna.
+ configuración ni registro de extensiones alguna.
 \end_layout
 
 \begin_layout Itemize
@@ -727,15 +719,15 @@ La KB inicial la cual FuL utilizara durante toda la sesión.
 \end_layout
 
 \begin_layout Standard
-A medida que se cargan dichos elementos se mostraran por consola los mensajes
- pertinentes al usuario, en caso de error se mostrara el mensaje correspondiente
- y se anulara o continuara con su ejecución dependiendo de la gravedad del
+A medida que se cargan dichos elementos se mostrarán por consola los mensajes
+ pertinentes al usuario, en caso de error se mostrará el mensaje correspondiente
+ y se anulará o continuará con su ejecución dependiendo de la gravedad del
  error
 \begin_inset Foot
 status collapsed
 
 \begin_layout Plain Layout
-La clasificación de nivel de gravedad de los errores esta TBD, la cual sera
+La clasificación de nivel de gravedad de los errores esta TBD, la cual será
  definida una vez de que estos sean clasificados y estudiados en la fase
  de análisis y/o diseño.
 \end_layout
@@ -810,9 +802,9 @@ Tanto por ser sintácticamente incorrecto respecto del lenguaje formal o
 
 \end_inset
 
-, FuL abortara el proceso de importación e informara al usuario mediante
+, FuL abortará el proceso de importación e informará al usuario mediante
  la CLI del error con un nivel de detalle adecuado.
- Si la ejecución del comando a sido exitosa se mostrara en la CLI el mensaje
+ Si la ejecución del comando a sido exitosa se mostrará en la CLI el mensaje
  
 \emph on
 IMPORT OK
@@ -837,13 +829,13 @@ file.kb
 \emph on
  
 \emph default
-Si la ejecución del comando a sido exitosa se mostrara en la CLI el mensaje
+Si la ejecución del comando a sido exitosa se mostrará en la CLI el mensaje
  
 \emph on
 SAVED
 \emph default
 .
- En caso de error informara al usuario mediante la CLI de dicho error.
+ En caso de error informará al usuario mediante la CLI de dicho error.
 \end_layout
 
 \begin_layout Enumerate
@@ -866,7 +858,7 @@ status collapsed
 
 \begin_layout Plain Layout
 Esta respuesta estará compuesta por una explicación del resultado obtenido
- y las lineas de pensamiento que se utilizaron para arribar a el.
+ y las lineas de razonamiento que se utilizaron para arribar a el.
 \end_layout
 
 \end_inset
@@ -874,8 +866,9 @@ Esta respuesta estará compuesta por una explicación del resultado obtenido
 .
  En caso de que la consulta sea invalida respecto del lenguaje formal entonces
  devolverá el mensaje de error correspondiente.
- Si no se puede llegar a una respuesta definida entonces FuL devolverá la
- lista de elementos requeridos para que FuL de una respuesta definida.
+ Si no se puede llegar a una respuesta definida entonces FuL devolverá una
+ de las posibles listas de elementos requeridos para que FuL de una respuesta
+ definida.
 \end_layout
 
 \begin_layout Enumerate
@@ -993,7 +986,7 @@ variable
 \emph on
 value 
 \emph default
-un valor valido para esta.
+un valor válido para esta.
  En caso de que 
 \emph on
 variable
@@ -1008,7 +1001,7 @@ ID-10-T error: unrecognized variable
 \emph on
 value
 \emph default
- sea un valor invalido para 
+ sea un valor inválido para 
 \emph on
 variable 
 \emph default
@@ -1033,15 +1026,15 @@ quit
 :
 \emph default
  Permite salir de la CLI y cerrar FuL.
- En caso de que no se haya guardado la KB que FuL tiene en memoria, se mostrara
+ En caso de que no se haya guardado la KB que FuL tiene en memoria, se mostrará
  el mensaje 
 \emph on
 WARNING: memory state not saved.
  Sure to quit? (y/n).
 
 \emph default
- Si el usuario lo confirma entonces se saldrá de la CLI y cerrara FuL ,
- sino abortara el comando.
+ Si el usuario lo confirma entonces se saldrá de la CLI y cerrará FuL, sino
+ abortará el comando.
 \end_layout
 
 \begin_layout Standard
@@ -1061,9 +1054,9 @@ Lenguaje Formal
 \end_layout
 
 \begin_layout Standard
-Es el lenguaje a través del cual el usuario deberá utilizar para introducir
- conocimiento y realizar consultas a FuL.
- También es con el cual se presentaran los resultados de las operaciones
+Es el lenguaje que el usuario deberá utilizar para introducir conocimiento
+ y realizar consultas a FuL.
+ También es con el cual se presentarán los resultados de las operaciones
  solicitadas.
  Dicho lenguaje sera capaz de representar conocimiento relacionado con el
  área de Virología
@@ -1076,7 +1069,7 @@ Pero no exclusivamente.
 
 \end_inset
 
- , el cual tendrá la propiedad de ser almacenable en una KB y ser interpretado
+, el cual tendrá la propiedad de ser almacenable en una KB y ser interpretado
  por una extensión.
 \begin_inset Note Comment
 status collapsed
@@ -1154,7 +1147,15 @@ target "http://code.google.com/p/getoptpp/"
 
  : Versión C++ de la función getopt que permite parsear opciones command
  line y manejar variables de entorno.
- Fácil de usar y altamente compatible con STL.
+ Fácil de usar y altamente compatible con 
+\begin_inset CommandInset href
+LatexCommand href
+name "STL"
+target "STL"
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Itemize
@@ -1216,7 +1217,7 @@ ERROR_EXIT
 \emph on
  :
 \series bold
- La CLI deberá informar al usuario de los errores ocurridos y se finalizara
+ La CLI deberá informar al usuario de los errores ocurridos y se finalizará
  dicha operación.
  
 \end_layout
@@ -1230,19 +1231,7 @@ Es un parámetro ingresado al comando de dicha linea, siendo
 \emph on
 parámetro 
 \emph default
-el valor del mismo
-\begin_inset Note Comment
-status collapsed
-
-\begin_layout Plain Layout
-Pregunta : Parece medio confuso, o estoy aclarando algo obvio ? Pregunto
- por que no se si este es el nivel de especificación que se busca o no hace
- falta tanto.
-\end_layout
-
-\end_inset
-
-.
+el valor del mismo.
 \end_layout
 
 \begin_layout Subsection
@@ -1329,7 +1318,7 @@ El archivo XML que contiene la configuración de las extensiones.
 \emph on
 database.kb : 
 \emph default
-La KB inicial con la cual FuL procesara los comandos posteriores provenientes
+La KB inicial con la cual FuL procesará los comandos posteriores provenientes
  de la CLI.
  El conocimiento deberá estar expresado en el lenguaje formal de FuL.
  Este parámetro es opcional.
@@ -1348,7 +1337,7 @@ y se finalizara la ejecución de FuL.
 \begin_layout Enumerate
 
 \emph on
-Cargar configuración de FuL: 
+Cargar configuración de FuL : 
 \emph default
 Se deberá procesar la configuración de las variables de FuL presente en
  
@@ -1356,7 +1345,7 @@ Se deberá procesar la configuración de las variables de FuL presente en
 config.xml
 \emph default
 .
- Las variables de FuL no presentes en dicho archivo tomara el valor default
+ Las variables de FuL no presentes en dicho archivo tomarán el valor default
  definido por FuL.
  Para esto deberá utilizarse FXP
 \begin_inset Foot
@@ -1376,7 +1365,7 @@ reference "ite::-FXP-"
 \end_inset
 
 .
- En caso de que error ERROR_EXIT.
+ En caso de error ERROR_EXIT.
 \end_layout
 
 \begin_layout Enumerate
@@ -1389,8 +1378,8 @@ Se deberá cargar las extensiones presentes en
 config.xml 
 \emph default
 y se conectan con FuL, aplicando para cada una de las extensiones la configuraci
-ón de estas presente en el mismo documento.
- También se registraran los comandos que cada extensión otorgue.
+ón de estás presente en el mismo documento.
+ También se registrarán los comandos que cada extensión otorgue.
  Para esto se deberá utilizar unplugged
 \begin_inset Foot
 status collapsed
@@ -1419,7 +1408,7 @@ reference "ite::-unplugged-"
 Cargar la KB : 
 \emph default
 Se deberá procesar el conocimiento existente en la KB por parte de FuL,
- teniendo en cuenta su configuración y las de las extensiones que fueron
+ teniendo en cuenta su configuración y la de las extensiones que fueron
  cargadas.
  
 \begin_inset Newline newline
@@ -1629,7 +1618,7 @@ Si
 \end_layout
 
 \begin_layout Enumerate
-Sino se cumple ninguno de los anteriores se procederá a deslindar la ejecución
+Si no se cumple ninguno de los anteriores se procederá a deslindar la ejecución
  de dicho comando a la extensión bajo la cual fue registrado
 \begin_inset Foot
 status collapsed
@@ -1817,8 +1806,8 @@ Se deberá registrar el conocimiento presente en
 delta.kb
 \emph default
 \lang spanish
- en la KB de FuL, junto con todo el conocimiento que se pueda derivar al
- agregar dicho archivo.
+ en la KB de FuL, saturando el conjunto de elementos de la KB con conceptos
+ atómicos derivables del conocimiento presente en el archivo y la KB juntas.
  Finalizado el registrado se deberá mostrar al usuario, mediante la CLI,
  el mensaje 
 \emph on
@@ -1850,7 +1839,7 @@ Objetivo :
 \series default
 \emph default
  El objetivo de este requerimiento es permitirle al usuario guardar el conocimie
-nto presente en en la KB en un archivo 
+nto presente en la KB en un archivo 
 \emph on
 <database.kb>
 \emph default
@@ -1890,7 +1879,7 @@ Se deberá validar que la cantidad de parámetros
 \begin_inset Formula $p\_1=database.kb$
 \end_inset
 
- deberá ser un nombre valido para de un archivo
+ deberá ser un nombre valido para un archivo
 \begin_inset Foot
 status collapsed
 
@@ -1957,8 +1946,8 @@ realizar una consulta
 \emph on
  
 \emph default
-a FuL a través de la CLI, la cual este dará una respuesta respecto de su
- KB y las extensiones registradas en dicha sesión.
+a FuL a través de la CLI, a la cual este dará una respuesta respecto de
+ su KB y las extensiones registradas en dicha sesión.
 \end_layout
 
 \begin_layout Itemize
@@ -2053,7 +2042,7 @@ Se deberá validar que la cantidad de parámetros
  deberá ser una consulta interpretable por FuL, la cual respete las restriccione
 s de su lenguaje formal.
  De no cumplirse alguna de estas condiciones se deberá devolver el mensaje
- de error correspondiente a través de la CLI y se pasara al paso final.
+ de error correspondiente a través de la CLI y se pasará al paso final.
 \end_layout
 
 \begin_layout Enumerate
@@ -2061,7 +2050,7 @@ s de su lenguaje formal.
 \emph on
 Procesado de la Consulta : 
 \emph default
-Se deberá procesar la consulta con respecto a la conocimiento presente en
+Se deberá procesar la consulta con respecto al conocimiento presente en
  la KB de FuL y las extensiones registradas.
 \end_layout
 
@@ -2146,7 +2135,7 @@ Se deberá validar que la cantidad de parámetros
  deberá ser un archivo el cual contenga comandos validos para FuL y las
  extensiones registradas.
  De no cumplirse alguna de estas condiciones se deberá devolver el mensaje
- de error correspondiente a través de la CLI y se pasara al paso final.
+ de error correspondiente a través de la CLI y se pasará al paso final.
 \end_layout
 
 \begin_layout Enumerate
@@ -2240,7 +2229,7 @@ Se deberá validar que la cantidad de parámetros
 
  deberá ser una variable registrada en FuL.
  De no cumplirse alguna de estas condiciones se deberá devolver el mensaje
- de error correspondiente a través de la CLI y se pasara al paso final.
+ de error correspondiente a través de la CLI y se pasará al paso final.
 \end_layout
 
 \begin_layout Enumerate
@@ -2321,7 +2310,7 @@ Se deberá validar que la cantidad de parámetros
 
  deberá ser un valor valido para dicha variable.
  De no cumplirse alguna de estas condiciones se deberá devolver el mensaje
- de error correspondiente a través de la CLI y se pasara al paso final.
+ de error correspondiente a través de la CLI y se pasará al paso final.
 \end_layout
 
 \begin_layout Enumerate
@@ -2599,8 +2588,8 @@ leaks
 \end_layout
 
 \begin_layout Itemize
-Las dependencias externas que puedan llegar a ser usadas en producto no
- deberán ser tenidas en cuenta a la hora de chequear problemas de memoria
+Las dependencias externas que puedan llegar a ser usadas en el producto
+ no deberán ser tenidas en cuenta a la hora de chequear problemas de memoria
  o 
 \lang english
 leaks
@@ -2656,10 +2645,10 @@ target "http://www.gnu.org/licenses/gpl-3.0.html"
  bajo Creative Commons para proteger tanto el texto como las ideas presentes
  en este documento
 \begin_inset Foot
-status collapsed
+status open
 
 \begin_layout Plain Layout
-Este ultimo punto podría modificarse a futuro para utilizar licencias mas
+Este último punto podría modificarse a futuro para utilizar licencias más
  seguras para la protección de ideas.
 \end_layout
 
