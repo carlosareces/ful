@@ -288,7 +288,7 @@ Contiene las siguientes secciones :
 Sección 2: 
 \emph default
 Provee una descripción general de los aspectos generales del producto, como
- la perspectiva de este y sus características principales.
+ la perspectiva de éste y sus características principales.
 \end_layout
 
 \begin_layout Itemize
@@ -1378,7 +1378,7 @@ Se deberá cargar las extensiones presentes en
 config.xml 
 \emph default
 y se conectan con FuL, aplicando para cada una de las extensiones la configuraci
-ón de estás presente en el mismo documento.
+ón de éstas presente en el mismo documento.
  También se registrarán los comandos que cada extensión otorgue.
  Para esto se deberá utilizar unplugged
 \begin_inset Foot
@@ -2645,7 +2645,7 @@ target "http://www.gnu.org/licenses/gpl-3.0.html"
  bajo Creative Commons para proteger tanto el texto como las ideas presentes
  en este documento
 \begin_inset Foot
-status open
+status collapsed
 
 \begin_layout Plain Layout
 Este último punto podría modificarse a futuro para utilizar licencias más
