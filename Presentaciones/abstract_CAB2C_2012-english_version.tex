@@ -1,0 +1,91 @@
+%% LyX 2.0.0 created this file.  For more info, see http://www.lyx.org/.
+%% Do not edit unless you really know what you are doing.
+\documentclass[spanish,english]{paper}
+\usepackage[T1]{fontenc}
+\usepackage[latin9]{inputenc}
+\usepackage{geometry}
+\geometry{verbose,tmargin=1.75cm,bmargin=1.75cm,lmargin=1.75cm,rmargin=1.75cm,headheight=1.75cm,headsep=1.75cm,footskip=1cm}
+\usepackage{babel}
+\addto\shorthandsspanish{\spanishdeactivate{~<>}}
+
+\usepackage[unicode=true]
+ {hyperref}
+\begin{document}
+
+\title{FuL}
+
+\maketitle
+Alejandro Kondrasky$^{1}$, Daniel Gutson$^{1}$, Carlos E. Areces$^{1,2}$
+
+$^{1}$FuDePAN: \foreignlanguage{spanish}{Fundación para el Desarrollo
+de la Programación en Ácidos Nucleicos}, X5002AOO, \foreignlanguage{spanish}{Córdoba},
+Argentina.
+
+$^{2}$FaMAF, \foreignlanguage{spanish}{Universidad Nacional de Córdoba,
+Ciudad Universitaria}, X5000HUA, \foreignlanguage{spanish}{Córdoba},
+Argentina. 
+
+
+\section*{Background}
+
+The biology knowledge corpus in general, and of virology and immunology
+in particular, is incremental in volume and complexity. This is why
+for the production of that knowledge it will be useful to have it
+represented in a formal language inside a knowledge base and utilize
+different methodologies for analysis and manipulation, allowing verification
+of the validity of the conclusions obtained by the results from experiments.
+
+This is why we are developing FuDePAN's Logic processor (FuL) (http://ful.googlecode.com)
+which objective is to organize, interpret, verify and explore the
+knowledge in molecular biology applied to virology and immunology
+in particular,so that we can found incongruence and automatically
+derivate conclusions from that knowledge, being it's main function
+the verification of conclusions obtained by results from experiments
+using queries.
+
+The test case will be the following conclusions obtained from experiments
+done by FuDePAN:
+\begin{itemize}
+\item \textbf{\emph{Validate the conclusions obtained in the Junin experiment
+about the temperature-change effects over the virus secondary structure:}}\foreignlanguage{spanish}{\emph{}}\\
+Corroborate that the line of thought that include the predictions
+of the effects of febrile state over the Junin RNA secondary structure,
+in which is hypothesized that the temperature increment produce a
+reduction in the production of nucleoproteins because the hairpin
+loop in the intergenic region present dissimilar characteristics when
+is compared the two ambisense genome strings when the temperature
+is increased.
+\end{itemize}
+This tool has a model based on extensibility in plug-ins, allowing
+replacement and adding of new functionalities to the system, simplifying
+the adaptation of it to new types of knowledge. For that it will be
+provided a API, which defines the way in which knowledge is flows
+between the plug-ins and Ful's core, and a SDK composed of libraries
+and tools required for building plug-ins.
+
+The kernel of the tool will be composed of a planner based on PDDL
+(Planning Domain Definition Language) semantic and a manager that
+will be the intermediate between the plug-ins registered in the session
+and the planner. Via a XML file, it can be possible to register the
+plug-ins that FuL will utilize in that session and configure the session
+variables, both from FuL and the plug-ins.
+
+Also we will provide a knowledge representation language for virology
+area base on DL(Description Logic), which will be used for representing
+knowledge in the KB(Knowledge Base) to load in that session and make
+queries to FuL. In particular, FuL will include a Semantic Reasoner
+based on DL as a plug-in.
+
+
+\section*{Referencias}
+\begin{enumerate}
+\item Franz Baader, Deborah L. McGuinness, Daniele Nardi, Peter F. Patel-Schneider:
+\textbf{THE DESCRIPTION LOGIC HANDBOOK: Theory, implementation, and
+applications}.
+\item \textbf{The Seventh International Planning Competition Description
+of Participant Planners of the Deterministic Track}, 2011. \href{http://www.plg.inf.uc3m.es/ipc2011-deterministic/ParticipatingPlanners}{www.plg.inf.uc3m.es/ipc2011-deterministic/ParticipatingPlanners}
+\item Daniel Gutson, Agustín March, Maximiliano Combina, Daniel Rabinovich:\textbf{
+Prediction of consequences of the febrile status on the RNA secondary
+structure of the Junín Virus}, 2006. \href{http://www.fudepan.org.ar/node/71}{www.fudepan.org.ar/node/71}\end{enumerate}
+
+\end{document}
