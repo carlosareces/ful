@@ -15,57 +15,54 @@
 \title{FuL}
 
 \maketitle
-Alejandro Kondrasky$^{1}$, Daniel Gutson$^{1}$, Carlos E. Areces$^{1,2}$
+Alejandro Kondrasky$^{1}$, Daniel Gutson$^{1}$, Carlos Areces$^{1,2}$
 
 $^{1}$FuDePAN: \foreignlanguage{spanish}{Fundación para el Desarrollo
 de la Programación en Ácidos Nucleicos}, X5002AOO, \foreignlanguage{spanish}{Córdoba},
 Argentina.
 
-$^{2}$FaMAF, \foreignlanguage{spanish}{Universidad Nacional de Córdoba,
+$^{2}$FaMAF: \foreignlanguage{spanish}{Universidad Nacional de Córdoba,
 Ciudad Universitaria}, X5000HUA, \foreignlanguage{spanish}{Córdoba},
 Argentina. 
 
 
 \section*{Background}
 
-The body of knowledge in biology, and of virology and immunology in
-particular, is incremental in volume and complexity. This is why for
-the production of that knowledge it will be useful to have it represented
-in a formal language inside a knowledge base and utilize different
-methodologies for analysis and manipulation, allowing verification
-of the validity of the conclusions obtained by the results from experiments.
+The body of knowledge in biology, particularly in virology and immunology,
+is incremental in volume and complexity. This is why for the production
+of that knowledge it would be useful to have it represented in a formal
+language inside a knowledge base. Subsequently, different methodologies
+for analysis and manipulation could be developed, allowing validity
+checks to be performed on conclusions obtained in experiments.
 
-This is why we are developing FuDePAN's Logic processor (FuL) (http://ful.googlecode.com)
-which objective is to organize, interpret, verify and explore the
-knowledge in molecular biology applied to virology and immunology
-in particular,so that we can found incongruence and automatically
-derivate conclusions from that knowledge, being it's main function
-the verification of conclusions obtained by results from experiments
-using queries.
+FuDePAN's Logic processor (FuL) (http://ful.googlecode.com) is being
+developed to organize, interpret, verify and explore the knowledge
+in molecular biology, applied to virology and immunology in particular.
+This will help find incongruence and automatically derive conclusions
+from that knowledge, being it's main function the verification of
+conclusions obtained by results from experiments using queries.
 
-The test case will be the following conclusions obtained from experiments
+The test case will be the following conclusion obtained from experiments
 done by FuDePAN:
 \begin{itemize}
 \item \textbf{\emph{Validate the conclusions obtained in the Junin experiment
 about the temperature-change effects over the virus secondary structure:}}\foreignlanguage{spanish}{\emph{}}\\
-Corroborate that the line of thought that include the predictions
+Corroborate that the line of thought that includes the predictions
 of the effects of febrile state over the Junin RNA secondary structure,
-in which is hypothesized that the temperature increment produce a
-reduction in the production of nucleoproteins because the hairpin
-loop in the intergenic region present dissimilar characteristics when
-is compared the two ambisense genome strings when the temperature
-is increased.
+in which it's hypothesized that the temperature increment reduces
+the production of nucleoproteins because the hairpin loop in the intergenic
+region presents dissimilar characteristics when it's compared the
+two ambisense genome strings when the temperature is increased.
 \end{itemize}
-This tool has a model based on extensibility in plug-ins, allowing
-replacement and adding of new functionalities to the system, simplifying
-the adaptation of it to new types of knowledge. For that it will be
-provided a API, which defines the way in which knowledge is flows
-between the plug-ins and Ful's core, and a SDK composed of libraries
-and tools required for building plug-ins.
+This tool has a plug-in architecture, simplifying the adaptation of
+it to new types of knowledge. For that, an API will be provided, which
+defines the way in which knowledge flows between the plug-ins and
+Ful's core, and also a SDK composed of libraries and tools required
+for building plug-ins.
 
 The kernel of the tool will be composed of a planner based on PDDL
 (Planning Domain Definition Language) semantic and a manager that
-will be the intermediate between the plug-ins registered in the session
+will be the interface between the plug-ins registered in that session
 and the planner. Via a XML file, it can be possible to register the
 plug-ins that FuL will utilize in that session and configure the session
 variables, both from FuL and the plug-ins.
@@ -77,7 +74,7 @@ queries to FuL. In particular, FuL will include a Semantic Reasoner
 based on DL as a plug-in.
 
 
-\section*{Referencias}
+\section*{References}
 \begin{enumerate}
 \item Franz Baader, Deborah L. McGuinness, Daniele Nardi, Peter F. Patel-Schneider:
 \textbf{THE DESCRIPTION LOGIC HANDBOOK: Theory, implementation, and
