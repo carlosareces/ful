@@ -1,0 +1,258 @@
+#LyX 2.0 created this file. For more info see http://www.lyx.org/
+\lyxformat 413
+\begin_document
+\begin_header
+\textclass paper
+\use_default_options true
+\maintain_unincluded_children false
+\language spanish
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry true
+\use_amsmath 1
+\use_esint 1
+\use_mhchem 1
+\use_mathdots 1
+\cite_engine basic
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 1.75cm
+\topmargin 1.75cm
+\rightmargin 1.75cm
+\bottommargin 1.75cm
+\headheight 1.75cm
+\headsep 1.75cm
+\footskip 1.75cm
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+FuL
+\end_layout
+
+\begin_layout Standard
+Daniel Gutson
+\begin_inset Formula $^{1}$
+\end_inset
+
+, Carlos E.
+ Areces
+\begin_inset Formula $^{1,2}$
+\end_inset
+
+, Alejandro Kondrasky
+\begin_inset Formula $^{1}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $^{1}$
+\end_inset
+
+FuDePAN: Fundación para el Desarrollo de la Programación en Acidos Nucléicos,
+ X5002AOO, Córdoba, Argentina.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $^{2}$
+\end_inset
+
+FaMAF, Universidad Nacional de Córdoba, Ciudad Universitaria, X5000HUA,
+ Córdoba, Argentina.
+ 
+\end_layout
+
+\begin_layout Section*
+Contexto
+\end_layout
+
+\begin_layout Standard
+En el área de virología se requiere analizar el continuo flujo de conocimiento
+ disponible para, mediante el diseño de experimentos, derivar nuevo conocimiento.
+ A causa del volumen y complejidad de dicho conocimiento seria útil tenerlo
+ representado en un lenguaje formal dentro de una base de conocimiento y
+ utilizar distintas metodologías, para analizar y manipular dicho conocimiento,
+ permitiendo verificar la validez las conclusiones obtenidas de los resultados
+ de los experimentos.
+\end_layout
+
+\begin_layout Standard
+Por esto estamos desarrollando el proyecto 
+\lang english
+FuDePAN's Logic processor
+\lang spanish
+ (FuL) (http://ful.googlecode.com).
+ Se encarga de la organización, interpretación, verificación y exploración
+ del conocimiento en el área de virología, para así poder encontrar incongruenci
+as y conclusiones derivadas automáticamente de dicho conocimiento, siendo
+ su función principal la verificación de las conclusiones obtenidas de los
+ resultados de los experimentos mediante consultas.
+ 
+\end_layout
+
+\begin_layout Standard
+Serán casos de prueba las siguientes conclusiones de los experimentos realizados
+ por la fundación FuDePAN: 
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\emph on
+Validar las conclusiones obtenidas en el experimento Junin acerca de los
+ efectos del cambio de temperatura sobre su estructura secundaria
+\series default
+:
+\begin_inset Newline newline
+\end_inset
+
+
+\emph default
+Se trata de corroborar la línea de razonamiento que incluye la predicción
+ de los efectos del estado febril sobre la estructura secundaria del RNA
+ del virus Junin, línea de razonamiento en la cual se hipotetiza que al
+ aumentar la temperatura se produce una reducción en la producción de núcleo
+ proteínas a causa de que el loop, presente tanto en el RNA genómico como
+ antigenómico, es afectado por el aumento de la temperatura.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+\begin_inset Quotes eld
+\end_inset
+
+Agregar el de HIV
+\begin_inset Quotes erd
+\end_inset
+
+, preguntar a Daniel Rabinovich y Daniel Gutson.
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Esta herramienta tiene una estructura modular basada en 
+\lang english
+plug-ins,
+\lang spanish
+ permitiendo reemplazar y agregar nuevas funcionalidades al sistema, facilitando
+ así la optimización de la misma a nuevos tipos de conocimientos.
+ Para esto, se proveerá de una API, la cual define la forma en la que se
+ intercambiará el conocimiento entre los 
+\lang english
+plug-ins
+\lang spanish
+ , y una SDK que otorgara las librerías y las herramientas necesarias para
+ la construcción de los 
+\lang english
+plug-ins
+\lang spanish
+.
+ Mediante archivo de configuración XML, se podrá registrar los 
+\lang english
+plug-ins
+\lang spanish
+ que FuL utilizará en una determinada sesión y la configuración para las
+ variables de sesión, tanto de FuL como los 
+\lang english
+plug-ins
+\lang spanish
+ registrados.
+\end_layout
+
+\begin_layout Standard
+También se proveerá de un lenguaje de representación de conocimiento del
+ área de virología basado en DL 
+\lang english
+(Description Logic),
+\lang spanish
+ con el cual representar conocimiento presente en la KB(
+\lang english
+Knowledge Base
+\lang spanish
+) a utilizar en la sesión y realizar las consultas a FuL.
+ En particular, FuL incluirá como 
+\lang english
+plug-ins
+\lang spanish
+ un 
+\lang english
+planner
+\lang spanish
+ que  la semántica de PDDL (
+\lang english
+Planning Domain Definition Language
+\lang spanish
+) y un razonador semántico basado en DL.
+ 
+\end_layout
+
+\begin_layout Section*
+Referencias
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Comment
+status collapsed
+
+\begin_layout Plain Layout
+Agregar Referencias de los experimentos y las herramientas a utilizar.
+ Preguntar a Daniel.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document
