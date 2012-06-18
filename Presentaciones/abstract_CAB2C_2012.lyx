@@ -49,7 +49,7 @@
 \bottommargin 1.75cm
 \headheight 1.75cm
 \headsep 1.75cm
-\footskip 1.75cm
+\footskip 1cm
 \secnumdepth 3
 \tocdepth 3
 \paragraph_separation indent
@@ -110,13 +110,13 @@ Contexto
 \end_layout
 
 \begin_layout Standard
-En el área de virología se requiere analizar el continuo flujo de conocimiento
- disponible para, mediante el diseño de experimentos, derivar nuevo conocimiento.
- A causa del volumen y complejidad de dicho conocimiento seria útil tenerlo
- representado en un lenguaje formal dentro de una base de conocimiento y
- utilizar distintas metodologías, para analizar y manipular dicho conocimiento,
- permitiendo verificar la validez las conclusiones obtenidas de los resultados
- de los experimentos.
+El corpus de conocimiento de la biología en general, y de virología e inmunologí
+a en particular, es incremental en volumen y complejidad.
+ Es por eso que para la producción de dicho conocimiento sería útil tenerla
+ representada en un lenguaje formal dentro de una base de conocimiento y
+ utilizar distintas metodologías, para analizarlo y manipularlo, permitiendo
+ verificar la validez las conclusiones obtenidas de los resultados de los
+ experimentos.
 \end_layout
 
 \begin_layout Standard
@@ -124,17 +124,16 @@ Por esto estamos desarrollando el proyecto
 \lang english
 FuDePAN's Logic processor
 \lang spanish
- (FuL) (http://ful.googlecode.com).
- Se encarga de la organización, interpretación, verificación y exploración
- del conocimiento en el área de virología, para así poder encontrar incongruenci
-as y conclusiones derivadas automáticamente de dicho conocimiento, siendo
+ (FuL) (http://ful.googlecode.com) cuyo objetivo es la organización, interpretació
+n, verificación y exploración del conocimiento en biología molecular aplicado
+ a virología e inmunología en particular, para así poder encontrar incongruencia
+s y conclusiones derivadas automáticamente de dicho conocimiento, siendo
  su función principal la verificación de las conclusiones obtenidas de los
  resultados de los experimentos mediante consultas.
- 
 \end_layout
 
 \begin_layout Standard
-Serán casos de prueba las siguientes conclusiones de los experimentos realizados
+Será caso de prueba la siguiente conclusión del siguiente experimento realizado
  por la fundación FuDePAN: 
 \end_layout
 
@@ -155,37 +154,25 @@ Se trata de corroborar la línea de razonamiento que incluye la predicción
  de los efectos del estado febril sobre la estructura secundaria del RNA
  del virus Junin, línea de razonamiento en la cual se hipotetiza que al
  aumentar la temperatura se produce una reducción en la producción de núcleo
- proteínas a causa de que el loop, presente tanto en el RNA genómico como
- antigenómico, es afectado por el aumento de la temperatura.
-\end_layout
-
-\begin_layout Itemize
-\begin_inset Note Comment
-status open
-
-\begin_layout Plain Layout
-\begin_inset Quotes eld
-\end_inset
-
-Agregar el de HIV
-\begin_inset Quotes erd
-\end_inset
-
-, preguntar a Daniel Rabinovich y Daniel Gutson.
-\end_layout
-
-\end_inset
-
-.
+ proteínas a causa de que el 
+\lang english
+hairpin
+\lang spanish
+ loop de la región intergénica presenta características disímiles al comparar
+ las dos cadenas del genoma 
+\lang english
+ambisense
+\lang spanish
+ al aumentar la temperatura.
 \end_layout
 
 \begin_layout Standard
-Esta herramienta tiene una estructura modular basada en 
+Esta herramienta tiene un modelo de extensibilidad basado en 
 \lang english
 plug-ins,
 \lang spanish
  permitiendo reemplazar y agregar nuevas funcionalidades al sistema, facilitando
- así la optimización de la misma a nuevos tipos de conocimientos.
+ así la adaptación de la misma a nuevos tipos de conocimientos.
  Para esto, se proveerá de una API, la cual define la forma en la que se
  intercambiará el conocimiento entre los 
 \lang english
@@ -197,7 +184,29 @@ plug-ins
 plug-ins
 \lang spanish
 .
- Mediante archivo de configuración XML, se podrá registrar los 
+\end_layout
+
+\begin_layout Standard
+El núcleo principal de la herramienta estara compuesto por un 
+\lang english
+planner
+\lang spanish
+ basado en  la semántica de PDDL (
+\lang english
+Planning Domain Definition Language
+\lang spanish
+) con el que se desarrollan las lineas de razonamiento y un administrador
+ general que actúa como intermediario para el intercambio el conocimiento
+ entre los 
+\lang english
+plug-ins
+\lang spanish
+ registrados en una determinada sesión y el 
+\lang english
+planner
+\lang spanish
+.
+ Mediante un archivo de configuración XML se podrá registrar los 
 \lang english
 plug-ins
 \lang spanish
@@ -224,15 +233,7 @@ Knowledge Base
 \lang english
 plug-ins
 \lang spanish
- un 
-\lang english
-planner
-\lang spanish
- que  la semántica de PDDL (
-\lang english
-Planning Domain Definition Language
-\lang spanish
-) y un razonador semántico basado en DL.
+ un razonador semántico basado en DL.
  
 \end_layout
 
@@ -240,14 +241,44 @@ Planning Domain Definition Language
 Referencias
 \end_layout
 
-\begin_layout Standard
-\begin_inset Note Comment
-status collapsed
-
-\begin_layout Plain Layout
-Agregar Referencias de los experimentos y las herramientas a utilizar.
- Preguntar a Daniel.
+\begin_layout Enumerate
+Franz Baader, Deborah L.
+ McGuinness, Daniele Nardi, Peter F.
+ Patel-Schneider: 
+\series bold
+THE DESCRIPTION LOGIC HANDBOOK: Theory, implementation, and applications
+\series default
+.
 \end_layout
+
+\begin_layout Enumerate
+
+\series bold
+The Seventh International Planning Competition Description of Participant
+ Planners of the Deterministic Track
+\series default
+, 2011.
+ 
+\begin_inset CommandInset href
+LatexCommand href
+target "www.plg.inf.uc3m.es/ipc2011-deterministic/ParticipatingPlanners"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Daniel Gutson, Agustín March, Maximiliano Combina, Daniel Rabinovich:
+\series bold
+ Prediction of consequences of the febrile status on the RNA secondary structure
+ of the Junín Virus
+\series default
+, 2006.
+ 
+\begin_inset CommandInset href
+LatexCommand href
+target "www.fudepan.org.ar/node/71"
 
 \end_inset
 

@@ -4,11 +4,12 @@
 \usepackage[T1]{fontenc}
 \usepackage[latin9]{inputenc}
 \usepackage{geometry}
-\geometry{verbose,tmargin=1.75cm,bmargin=1.75cm,lmargin=1.75cm,rmargin=1.75cm,headheight=1.75cm,headsep=1.75cm,footskip=1.75cm}
-\usepackage{verbatim}
+\geometry{verbose,tmargin=1.75cm,bmargin=1.75cm,lmargin=1.75cm,rmargin=1.75cm,headheight=1.75cm,headsep=1.75cm,footskip=1cm}
 \usepackage{babel}
 \addto\shorthandsspanish{\spanishdeactivate{~<>}}
 
+\usepackage[unicode=true]
+ {hyperref}
 \begin{document}
 
 \title{FuL}
@@ -25,24 +26,25 @@ X5000HUA, Córdoba, Argentina.
 
 \section*{Contexto}
 
-En el área de virología se requiere analizar el continuo flujo de
-conocimiento disponible para, mediante el diseño de experimentos,
-derivar nuevo conocimiento. A causa del volumen y complejidad de dicho
-conocimiento seria útil tenerlo representado en un lenguaje formal
-dentro de una base de conocimiento y utilizar distintas metodologías,
-para analizar y manipular dicho conocimiento, permitiendo verificar
-la validez las conclusiones obtenidas de los resultados de los experimentos.
+El corpus de conocimiento de la biología en general, y de virología
+e inmunología en particular, es incremental en volumen y complejidad.
+Es por eso que para la producción de dicho conocimiento sería útil
+tenerla representada en un lenguaje formal dentro de una base de conocimiento
+y utilizar distintas metodologías, para analizarlo y manipularlo,
+permitiendo verificar la validez las conclusiones obtenidas de los
+resultados de los experimentos.
 
 Por esto estamos desarrollando el proyecto \foreignlanguage{english}{FuDePAN's
-Logic processor} (FuL) (http://ful.googlecode.com). Se encarga de
+Logic processor} (FuL) (http://ful.googlecode.com) cuyo objetivo es
 la organización, interpretación, verificación y exploración del conocimiento
-en el área de virología, para así poder encontrar incongruencias y
-conclusiones derivadas automáticamente de dicho conocimiento, siendo
-su función principal la verificación de las conclusiones obtenidas
-de los resultados de los experimentos mediante consultas. 
+en biología molecular aplicado a virología e inmunología en particular,
+para así poder encontrar incongruencias y conclusiones derivadas automáticamente
+de dicho conocimiento, siendo su función principal la verificación
+de las conclusiones obtenidas de los resultados de los experimentos
+mediante consultas.
 
-Serán casos de prueba las siguientes conclusiones de los experimentos
-realizados por la fundación FuDePAN: 
+Será caso de prueba la siguiente conclusión del siguiente experimento
+realizado por la fundación FuDePAN: 
 \begin{itemize}
 \item \textbf{\emph{Validar las conclusiones obtenidas en el experimento
 Junin acerca de los efectos del cambio de temperatura sobre su estructura
@@ -51,23 +53,26 @@ Se trata de corroborar la línea de razonamiento que incluye la predicción
 de los efectos del estado febril sobre la estructura secundaria del
 RNA del virus Junin, línea de razonamiento en la cual se hipotetiza
 que al aumentar la temperatura se produce una reducción en la producción
-de núcleo proteínas a causa de que el loop, presente tanto en el RNA
-genómico como antigenómico, es afectado por el aumento de la temperatura.
-\item %
-\begin{comment}
-{}``Agregar el de HIV'', preguntar a Daniel Rabinovich y Daniel
-Gutson.
-\end{comment}
-.
+de núcleo proteínas a causa de que el \foreignlanguage{english}{hairpin}
+loop de la región intergénica presenta características disímiles al
+comparar las dos cadenas del genoma \foreignlanguage{english}{ambisense}
+al aumentar la temperatura.
 \end{itemize}
-Esta herramienta tiene una estructura modular basada en \foreignlanguage{english}{plug-ins,}
+Esta herramienta tiene un modelo de extensibilidad basado en \foreignlanguage{english}{plug-ins,}
 permitiendo reemplazar y agregar nuevas funcionalidades al sistema,
-facilitando así la optimización de la misma a nuevos tipos de conocimientos.
+facilitando así la adaptación de la misma a nuevos tipos de conocimientos.
 Para esto, se proveerá de una API, la cual define la forma en la que
 se intercambiará el conocimiento entre los \foreignlanguage{english}{plug-ins}
 , y una SDK que otorgara las librerías y las herramientas necesarias
-para la construcción de los \foreignlanguage{english}{plug-ins}. Mediante
-archivo de configuración XML, se podrá registrar los \foreignlanguage{english}{plug-ins}
+para la construcción de los \foreignlanguage{english}{plug-ins}.
+
+El núcleo principal de la herramienta estara compuesto por un \foreignlanguage{english}{planner}
+basado en  la semántica de PDDL (\foreignlanguage{english}{Planning
+Domain Definition Language}) con el que se desarrollan las lineas
+de razonamiento y un administrador general que actúa como intermediario
+para el intercambio el conocimiento entre los \foreignlanguage{english}{plug-ins}
+registrados en una determinada sesión y el \foreignlanguage{english}{planner}.
+Mediante un archivo de configuración XML se podrá registrar los \foreignlanguage{english}{plug-ins}
 que FuL utilizará en una determinada sesión y la configuración para
 las variables de sesión, tanto de FuL como los \foreignlanguage{english}{plug-ins}
 registrados.
@@ -77,15 +82,18 @@ del área de virología basado en DL \foreignlanguage{english}{(Description
 Logic),} con el cual representar conocimiento presente en la KB(\foreignlanguage{english}{Knowledge
 Base}) a utilizar en la sesión y realizar las consultas a FuL. En
 particular, FuL incluirá como \foreignlanguage{english}{plug-ins}
-un \foreignlanguage{english}{planner} que  la semántica de PDDL (\foreignlanguage{english}{Planning
-Domain Definition Language}) y un razonador semántico basado en DL. 
+un razonador semántico basado en DL. 
 
 
 \section*{Referencias}
-
-\begin{comment}
-Agregar Referencias de los experimentos y las herramientas a utilizar.
-Preguntar a Daniel.
-\end{comment}
+\begin{enumerate}
+\item Franz Baader, Deborah L. McGuinness, Daniele Nardi, Peter F. Patel-Schneider:
+\textbf{THE DESCRIPTION LOGIC HANDBOOK: Theory, implementation, and
+applications}.
+\item \textbf{The Seventh International Planning Competition Description
+of Participant Planners of the Deterministic Track}, 2011. \href{http://www.plg.inf.uc3m.es/ipc2011-deterministic/ParticipatingPlanners}{www.plg.inf.uc3m.es/ipc2011-deterministic/ParticipatingPlanners}
+\item Daniel Gutson, Agustín March, Maximiliano Combina, Daniel Rabinovich:\textbf{
+Prediction of consequences of the febrile status on the RNA secondary
+structure of the Junín Virus}, 2006. \href{http://www.fudepan.org.ar/node/71}{www.fudepan.org.ar/node/71}\end{enumerate}
 
 \end{document}
