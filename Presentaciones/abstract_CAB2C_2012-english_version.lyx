@@ -3,11 +3,11 @@
 \begin_document
 \begin_header
 \textclass paper
-\use_default_options true
+\use_default_options false
 \maintain_unincluded_children false
 \language english
 \language_package default
-\inputencoding auto
+\inputencoding latin9
 \fontencoding global
 \font_roman default
 \font_sans default
@@ -26,7 +26,16 @@
 \index_command default
 \paperfontsize default
 \spacing single
-\use_hyperref false
+\use_hyperref true
+\pdf_bookmarks true
+\pdf_bookmarksnumbered false
+\pdf_bookmarksopen false
+\pdf_bookmarksopenlevel 1
+\pdf_breaklinks false
+\pdf_pdfborder false
+\pdf_colorlinks false
+\pdf_backref section
+\pdf_pdfusetitle true
 \papersize default
 \use_geometry true
 \use_amsmath 1
@@ -38,7 +47,7 @@
 \use_indices false
 \paperorientation portrait
 \suppress_date false
-\use_refstyle 1
+\use_refstyle 0
 \index Index
 \shortcut idx
 \color #008000
@@ -80,7 +89,7 @@ Alejandro Kondrasky
 \begin_inset Formula $^{1}$
 \end_inset
 
-, Carlos Eduardo Areces
+, Carlos Areces
 \begin_inset Formula $^{1,2}$
 \end_inset
 
@@ -115,7 +124,6 @@ Universidad Nacional de Córdoba, Ciudad Universitaria
 Córdoba
 \lang english
 , Argentina.
- 
 \end_layout
 
 \begin_layout Section*
@@ -124,26 +132,36 @@ Background
 
 \begin_layout Standard
 The body of knowledge in biology, particularly in virology and immunology,
- is incremental in volume and complexity.
- This is why for the production of that knowledge it would be useful to
- have it represented in a formal language inside a knowledge base.
+ is increasing in volume and complexity.
+ This is why it would be useful to have these knowledge represented in a
+ formal language inside a knowledge base.
  Subsequently, different methodologies for analysis and manipulation could
  be developed, allowing validity checks to be performed on conclusions obtained
  in experiments.
 \end_layout
 
 \begin_layout Standard
-FuDePAN's Logic processor (FuL) (http://ful.googlecode.com) is being developed
- to organize, interpret, verify and explore the knowledge in molecular biology,
- applied to virology and immunology in particular.
- This will help find incongruence and automatically derive conclusions from
- that knowledge, being it's main function the verification of conclusions
- obtained by results from experiments using queries.
+FuDePAN's Logic processor (FuL) (
+\begin_inset Flex Flex:URL
+status collapsed
+
+\begin_layout Plain Layout
+
+http://ful.googlecode.com
+\end_layout
+
+\end_inset
+
+) is being developed to organize, interpret, verify and explore knowledge
+ in molecular biology, applied to virology and immunology in particular.
+ This will help find inconsistencies and automatically derive new information.
+ Its main function will be the verification of conclusions obtained by results
+ from experiments using queries.
 \end_layout
 
 \begin_layout Standard
-The test case will be the following conclusion obtained from experiments
- done by FuDePAN:
+Our initial test case will be the following conclusion obtained from experiments
+ done by FuDePAN: 
 \end_layout
 
 \begin_layout Itemize
@@ -153,44 +171,44 @@ The test case will be the following conclusion obtained from experiments
 Validate the conclusions obtained in the Junin experiment about the temperature-
 change effects over the virus secondary structure:
 \series default
-\lang spanish
+\emph default
 
 \begin_inset Newline newline
 \end_inset
 
-
-\emph default
-\lang english
-Corroborate that the line of thought that includes the predictions of the
+ Corroborate that the line of thought that includes the predictions of the
  effects of febrile state over the Junin RNA secondary structure, in which
- it's hypothesized that the temperature increment reduces the production
+ it is hypothesized that the temperature increment reduces the production
  of nucleoproteins because the hairpin loop in the intergenic region presents
- dissimilar characteristics when it's compared the two ambisense genome
+ dissimilar characteristics when it is compared on the two ambisense genome
  strings when the temperature is increased.
+ 
 \end_layout
 
 \begin_layout Standard
-This tool has a plug-in architecture, simplifying the adaptation of it to
- new types of knowledge.
- For that, an API will be provided, which defines the way in which knowledge
- flows between the plug-ins and Ful's core, and also a SDK composed of libraries
- and tools required for building plug-ins.
+FuL has a plug-in architecture, simplifying the inclusion of new kinds of
+ reasoning services.
+ An API will be provided, which defines the way in which knowledge flows
+ between the plug-ins and FuL's core reasoning engine.
+ An SDK composed of libraries and tools required for building plug-ins will
+ also be made available.
 \end_layout
 
 \begin_layout Standard
-The kernel of the tool will be composed of a planner based on PDDL (Planning
- Domain Definition Language) semantic and a manager that will be the interface
- between the plug-ins registered in that session and the planner.
- Via a XML file, it can be possible to register the plug-ins that FuL will
- utilize in that session and configure the session variables, both from
- FuL and the plug-ins.
+The kernel of the tool will be composed of a planner that can handle PDDL
+ (Planning Domain Definition Language) input, and a knowledge manager that
+ will be the interface between the plug-ins registered in that session and
+ the planner.
+ Via a XML file, it will be possible to register the plug-ins that FuL will
+ utilize in that session and configure different session parameters.
 \end_layout
 
 \begin_layout Standard
-Also we will provide a knowledge representation language for virology area
- base on DL(Description Logic), which will be used for representing knowledge
- in the KB(Knowledge Base) to load in that session and make queries to FuL.
- In particular, FuL will include a Semantic Reasoner based on DL as a plug-in.
+FuL will include a semantic reasoner for Description Logics (DL) as one
+ of the plug-ins, and we will also provide a knowledge representation language
+ for the virology domain based on DL.
+ This language will allow the development of an ontology of virology knowledge
+ that will be available for querying during a FuL session.
 \end_layout
 
 \begin_layout Section*
@@ -202,9 +220,10 @@ Franz Baader, Deborah L.
  McGuinness, Daniele Nardi, Peter F.
  Patel-Schneider: 
 \series bold
-THE DESCRIPTION LOGIC HANDBOOK: Theory, implementation, and applications
+The Description Logic Handbook: Theory, implementation, and applications
 \series default
 .
+ 
 \end_layout
 
 \begin_layout Enumerate
@@ -215,13 +234,30 @@ The Seventh International Planning Competition Description of Participant
 \series default
 , 2011.
  
-\begin_inset CommandInset href
-LatexCommand href
-target "www.plg.inf.uc3m.es/ipc2011-deterministic/ParticipatingPlanners"
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+href{http://www.plg.inf.uc3m.es/ipc2011-deterministic/ParticipatingPlanners}{
+\end_layout
 
 \end_inset
 
+www.plg.inf.uc3m.es/ipc2011-deterministic/ParticipatingPlanners
+\begin_inset ERT
+status collapsed
 
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+ 
 \end_layout
 
 \begin_layout Enumerate
@@ -232,9 +268,26 @@ Daniel Gutson, Agustín March, Maximiliano Combina, Daniel Rabinovich:
 \series default
 , 2006.
  
-\begin_inset CommandInset href
-LatexCommand href
-target "www.fudepan.org.ar/node/71"
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+href{http://www.fudepan.org.ar/node/71}{
+\end_layout
+
+\end_inset
+
+www.fudepan.org.ar/node/71
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
 
 \end_inset
 
