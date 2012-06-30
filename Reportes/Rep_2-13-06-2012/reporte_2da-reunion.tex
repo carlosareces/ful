@@ -1,0 +1,140 @@
+%% LyX 2.0.0 created this file.  For more info, see http://www.lyx.org/.
+%% Do not edit unless you really know what you are doing.
+\documentclass[english,spanish]{scrreprt}
+\usepackage[T1]{fontenc}
+\usepackage[latin9]{inputenc}
+\usepackage[a4paper]{geometry}
+\geometry{verbose,tmargin=10mm,bmargin=20mm,lmargin=10mm,rmargin=10mm,headheight=10mm,headsep=10mm,footskip=10mm}
+\pagestyle{empty}
+\setcounter{secnumdepth}{3}
+\setcounter{tocdepth}{3}
+\usepackage{amsmath}
+
+\makeatletter
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% LyX specific LaTeX commands.
+%% For printing a cirumflex inside a formula
+\newcommand{\mathcircumflex}[0]{\mbox{\^{}}}
+
+
+\makeatother
+
+\usepackage{babel}
+\addto\shorthandsspanish{\spanishdeactivate{~<>}}
+
+\begin{document}
+
+\title{Transcripción\\
+Notas de la Tesis\\
+2da Reunión}
+
+
+\date{13/06/2012}
+
+\maketitle
+
+\chapter*{Introducción}
+
+En esta reunión nos concentramos en modelar el conocimiento necesario
+para representar la linea de pensamiento, que justifica las conclusiones
+obtenidas del experimento \emph{La Frecuencia Alélica en la Población
+no Influiría en el Nro de Epitopes con Restricción para HLA-I Disponibles
+en el virus HIV,} con las cuales se desarrollaría un sistema que debería
+verificar la validez de las conclusiones obtenidas.
+
+Se investigo cual seria la información que debería otorgarsele a la
+base de conocimiento como definiciones y reglas que el sistema tendría
+para deducir. Se especificaron hipotesis, resultados y conclusiones. 
+
+
+\chapter*{Borradores}
+
+
+\section*{Conocimiento}
+
+
+\subsection*{HLA }
+\begin{itemize}
+\item HLA identifica un organismo.
+\item Clases de HLA caracterizan poblaciones geográficas.
+\item Existen 12 clases de HLA.
+\item Cada población geográfica se identifica por un subconjunto de los
+\emph{12 HLA}.
+\item Un HLA presenta péptidos en la superficie de la célula.
+\item Cada clase de HAL presenta un subconjunto de péptidos.
+\end{itemize}
+
+\subsection*{HIV}
+\begin{itemize}
+\item Hay 10 tipos de HIV.
+\item El HIV es un virus.
+\item Los virus infectan células.
+\item Una célula infectada produce proteínas del virus que la infecta.
+\end{itemize}
+
+\subsection*{Geografía}
+\begin{itemize}
+\item Cada región geográfica presenta tipos de HIV.
+\end{itemize}
+
+\subsection*{Péptidos}
+\begin{itemize}
+\item Hay una función $P$ que dado un HIV y un HLA retorna \# de péptidos
+presentados por el HLA.
+\item Una proteína se descompone en secuencias de péptidos dentro de una
+célula.
+\end{itemize}
+
+\subsection*{Célula}
+\begin{itemize}
+\item Un péptido tiene asociado un lugar en la proteína.
+\end{itemize}
+
+\section*{Hipótesis}
+\begin{itemize}
+\item Se fijan dos regiones R1 y R2.
+
+\begin{itemize}
+\item Eso determina los $HLA^{Sets}(R_{i})$ y $HIV^{Sets}(R_{i})$.
+\end{itemize}
+\item Sean: 
+
+\begin{itemize}
+\item $hla\in HLA^{Sets}(R_{1})\backslash HLA^{Sets}(R_{2})$.
+\item $hiv_{1}\in HIV^{Sets}(R_{1})\backslash HIV^{Sets}(R_{2})$. 
+\item $hiv_{2}\in HIV^{Sets}(R_{1})\backslash HIV^{Sets}(R_{2})$.
+\end{itemize}
+
+Tenemos que:
+\begin{itemize}
+\item $P(hiv_{1},hla)\neq P(hiv_{2},hla)$.
+\item $P(hiv_{2},hla)=8$.
+\end{itemize}
+\item Hipótesis : $P(hiv_{1},hla)\neq P(hiv_{2},hla)\Longrightarrow(\triangle HLA\Longrightarrow\triangle HIV)$.
+\end{itemize}
+
+\section*{Resultado }
+
+
+\section*{$\neg\triangle$}
+
+
+\section*{Conclusión}
+
+Los datos del experimento no validan la Hipótesis, no son concluyentes.
+
+
+\section*{Observaciones}
+\begin{itemize}
+\item $\triangle Geografia\overset{?}{\Longrightarrow}\triangle HLA$, $\triangle HLA\overset{?}{\Longrightarrow}\triangle HIV$.
+\item $hla_{1}\Longrightarrow G_{1}\mathcircumflex hla_{1}\not\Longrightarrow G_{2}$.
+\item $G_{1}$ hay \foreignlanguage{english}{$HIV_{1}$} y $G_{2}$ hay
+$HIV_{2}$.
+\item $\triangle HLA:\{HLA_{1},\emptyset\}$.
+\item $P(HIV_{1},HLA_{1})$, $P(HIV_{2},HLA_{1})$.
+\end{itemize}
+
+\chapter*{Definiciones y Reglas}
+
+\emph{TBD}
+\end{document}
