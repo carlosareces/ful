@@ -1,0 +1,258 @@
+\documentclass[portrait,final,a0paper,fontscale=0.277]{baposter}
+
+\usepackage{calc}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{relsize}
+\usepackage{multirow}
+\usepackage{rotating}
+\usepackage{bm}
+\usepackage{url}
+
+\usepackage{graphicx}
+\usepackage{multicol}
+\usepackage{palatino}
+\usepackage[utf8]{inputenc}
+\newcommand{\captionfont}{\footnotesize}
+
+\graphicspath{{images/}{../images/}}
+\usetikzlibrary{calc}
+
+\newcommand{\SET}[1]  {\ensuremath{\mathcal{#1}}}
+\newcommand{\MAT}[1]  {\ensuremath{\boldsymbol{#1}}}
+\newcommand{\VEC}[1]  {\ensuremath{\boldsymbol{#1}}}
+\newcommand{\Video}{\SET{V}}
+\newcommand{\video}{\VEC{f}}
+\newcommand{\track}{x}
+\newcommand{\Track}{\SET T}
+\newcommand{\LMs}{\SET L}
+\newcommand{\lm}{l}
+\newcommand{\PosE}{\SET P}
+\newcommand{\posE}{\VEC p}
+\newcommand{\negE}{\VEC n}
+\newcommand{\NegE}{\SET N}
+\newcommand{\Occluded}{\SET O}
+\newcommand{\occluded}{o}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%% Some math symbols used in the text
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Save space in lists. Use this after the opening of the list
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\compresslist}{%
+\setlength{\itemsep}{1pt}%
+\setlength{\parskip}{1pt}%
+\setlength{\parsep}{0pt}%
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Begin of Document
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Here starts the poster
+%%%---------------------------------------------------------------------------
+%%% Format it to your taste with the options
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Define some colors
+\definecolor{lightgreen}{RGB}{0,205,191}
+\definecolor{lightgrey}{cmyk}{0,0,0,0.1}
+\hyphenation{resolution occlusions}
+%%
+\begin{poster}%
+  % Poster Options
+  {
+  % Show grid to help with alignment
+  columns=2,
+  grid=false,
+  % Column spacing
+  colspacing=1.25em,
+  % Color style
+  bgColorOne=lightgrey,
+  bgColorTwo=lightgrey,
+  borderColor=lightgreen,
+  headerColorOne=black,
+  headerColorTwo=lightgreen,
+  headerFontColor=white,
+  boxColorOne=white,
+  boxColorTwo=lightgreen,
+  % Format of textbox
+  textborder=roundedleft,
+  % Format of text header
+  eyecatcher=true,
+  headerborder=closed,
+  headerheight=0.1\textheight,
+%  textfont=\sc, An example of changing the text font
+  headershape=roundedright,
+  headershade=shadelr,
+  headerfont=\Large\bf\textsc, %Sans Serif
+  textfont={\setlength{\parindent}{1.5em}},
+  boxshade=plain,
+%  background=shade-tb,
+  background=plain,
+  linewidth=2pt
+  }
+  % Eye Catcher
+  {
+  	\includegraphics[height=6.5em]{ful_logo}
+  }
+  % Title
+  {
+  \LARGE
+  \textsc{FuL: A Logic processor to aid design and validate virological experiments}\vspace{0.5em}
+  }
+  % Authors
+  {
+  	\textsc{Alejandro Kondrasky$^{1}$ - Daniel Gutson$^{1}$ - Carlos Areces$^{1,2}$}
+    \footnotesize{
+    \begin{flushleft}
+	\hspace{1.5em}$^1$FuDePAN: Fundación para el Desarrollo de la Programación en Ácidos Nucleicos, X5002AOO, Córdoba, Argentina.\\
+    \hspace{1.5em}$^2$FaMAF, Universidad Nacional de Córdoba, Ciudad Universitaria, X5000HUA, Córdoba, Argentina.\\
+	\end{flushleft}
+    }
+  }		
+  % University logo
+  {% The makebox allows the title to flow into the logo, this is a hack because of the L shaped logo.
+	\begin{minipage}{12em}
+  	\includegraphics[width=\textwidth]{famaf}\\
+  	\includegraphics[width=\textwidth]{fudepan_logo}
+    \end{minipage}
+  }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  \headerbox{Introduction}{name=intro,span=2}{
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	The body of knowledge in biology, particularly in virology and
+	immunology, is increasing in volume and complexity. This is why
+	it would be useful to have these knowledge represented in a
+	formal language inside a knowledge base. Subsequently, different
+	methodologies for analysis and manipulation could be developed,
+	allowing validity checks to be performed on conclusions obtained
+	in experiments.
+	
+	FuDePAN's Logic processor(FuL) is
+	being developed to organize, interpret, verify and explore
+	knowledge in molecular biology, applied to virology and
+	immunology in particular. This will help find inconsistencies and
+	automatically derive new information. Its main function will be
+	the verification of conclusions obtained by results from
+	experiments using queries.
+   }
+   
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  \headerbox{1st Problem: Junín Virus}{name=problem1,below=intro,span=1}{
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	Our initial test case will be the following conclusion obtained
+	from experiments done by FuDePAN, which will be the validation of the
+	conclusions obtained in the Junín experiment about
+	the temperature-change effects over the virus secondary
+	structure:
+	\\
+    \includegraphics[width=\linewidth]{junin_problem}
+    \small{
+	Corroborate that the line of thought that includes the
+	predictions of the effects of febrile state over the Junín RNA
+	secondary structure, in which it is hypothesized that the
+	temperature increment reduces the production of nucleoproteins
+	because the hairpin loop in the intergenic region presents
+	dissimilar characteristics when it is compared on the two
+	ambisense genome strings when the temperature is increased.
+	}
+   }
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  \headerbox{1st Approach:}{name=solution1,below=intro,column=1}{
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   }
+   
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  \headerbox{General Solution Approach}{name=generalsolution,column=0,below=problem1}{
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\small{
+	FuL has a plug-in architecture, simplifying the inclusion of new
+	kinds of reasoning services. An API will be provided, which
+	defines the way in which knowledge flows between the plug-ins and
+	FuL's core reasoning engine. An SDK composed of libraries and
+	tools required for building plug-ins will also be made available.
+	
+	The kernel of the tool will be composed of a planner that can
+	handle PDDL (Planning Domain Definition Language) input, and a
+	knowledge manager that will be the interface between the plug-ins
+	registered in that session and the planner. Via a XML file, it
+	will be possible to register the plug-ins that FuL will utilize
+	in that session and configure different session parameters.
+	
+	FuL will include a semantic reasoner for Description Logics (DL)
+	as one of the plug-ins, and we will also provide a knowledge
+	representation language for the virology domain based on DL. This
+	language will allow the development of an ontology of virology
+	knowledge that will be available for querying during a FuL
+	session.
+	}
+  }
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  \headerbox{Layers/Libraries Responsabilities}{name=layers,column=1,below=solution1}{
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  }
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  \headerbox{Materials and Methods}{name=method,column=1,below=layers}{
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  }
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  \headerbox{Repository}{name=source,column=0,below=generalsolution,above=bottom}{
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  \noindent
+  \begin{minipage}{\linewidth}
+  \begin{minipage}{0.73\linewidth}
+    \indent{}The repository with the development documentation and soon source code is available at\\
+  	\url{code.google.com/p/ful/}
+  \end{minipage}\hfill%
+  \begin{minipage}{0.25\linewidth}
+  \hfill\includegraphics[width=\linewidth]{chart}
+  \end{minipage}
+  \end{minipage}
+  }
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  \headerbox{References}{name=source,column=1,below=generalsolution,above=bottom}{
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \footnotesize
+    \bibliographystyle{ieee}
+    \renewcommand{\section}[2]{\vskip 0.05em}
+      \begin{thebibliography}{1}\itemsep=-0.05em
+      \setlength{\baselineskip}{0.8em}
+      \bibitem{franz:DL}
+        \begin{minipage}{\linewidth}
+        Franz Baader, Deborah L. McGuinness, Daniele Nardi, Peter F. Patel-Schneider.
+  		\end{minipage}
+        \begin{minipage}{\linewidth}
+        The Description Logic Handbook: Theory, implementation, and applications.
+  		\end{minipage}
+      \bibitem{PDDL}
+        \begin{minipage}{\linewidth}
+        The Seventh International Planning Competition Description of Participant Planners of the Deterministic Track.
+ 		In {\em 2011}
+  		\end{minipage}
+  		\begin{minipage}{\linewidth}
+		\begin{minipage}{0.87\linewidth}
+		\bibitem{Junin}
+      	  Daniel Gutson, Agustín March, Maximiliano Combina,\\ Daniel Rabinovich.\\
+		  Prediction of consequences of the febrile status on the RNA secondary structure of the Junín Virus
+           In {\em 2006} \url{www.fudepan.org.ar/node/71}
+		\end{minipage}\hfill%
+		\begin{minipage}{0.12\linewidth}
+		\begin{center}
+			\hfill\includegraphics[width=\linewidth]{junin_qrcode}
+		\end{center}
+		\end{minipage}
+		\end{minipage}
+      \end{thebibliography}
+  }
+
+\end{poster}
+
+\end{document}
+
