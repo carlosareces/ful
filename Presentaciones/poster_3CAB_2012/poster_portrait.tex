@@ -136,20 +136,27 @@
 	methodologies for analysis and manipulation could be developed,
 	allowing validity checks to be performed on conclusions obtained
 	in experiments.
-	
-	FuDePAN's Logic processor(FuL) is
-	being developed to organize, interpret, verify and explore
-	knowledge in molecular biology, applied to virology and
-	immunology in particular. This will help find inconsistencies and
-	automatically derive new information. Its main function will be
-	the verification of conclusions obtained by results from
-	experiments using queries.
 	}
 	\end{flushleft}
    }
    
+   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  \headerbox{Objectives}{name=objective, below=intro}{
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-  \headerbox{Case Study: Junín Virus}{name=problem,below=intro,span=1}{
+	\small{
+	\begin{flushleft}
+	FuDePAN's Logic processor (FuL) is being developed to organize, interpret, verify and explore
+	knowledge in molecular biology, applied to virology and
+	immunology in particular. This will help find inconsistencies and
+	automatically derive new information.\\
+ 	Its main function will be the verification of conclusions obtained by results from
+	experiments using queries, as well as assisting in the design of new experiments.
+	\end{flushleft}
+	}
+   }
+   
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  \headerbox{Case Study: Junín Virus}{name=problem,below=objective,span=1}{
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	\small{
 	\begin{flushleft}
@@ -164,7 +171,7 @@
     \includegraphics[height=13em]{junin_problem}
   	\end{minipage}\hfill%
   	\begin{minipage}{0.4\linewidth}
-    \small{
+    \smaller{
     \vspace{0.5em}
 	Corroborate that the line of thought that includes the
 	predictions of the effects of febrile state over the Junín RNA
@@ -176,16 +183,9 @@
 	}
   	\end{minipage}
   	\end{minipage}
-	}
-   }
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-  \headerbox{Solution Approach}{name=solution,below=problem,column=0}{
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-	\small{
 	\begin{flushleft}
-	By modelling the problem of the effects of the temperature change 
-	over the behaviour of the Junin virus RNA's secondary structure, 
-	a set composed with definitions and another set with rules was obtained:
+	By modelling it a set composed with definitions and another set with 
+	rules was obtained:
 	\end{flushleft}
 	\resizebox{\linewidth}{!} {
   	\begin{tabular}{l l}
@@ -273,8 +273,9 @@
   }
   
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
- \headerbox{User Interface}{name=inteface,column=1,below=design}{
+ \headerbox{Features}{name=features,column=1,below=design}{
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	 \begin{flushleft}
 	 \small{
 	 Via a XML file provided by the user, FuL will register the plug-ins that will 
 	 be utilized during that session and configure different session parameters. 
@@ -283,20 +284,22 @@
 	 Afterwards a prompt-like CLI will be gived to the user that allow to access 
 	 the following functionalities:
 	 \begin{itemize}\itemsep1pt \parskip0pt \parsep0pt
-	 \smaller{
+	 \small{
 	 \item \textbf{Extend the actual KB by join it with a $\Delta$ KB :} It will 
 	 check for incongruities and saturate new KB with atomic concepts derived 
 	 from actual KB $\cup\Delta$KB.
-	 \item Queries : the answer will be consistent with the actual KB and register
+	 \item \textbf{Queries :} The answer of this queries will be consistent with the 
+	 actual KB and register
 	 plug-ins. If FuL can't arrive to a conclusion it will return a set of questions 
 	 that are unanswerable by FuL, to which answers can be added by extending the actual 
 	 KB in order to return a define answer.
 	 }	 
 	 \end{itemize}
 	 }
+	 \end{flushleft}
  }
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-  \headerbox{Materials and Methods}{name=method,column=0,below=solution}{
+  \headerbox{Materials and Methods}{name=method,column=0,below=problem}{
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
  \begin{itemize}\itemsep1pt \parskip0pt \parsep0pt
  \scriptsize{
@@ -312,23 +315,23 @@
   \scriptsize{
   \noindent
   \begin{minipage}{\linewidth}
-  \begin{minipage}{0.85\linewidth}
+  \begin{minipage}{0.90\linewidth}
     \indent{}The repository with the development documentation and soon source code is available at
   	\url{code.google.com/p/ful/}
   \end{minipage}\hfill%
-  \begin{minipage}{0.15\linewidth}
-  \hfill\includegraphics[width=0.5\linewidth]{chart}
+  \begin{minipage}{0.08\linewidth}
+  \hfill\includegraphics[width=\linewidth]{chart}
   \end{minipage}
   \end{minipage}
   }
-  }
+ }
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-  \headerbox{References}{name=source,column=1,below=inteface,above=bottom}{
+  \headerbox{References}{name=references,column=1,below=features,above=bottom}{
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    \scriptsize{
+    \smaller{
     \bibliographystyle{ieee}
     \renewcommand{\section}[2]{\vskip 0.05em}
-      \begin{thebibliography}{1}\itemsep=-0.05em
+      \begin{thebibliography}{1}\itemsep=-0.5em
       \setlength{\baselineskip}{0.5em}
       \bibitem{DL}
         \begin{minipage}{\linewidth}
@@ -343,18 +346,19 @@
 		Participant Planners of the Deterministic Track.	
  		In {\em 2011}
   		\end{minipage}
-  		\begin{minipage}{\linewidth}
+		\begin{minipage}{\linewidth}
 		\begin{minipage}{0.87\linewidth}
 		\bibitem{Junin}
-      	  Daniel Gutson, Agustín March, Maximiliano Combina, Daniel Rabinovich.\\
+      	  Daniel Gutson, Agustín March, Maximiliano Combina, \\
+		  Daniel Rabinovich.\\	
 		  Prediction of consequences of the febrile status on the RNA secondary structure of the Junín Virus
-           In {\em 2006} \url{www.fudepan.org.ar/node/71}
-		\end{minipage}\hfill%
-		\begin{minipage}{0.12\linewidth}
-		\begin{center}
-			\hfill\includegraphics[width=0.75\linewidth]{junin_qrcode}
-		\end{center}
-		\end{minipage}
+          In {\em 2006} \url{www.fudepan.org.ar/node/71}
+         \end{minipage}
+		 \begin{minipage}{0.12\linewidth}
+		  \begin{center}
+		  \hfill\includegraphics[width=0.85\linewidth]{junin_qrcode}
+		  \end{center}
+		 \end{minipage}
 		\end{minipage}
       \end{thebibliography}
     }
