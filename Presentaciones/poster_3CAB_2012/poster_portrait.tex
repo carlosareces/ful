@@ -128,6 +128,7 @@
   \headerbox{Introduction}{name=intro,span=2}{
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	\begin{flushleft}
+	\small{
 	The body of knowledge in biology, particularly in virology and
 	immunology, is increasing in volume and complexity. This is why
 	it would be useful to have these knowledge represented in a
@@ -143,12 +144,14 @@
 	automatically derive new information. Its main function will be
 	the verification of conclusions obtained by results from
 	experiments using queries.
+	}
 	\end{flushleft}
    }
    
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-  \headerbox{Problem: Junín Virus}{name=problem,below=intro,span=1}{
+  \headerbox{Case Study: Junín Virus}{name=problem,below=intro,span=1}{
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\small{
 	\begin{flushleft}
 	Our initial test case will be the following conclusion obtained
 	from experiments done by FuDePAN, which will be the validation of the
@@ -173,10 +176,12 @@
 	}
   	\end{minipage}
   	\end{minipage}
+	}
    }
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
   \headerbox{Solution Approach}{name=solution,below=problem,column=0}{
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\small{
 	\begin{flushleft}
 	By modelling the problem of the effects of the temperature change 
 	over the behaviour of the Junin virus RNA's secondary structure, 
@@ -218,75 +223,115 @@
 	reasoner that will process each state of the plan along with the KB and 
 	return a new state that will extend it.
 	\end{flushleft}
-    \includegraphics[width=\linewidth]{1st_approach_1}
+    \begin{center}
+	\includegraphics[width=0.85\linewidth]{1st_approach_1}
+	\end{center}
 	\begin{flushleft}
 	It will be repeated until a conclusion is reached or a set of questions 
 	is obtained for which their answers must be included in the KB in order 
 	to advance in the deduction process for answer the original query.
 	\end{flushleft}
+	}
    }
    
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-  \headerbox{Early Design}{name=generalsolution,column=1,below=intro}{
+  \headerbox{Early Design}{name=design,column=1,below=intro}{
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    \includegraphics[width=\linewidth]{design}
 	\small{
 	\begin{flushleft}
-	FuL has a plug-in architecture, simplifying the inclusion of new
-	kinds of reasoning services. An API will be provided, which
-	defines the way in which knowledge flows between the plug-ins and
-	FuL's core reasoning engine. An SDK composed of libraries and
-	tools required for building plug-ins will also be made available.
+	FuL has a plug-in architecture, simplifying the inclusion of new kinds of 
+	reasoning services. An API will be provided, which defines the way in which 
+	knowledge flows between the plug-ins and FuL's core reasoning engine. An SDK 
+	composed of libraries and tools required for building plug-ins will also be 
+	made available. 
 	
-	The kernel of the tool will be composed of a planner that can
-	handle PDDL (Planning Domain Definition Language)\cite{PDDL} input, and a
-	knowledge manager that will be the interface between the plug-ins
-	registered in that session and the planner. Via a XML file, it
-	will be possible to register the plug-ins that FuL will utilize
-	in that session and configure different session parameters.
+	\begin{center}
+	\includegraphics[width=\linewidth,height=15em]{design}
+	\end{center}
 	
-	FuL will include a semantic reasoner for Description Logics (DL)\cite{DL}
-	as one of the plug-ins, and we will also provide a knowledge
-	representation language for the virology domain based on DL. This
-	language will allow the development of an ontology of virology
-	knowledge that will be available for querying during a FuL
-	session.
+	The kernel of the tool will be composed of 
+	a planner that can handle PDDL (Planning Domain Definition Language) input, 
+	and a KM (knowledge manager) that will be the interface between the plug-ins 
+	registered in that session and the planner. During each planner state the deriving 
+	process of the next state is as follows :
+	\begin{enumerate}
+	\smaller{
+	\item The KM take the actual state from the planner and sends it to each registered plug-in.
+	\item Each plug-in try to enrich that state by derivation of new knowledge by consulting 
+		the shared KB and their own, the plug-in can return a enriched state.
+	\item The knowledge manager generate the derived state by combining the enriched states 
+		received from the plug-ins. If there incongruities between the states received from 
+		the plug-ins the KM will report this to the user, otherwise the KM will return the 
+		derived state.
+	}	
+	\end{enumerate}
+	FuL will include a semantic reasoner for Description Logics (DL) as one of the plug-ins
+	and we will also provide a knowledge representation language for the virology domain based 
+	on DL. 
+	This language will allow the development of an ontology of virology knowledge that will be
+	available for querying during a FuL session.
 	\end{flushleft}
 	}
   }
+  
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-  \headerbox{Materials and Methods}{name=method,column=1,below=generalsolution}{
+ \headerbox{User Interface}{name=inteface,column=1,below=design}{
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	 \small{
+	 Via a XML file provided by the user, FuL will register the plug-ins that will 
+	 be utilized during that session and configure different session parameters. 
+	 Also a initial KB file will be used during the session. FuL will process the 
+	 KB file with the plug-ins register in the XML file.
+	 Afterwards a prompt-like CLI will be gived to the user that allow to access 
+	 the following functionalities:
+	 \begin{itemize}\itemsep1pt \parskip0pt \parsep0pt
+	 \smaller{
+	 \item \textbf{Extend the actual KB by join it with a $\Delta$ KB :} It will 
+	 check for incongruities and saturate new KB with atomic concepts derived 
+	 from actual KB $\cup\Delta$KB.
+	 \item Queries : the answer will be consistent with the actual KB and register
+	 plug-ins. If FuL can't arrive to a conclusion it will return a set of questions 
+	 that are unanswerable by FuL, to which answers can be added by extending the actual 
+	 KB in order to return a define answer.
+	 }	 
+	 \end{itemize}
+	 }
+ }
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  \headerbox{Materials and Methods}{name=method,column=0,below=solution}{
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
  \begin{itemize}\itemsep1pt \parskip0pt \parsep0pt
- \item C++: \url{www.cplusplus.com}
- \item Fudepan-build: \url{fudepan-build.googlecode.com}
- \item fx-parser: \url{fx-parser.googlecode.com}
- \item MiLi: \url{mili.googlecode.com}
- \item unplugged: \url{unplugged.googlecode.com}
+ \scriptsize{
+ \item C++: Programming language \url{http://www.open-std.org/jtc1/sc22/wg21/}
+ \item Planner: TODO
+ \item DL: TODO
+ }
  \end{itemize}
-  }
+ }
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-  \headerbox{Repository}{name=source,column=0,below=solution,above=bottom}{
+  \headerbox{Repository}{name=source,column=0,below=method,above=bottom}{
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  \scriptsize{
   \noindent
   \begin{minipage}{\linewidth}
-  \begin{minipage}{0.84\linewidth}
-    \indent{}The repository with the development documentation and soon source code is available at\\
+  \begin{minipage}{0.85\linewidth}
+    \indent{}The repository with the development documentation and soon source code is available at
   	\url{code.google.com/p/ful/}
   \end{minipage}\hfill%
-  \begin{minipage}{0.14\linewidth}
-  \hfill\includegraphics[width=\linewidth]{chart}
+  \begin{minipage}{0.15\linewidth}
+  \hfill\includegraphics[width=0.5\linewidth]{chart}
   \end{minipage}
   \end{minipage}
   }
+  }
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-  \headerbox{References}{name=source,column=1,below=method,above=bottom}{
+  \headerbox{References}{name=source,column=1,below=inteface,above=bottom}{
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    \footnotesize
+    \scriptsize{
     \bibliographystyle{ieee}
     \renewcommand{\section}[2]{\vskip 0.05em}
       \begin{thebibliography}{1}\itemsep=-0.05em
-      \setlength{\baselineskip}{0.8em}
+      \setlength{\baselineskip}{0.5em}
       \bibitem{DL}
         \begin{minipage}{\linewidth}
         Franz Baader, Deborah L. McGuinness, Daniele Nardi, Peter F. Patel-Schneider.
@@ -296,23 +341,25 @@
   		\end{minipage}
       \bibitem{PDDL}
         \begin{minipage}{\linewidth}
-        The Seventh International Planning Competition Description of Participant Planners of the Deterministic Track.
+        The Seventh International Planning Competition Description of
+		Participant Planners of the Deterministic Track.	
  		In {\em 2011}
   		\end{minipage}
   		\begin{minipage}{\linewidth}
 		\begin{minipage}{0.87\linewidth}
 		\bibitem{Junin}
-      	  Daniel Gutson, Agustín March, Maximiliano Combina,\\ Daniel Rabinovich.\\
+      	  Daniel Gutson, Agustín March, Maximiliano Combina, Daniel Rabinovich.\\
 		  Prediction of consequences of the febrile status on the RNA secondary structure of the Junín Virus
            In {\em 2006} \url{www.fudepan.org.ar/node/71}
 		\end{minipage}\hfill%
 		\begin{minipage}{0.12\linewidth}
 		\begin{center}
-			\hfill\includegraphics[width=\linewidth]{junin_qrcode}
+			\hfill\includegraphics[width=0.75\linewidth]{junin_qrcode}
 		\end{center}
 		\end{minipage}
 		\end{minipage}
       \end{thebibliography}
+    }
   }
 
 \end{poster}

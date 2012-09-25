@@ -1462,7 +1462,7 @@ En caso de que no se haya otorgado una KB, se pasara al paso siguiente.
 Puesta en funcionamiento de la CLI : 
 \emph default
 Se deberá poner en funcionamiento la CLI de FuL con la configuración, extensione
-s y KB obtenidas en los paso previos.
+s y KB obtenidas en los pasos previos.
  Para los pasos posteriores leer 
 \begin_inset CommandInset ref
 LatexCommand vref
@@ -1985,7 +1985,7 @@ Descripción :
 \series default
  
 \begin_inset Note Comment
-status collapsed
+status open
 
 \begin_layout Plain Layout
 Preguntar a Daniel y Carlos : Se desea poder decir cual es el limite máximo
@@ -2000,7 +2000,7 @@ Preguntar a Daniel y Carlos : Se desea poder decir cual es el limite máximo
 \emph default
 
 \begin_inset Note Comment
-status collapsed
+status open
 
 \begin_layout Plain Layout
 Discutir con Daniel y Carlos : Las propiedades presentes en cada estado
@@ -2028,7 +2028,7 @@ El problema con esta forma de presentarlo es que habría tantos desconocidos
 
  
 \begin_inset Note Comment
-status collapsed
+status open
 
 \begin_layout Plain Layout
 Cuales de las 3 deberían estar como retorno ? Debería ser solo un output
